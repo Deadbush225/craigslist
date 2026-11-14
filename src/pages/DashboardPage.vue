@@ -3,7 +3,7 @@ import { dashboardStats, listings } from '../data/mockData'
 </script>
 
 <template>
-  <div class="page-shell compact-page">
+  <div class="page-shell page-shell--tight">
     <div class="container">
       <section class="page-header dashboard-header">
         <div>

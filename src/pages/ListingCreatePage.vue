@@ -3,7 +3,7 @@ import BaseButton from '../components/BaseButton.vue'
 </script>
 
 <template>
-  <div class="page-shell compact-page">
+  <div class="page-shell page-shell--tight">
     <div class="container form-layout">
       <section class="card form-card">
         <span class="eyebrow">Create a listing</span>

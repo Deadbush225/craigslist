@@ -11,21 +11,27 @@ const provider = computed(() => {
 </script>
 
 <template>
-  <div class="page-shell compact-page">
+  <div class="page-shell page-shell--tight">
     <div class="container profile-layout">
-      <section class="card profile-header">
-        <div class="profile-header__top">
-          <img :src="provider.image" :alt="provider.name" class="profile-avatar" />
-          <div>
-            <span class="eyebrow">{{ provider.role }}</span>
-            <h1>{{ provider.name }}</h1>
-            <p>{{ provider.city }} • {{ provider.responseTime }}</p>
+      <section class="card profile-hero">
+        <div class="profile-cover"></div>
+        <div class="profile-body">
+          <div class="profile-summary">
+            <img :src="provider.image" :alt="provider.name" class="profile-avatar" />
+            <div>
+              <div class="profile-badges">
+                <span class="status-chip">PRC Licensed Master Plumber</span>
+                <span class="status-chip status-chip--secondary">TESDA NC-II Certified</span>
+              </div>
+              <h1>{{ provider.name }}</h1>
+              <p>{{ provider.role }} • {{ provider.city }}</p>
+            </div>
           </div>
-        </div>
 
-        <div class="profile-actions">
-          <BaseButton to="/messaging">Message</BaseButton>
-          <BaseButton variant="secondary" to="/services">Back to listings</BaseButton>
+          <div class="profile-actions">
+            <BaseButton to="/messaging">Message</BaseButton>
+            <BaseButton variant="secondary" to="/services">Back to listings</BaseButton>
+          </div>
         </div>
       </section>
 

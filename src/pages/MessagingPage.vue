@@ -3,12 +3,18 @@ import { messages } from '../data/mockData'
 </script>
 
 <template>
-  <div class="page-shell compact-page">
+  <div class="page-shell page-shell--tight">
     <div class="container messaging-layout">
       <aside class="card conversation-list">
         <div class="panel-header">
-          <h3>Messages</h3>
+          <h3>My Inquiries</h3>
           <button type="button" class="small-link">New</button>
+        </div>
+
+        <div class="quick-pills">
+          <button type="button" class="pill pill--active">All (4)</button>
+          <button type="button" class="pill">Unread (1)</button>
+          <button type="button" class="pill">Services</button>
         </div>
 
         <div v-for="message in messages" :key="message.name" class="conversation-item" :class="{ unread: message.unread > 0 }">
