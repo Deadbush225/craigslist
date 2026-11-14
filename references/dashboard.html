@@ -1,0 +1,2181 @@
+<!doctype html>
+<html
+	lang="en"
+	style="width: 1280px; height: 2848px; overflow: hidden; position: relative"
+>
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content="web_standard" name="shell-type" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.googleapis.com" rel="preconnect" />
+		<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			@layer base {
+				html,
+				body {
+					margin: 0;
+					padding: 0;
+				}
+				body {
+					overscroll-behavior: none;
+				}
+				main > :first-child {
+					margin-top: 0 !important;
+				}
+				main > :last-child {
+					margin-bottom: 0 !important;
+				}
+			}
+			::-webkit-scrollbar {
+				display: none;
+			}
+		</style>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script id="tailwind-config">
+			tailwind.config = {
+				darkMode: "class",
+				theme: {
+					extend: {
+						colors: {
+							"on-tertiary-fixed": "#2a1700",
+							"secondary-container": "#6cf8bb",
+							"secondary-fixed-dim": "#4edea3",
+							"primary-container": "#4f46e5",
+							tertiary: "#684000",
+							"surface-container-low": "#f2f3ff",
+							"surface-bright": "#faf8ff",
+							"surface-dim": "#d2d9f4",
+							"on-surface-variant": "#464555",
+							"on-secondary-fixed-variant": "#005236",
+							"surface-container-highest": "#dae2fd",
+							"surface-variant": "#dae2fd",
+							primary: "#3525cd",
+							"on-primary": "#ffffff",
+							"on-secondary-fixed": "#002113",
+							"on-secondary": "#ffffff",
+							"on-error-container": "#93000a",
+							"on-surface": "#131b2e",
+							"primary-fixed-dim": "#c3c0ff",
+							"outline-variant": "#c7c4d8",
+							surface: "#faf8ff",
+							"on-background": "#131b2e",
+							outline: "#777587",
+							"surface-tint": "#4d44e3",
+							"inverse-surface": "#283044",
+							"surface-container-lowest": "#ffffff",
+							"tertiary-fixed-dim": "#ffb95f",
+							"surface-container-high": "#e2e7ff",
+							"on-tertiary-container": "#ffd4a4",
+							"on-tertiary": "#ffffff",
+							error: "#ba1a1a",
+							"on-primary-fixed": "#0f0069",
+							"tertiary-container": "#885500",
+							secondary: "#006c49",
+							background: "#faf8ff",
+							"on-primary-fixed-variant": "#3323cc",
+							"on-tertiary-fixed-variant": "#653e00",
+							"surface-container": "#eaedff",
+							"tertiary-fixed": "#ffddb8",
+							"inverse-on-surface": "#eef0ff",
+							"inverse-primary": "#c3c0ff",
+							"on-error": "#ffffff",
+							"error-container": "#ffdad6",
+							"primary-fixed": "#e2dfff",
+							"on-secondary-container": "#00714d",
+							"secondary-fixed": "#6ffbbe",
+							"on-primary-container": "#dad7ff",
+						},
+						borderRadius: {
+							DEFAULT: "0.125rem",
+							lg: "0.25rem",
+							xl: "0.5rem",
+							full: "0.75rem",
+						},
+						spacing: {
+							"space-xl": "2.5rem",
+							"margin-mobile": "1rem",
+							"space-sm": "0.5rem",
+							"space-xs": "0.25rem",
+							"space-lg": "1.5rem",
+							"space-md": "1rem",
+							margin: "2rem",
+							"gutter-mobile": "0.75rem",
+							gutter: "1.25rem",
+						},
+						fontFamily: {
+							"display-hero": ["Inter"],
+							"label-sm": ["Inter"],
+							"headline-md": ["Inter"],
+							"body-sm": ["Inter"],
+							"body-md": ["Inter"],
+							"label-md": ["Inter"],
+							"body-lg": ["Inter"],
+							"display-hero-mobile": ["Inter"],
+							"headline-xl": ["Inter"],
+							"headline-lg": ["Inter"],
+							"label-lg": ["Inter"],
+							"headline-xl-mobile": ["Inter"],
+							"price-display": ["Inter"],
+							"headline-sm": ["Inter"],
+						},
+						fontSize: {
+							"display-hero": [
+								"40px",
+								{
+									lineHeight: "48px",
+									letterSpacing: "-0.02em",
+									fontWeight: "700",
+								},
+							],
+							"label-sm": [
+								"11px",
+								{
+									lineHeight: "14px",
+									letterSpacing: "0.04em",
+									fontWeight: "700",
+								},
+							],
+							"headline-md": [
+								"20px",
+								{
+									lineHeight: "28px",
+									letterSpacing: "-0.01em",
+									fontWeight: "600",
+								},
+							],
+							"body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+							"body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+							"label-md": [
+								"12px",
+								{
+									lineHeight: "16px",
+									letterSpacing: "0.02em",
+									fontWeight: "600",
+								},
+							],
+							"body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+							"display-hero-mobile": [
+								"30px",
+								{
+									lineHeight: "36px",
+									letterSpacing: "-0.02em",
+									fontWeight: "700",
+								},
+							],
+							"headline-xl": [
+								"32px",
+								{
+									lineHeight: "40px",
+									letterSpacing: "-0.02em",
+									fontWeight: "700",
+								},
+							],
+							"headline-lg": [
+								"24px",
+								{
+									lineHeight: "32px",
+									letterSpacing: "-0.01em",
+									fontWeight: "600",
+								},
+							],
+							"label-lg": [
+								"14px",
+								{
+									lineHeight: "20px",
+									letterSpacing: "0.01em",
+									fontWeight: "600",
+								},
+							],
+							"headline-xl-mobile": [
+								"24px",
+								{
+									lineHeight: "32px",
+									letterSpacing: "-0.01em",
+									fontWeight: "600",
+								},
+							],
+							"price-display": [
+								"22px",
+								{
+									lineHeight: "26px",
+									letterSpacing: "-0.02em",
+									fontWeight: "700",
+								},
+							],
+							"headline-sm": [
+								"16px",
+								{ lineHeight: "24px", fontWeight: "600" },
+							],
+						},
+					},
+				},
+			};
+		</script>
+	</head>
+	<body class="bg-surface font-body-md text-on-surface antialiased">
+		<header
+			class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+		>
+			<div
+				class="h-24 max-w-[1440px] mx-auto px-margin flex flex-col justify-between py-space-xs"
+			>
+				<div class="flex items-center justify-between gap-gutter">
+					<div class="flex items-center gap-space-md">
+						<a
+							class="flex items-center gap-space-sm"
+							data-path="browse-listings"
+							href="#"
+							><img
+								src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzmszgmlmUqwrZkxvQvU_kv1dAOplzAkFNdVhuU9KhuNDEgJvmhxJ0ooPrsi2INtyCr7gG15MS3dne5ygHpWmMm4ONTRfW9rGIZgtsGZ8sBSlAxNW01IDJarTOnamRc4O28yn8iuPF6a6wxazDGG5wNe3yuw-I6ecnAb4Ccow85Pl_-7_O1_NyfR4U1EXsWXWNMj84S_duF6-AWOsS7fc-XWEWMeYucfJtqdXQ9G0KqiP0j8sCxXCS"
+								alt="craigslist peace symbol"
+								class="h-8 w-8 object-contain inline-block" /><img
+								src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-r8mAWLkIvQjJKv5cb-qEgxFe2OLux0fOBl76yw050y4IYrhVXk_FtjkeMpNnviBazK5E8qRRKzKUkZBmhFPagIXL6YaAdqLQn71D_ZM5otAlw58ut60TrhkMYPixRaN7lf_3V6r37aGMgxHMEzhkagLzjCe-pGWpBjcrOpNwas9ER1iR4zkLPblyQsqBgf6rq8wOBzteYqlVWz4O4W866ZSZGkxOnIX97Py2YLhNgbNYSiRyEP5Z"
+								alt="craigslist"
+								class="h-6 w-auto object-contain inline-block ml-2" /></a
+						><button
+							class="flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+							type="button"
+						>
+							<span class="material-symbols-outlined text-[18px] text-primary"
+								>location_on</span
+							><span class="font-label-md text-label-md font-semibold"
+								>Metro Manila / NCR</span
+							><span class="material-symbols-outlined text-[16px] text-outline"
+								>expand_more</span
+							>
+						</button>
+					</div>
+					<div
+						class="flex-1 max-w-2xl flex items-center bg-surface-container-lowest rounded shadow-[0_1px_4px_rgba(0,0,0,0.06)] overflow-hidden"
+					>
+						<div class="flex items-center px-space-sm bg-surface-container-low">
+							<select
+								aria-label="Category selection"
+								class="bg-transparent font-label-md text-label-md text-on-surface py-space-xs pr-space-xs focus:outline-none cursor-pointer"
+							>
+								<option>All Categories</option>
+								<option>For Sale</option>
+								<option>Housing</option>
+								<option>Local Services</option>
+								<option>Jobs</option>
+								<option>Community</option>
+							</select>
+						</div>
+						<div class="flex-1 flex items-center px-space-sm">
+							<span
+								class="material-symbols-outlined text-outline text-[20px] mr-space-xs"
+								>search</span
+							><input
+								class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline py-space-xs focus:outline-none"
+								placeholder="Search classifieds, housing, gear, services..."
+								type="text"
+							/>
+						</div>
+						<button
+							aria-label="Submit search"
+							class="bg-primary text-on-primary px-space-md py-space-xs font-label-md text-label-md flex items-center justify-center hover:bg-primary-container transition-colors"
+							type="button"
+						>
+							<span class="material-symbols-outlined text-[20px]"
+								>arrow_forward</span
+							>
+						</button>
+					</div>
+					<div class="flex items-center gap-gutter">
+						<a
+							class="bg-primary text-on-primary font-label-lg text-label-lg px-space-md py-space-sm rounded font-semibold flex items-center gap-space-xs shadow-[0_2px_0_0_rgba(15,23,42,0.1)] hover:bg-primary-container transition-all active:translate-y-[1px]"
+							data-path="post-an-ad"
+							href="#"
+							><span class="material-symbols-outlined text-[20px]"
+								>add_circle</span
+							><span class="">Post an Ad</span></a
+						>
+						<div class="flex items-center gap-space-sm pl-space-xs">
+							<a
+								class="p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors rounded relative"
+								data-path="saved-items"
+								href="#"
+								title="Saved Listings"
+								><span class="material-symbols-outlined text-[24px]"
+									>favorite_border</span
+								></a
+							><a
+								class="p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors rounded relative"
+								data-path="my-inquiries"
+								href="#"
+								title="My Inquiries"
+								><span class="material-symbols-outlined text-[24px]"
+									>chat_bubble_outline</span
+								><span
+									class="absolute top-1 right-1 flex items-center justify-center min-w-[18px] h-[18px] px-1 bg-tertiary-container text-on-tertiary font-label-sm text-label-sm rounded-full"
+									>3</span
+								></a
+							>
+							<div class="flex items-center pl-space-xs">
+								<img
+									alt="Profile"
+									class="w-8 h-8 rounded-full object-cover"
+									src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpXq6kS_GOtE98hSBvOGivrKkR2ynp7q22u9Uo9j-6fCpf9NuL3vkv01D4354jCYRmQn0BGdUemxUtPVvOxG_Py-OKVBD4ZCKDzwF-JeKwECUpQxBsYZZJAIbvNYSRgrxj7K9-ituLYsZf8wxF7sy8ZTFWWOzu7-SaQdZKxUrHmvyMNjBF2vOQOudEf0VsLoQtUkgWfpMATwEKpgb2TuaAy5jbIQbWToywrsZ1qI8"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex items-center justify-between pt-space-xs">
+					<nav
+						class="flex items-center gap-space-md"
+						data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"
+					>
+						<a
+							aria-current="page"
+							class="px-space-sm py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded"
+							data-path="browse-listings"
+							href="#"
+							>All Categories</a
+						><a
+							class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors"
+							data-path="local-services"
+							href="#"
+							>Local Services</a
+						><a
+							class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors"
+							data-path="for-sale"
+							href="#"
+							>For Sale</a
+						><a
+							class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors"
+							data-path="housing"
+							href="#"
+							>Housing</a
+						><a
+							class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors flex items-center gap-space-xs"
+							data-path="my-inquiries"
+							href="#"
+							><span class="">My Inquiries</span
+							><span
+								class="bg-secondary text-on-secondary px-1.5 py-0.5 rounded-full font-label-sm text-label-sm leading-none"
+								>3</span
+							></a
+						>
+					</nav>
+					<div class="flex items-center gap-space-sm text-outline">
+						<span class="material-symbols-outlined text-[16px]"
+							>verified_user</span
+						><span class="font-label-sm text-label-sm uppercase tracking-wide"
+							>Secure Community Network</span
+						>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="w-full pt-24 bg-surface min-h-[calc(100vh-24rem)]">
+			<div class="max-w-[1440px] mx-auto px-margin pt-space-md pb-space-xs">
+				<div
+					class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"
+				>
+					<a
+						class="hover:text-primary transition-colors flex items-center gap-1"
+						data-path="browse-listings"
+						href="#"
+						><span class="material-symbols-outlined text-[14px]">home</span
+						><span class="">Craigslist</span></a
+					><span class="material-symbols-outlined text-[14px] text-outline"
+						>chevron_right</span
+					><span class="hover:text-primary transition-colors cursor-pointer"
+						>Metro Manila (NCR)</span
+					><span class="material-symbols-outlined text-[14px] text-outline"
+						>chevron_right</span
+					><span class="text-on-surface font-semibold">Metropolitan Area:</span>
+				</div>
+			</div>
+			<div class="max-w-[1440px] mx-auto px-margin py-space-sm">
+				<div class="flex flex-col w-full gap-space-xl">
+					<!-- Top Utility Bar: City Sub-Region Quick Switcher -->
+					<section
+						class="w-full bg-surface-container-lowest shadow-sm rounded-xl p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md"
+					>
+						<div class="flex items-center gap-space-sm">
+							<span
+								class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary"
+							>
+								<span class="material-symbols-outlined text-[18px]"
+									>explore</span
+								>
+							</span>
+							<div>
+								<p
+									class="font-label-sm text-label-sm uppercase tracking-wider text-outline"
+								>
+									Metropolitan District
+								</p>
+								<h2 class="font-headline-sm text-headline-sm text-on-surface">
+									Metro Manila (NCR)
+								</h2>
+							</div>
+						</div>
+						<!-- Region Pills -->
+						<div
+							class="flex items-center gap-space-xs overflow-x-auto w-full md:w-auto pb-space-xs md:pb-0 scrollbar-none"
+							id="region-selector"
+						>
+							<button
+								class="px-space-sm py-1 rounded-full font-label-md text-label-md bg-primary text-on-primary font-bold"
+								type="button"
+							>
+								All Metro Manila</button
+							><button
+								class="px-space-sm py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+								type="button"
+							>
+								Quezon City</button
+							><button
+								class="px-space-sm py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+								type="button"
+							>
+								Makati</button
+							><button
+								class="px-space-sm py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+								type="button"
+							>
+								BGC / Taguig</button
+							><button
+								class="px-space-sm py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+								type="button"
+							>
+								Manila City</button
+							><button
+								class="px-space-sm py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+								type="button"
+							>
+								Pasig / Ortigas
+							</button>
+						</div>
+					</section>
+					<!-- Section 1: Hero Search Engine Area -->
+					<section
+						class="w-full relative overflow-hidden bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-md"
+					>
+						<div
+							class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"
+						></div>
+						<div
+							class="max-w-4xl mx-auto flex flex-col items-center text-center gap-space-md"
+						>
+							<div
+								class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm"
+							>
+								<span
+									class="material-symbols-outlined text-[16px] text-secondary"
+									>verified</span
+								>
+								<span class=""
+									>58,240 verified active listings in Metro Manila today</span
+								>
+							</div>
+							<h1
+								class="font-display-hero text-display-hero text-on-surface tracking-tight max-w-2xl"
+							>
+								Civic peer exchange for the neighborhood you actually live in.
+							</h1>
+							<!-- Giant Integrated Search Input -->
+							<div
+								class="w-full mt-space-sm bg-surface-container-lowest rounded-xl p-space-xs shadow-xl flex flex-col md:flex-row items-stretch gap-space-xs"
+							>
+								<div
+									class="flex-1 flex items-center px-space-md py-space-xs gap-space-sm bg-surface-container-low rounded-lg"
+								>
+									<span
+										class="material-symbols-outlined text-outline text-[24px]"
+										>search</span
+									>
+									<input
+										class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none"
+										placeholder="Search furniture, licensed electricians, studio apartments, cargo bikes..."
+										type="text"
+									/>
+								</div>
+								<div
+									class="flex items-center justify-between md:justify-start px-space-md py-space-xs bg-surface-container-low rounded-lg gap-space-sm min-w-[210px]"
+								>
+									<span
+										class="material-symbols-outlined text-primary text-[20px]"
+										>near_me</span
+									>
+									<div class="text-left flex-1">
+										<span class="font-label-sm text-label-sm text-outline block"
+											>Neighborhood</span
+										>
+										<span
+											class="font-label-md text-label-md text-on-surface font-semibold truncate block"
+											>Makati / BGC (5km)</span
+										>
+									</div>
+									<span
+										class="material-symbols-outlined text-outline text-[18px]"
+										>unfold_more</span
+									>
+								</div>
+								<button
+									class="bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg px-space-xl py-space-md rounded-lg flex items-center justify-center gap-space-xs shadow-md transition-all active:translate-y-0.5"
+									type="button"
+								>
+									<span class="">Find Listings</span>
+									<span class="material-symbols-outlined text-[20px]"
+										>arrow_forward</span
+									>
+								</button>
+							</div>
+							<!-- Quick Suggestion Action Pills -->
+							<div
+								class="flex flex-wrap items-center justify-center gap-space-xs pt-space-xs"
+							>
+								<span
+									class="font-label-sm text-label-sm uppercase tracking-wider text-outline mr-space-xs"
+									>Popular Queries:</span
+								>
+								<button
+									class="px-space-md py-1 bg-surface-container rounded-full text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-1"
+									type="button"
+								>
+									<span
+										class="material-symbols-outlined text-[16px] text-primary"
+										>plumbing</span
+									>Plumbing
+								</button>
+								<button
+									class="px-space-md py-1 bg-surface-container rounded-full text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-1"
+									type="button"
+								>
+									<span
+										class="material-symbols-outlined text-[16px] text-tertiary"
+										>local_shipping</span
+									>Moving Help
+								</button>
+								<button
+									class="px-space-md py-1 bg-surface-container rounded-full text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-1"
+									type="button"
+								>
+									<span
+										class="material-symbols-outlined text-[16px] text-secondary"
+										>pedal_bike</span
+									>Cargo Bikes
+								</button>
+								<button
+									class="px-space-md py-1 bg-surface-container rounded-full text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-1"
+									type="button"
+								>
+									<span
+										class="material-symbols-outlined text-[16px] text-primary"
+										>apartment</span
+									>1-Bedroom Apts
+								</button>
+								<button
+									class="px-space-md py-1 bg-surface-container rounded-full text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-1"
+									type="button"
+								>
+									<span
+										class="material-symbols-outlined text-[16px] text-outline"
+										>chair</span
+									>Mid-Century Modern
+								</button>
+							</div>
+						</div>
+					</section>
+					<!-- Section 2: Large Visual Category Tiles (6-8 Accessible Rich Cards) -->
+					<section class="w-full flex flex-col gap-space-md">
+						<div
+							class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs"
+						>
+							<div>
+								<div class="flex items-center gap-space-xs">
+									<span
+										class="material-symbols-outlined text-primary text-[20px]"
+										>grid_view</span
+									>
+									<p
+										class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold"
+									>
+										Directory &amp; Classifieds Hub
+									</p>
+								</div>
+								<h2
+									class="font-headline-xl text-headline-xl text-on-surface tracking-tight"
+								>
+									Explore Metro Manila by Category
+								</h2>
+							</div>
+							<div class="flex items-center gap-space-sm">
+								<a
+									class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1"
+									href="#"
+								>
+									<span class="">View All Subcategories</span>
+									<span class="material-symbols-outlined text-[16px]"
+										>arrow_forward</span
+									>
+								</a>
+							</div>
+						</div>
+
+						<!-- Classic-meets-Modern Category Matrix Grid -->
+						<div
+							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter"
+						>
+							<!-- 1. Community -->
+							<div
+								class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col justify-between hover:shadow-xl transition-all"
+							>
+								<div>
+									<div class="flex items-center justify-between pb-space-sm">
+										<div class="flex items-center gap-space-sm">
+											<div
+												class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center"
+											>
+												<span class="material-symbols-outlined text-[24px]"
+													>groups</span
+												>
+											</div>
+											<div>
+												<h3
+													class="font-headline-sm text-headline-sm text-on-surface font-bold"
+												>
+													Community
+												</h3>
+												<span class="font-label-sm text-label-sm text-outline"
+													>Local gatherings &amp; updates</span
+												>
+											</div>
+										</div>
+										<span
+											class="px-space-sm py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-semibold"
+											>3,110</span
+										>
+									</div>
+									<div
+										class="grid grid-cols-2 gap-x-space-sm gap-y-1 pt-space-xs"
+									>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>activities</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>lost &amp; found</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>artists &amp; musicians</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>musicians</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>childcare</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>pets</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>classes &amp; workshops</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>politics &amp; civic</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>events &amp; fairs</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>volunteers</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>general community</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>rideshare</a
+										>
+									</div>
+								</div>
+								<div class="pt-space-md flex items-center justify-between">
+									<a
+										class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1"
+										href="#"
+									>
+										<span class="">Explore Community</span>
+										<span class="material-symbols-outlined text-[14px]"
+											>arrow_forward</span
+										>
+									</a>
+									<span class="font-label-sm text-label-sm text-outline"
+										>Public Notices</span
+									>
+								</div>
+							</div>
+
+							<!-- 2. Housing -->
+							<div
+								class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col justify-between hover:shadow-xl transition-all"
+							>
+								<div>
+									<div class="flex items-center justify-between pb-space-sm">
+										<div class="flex items-center gap-space-sm">
+											<div
+												class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center"
+											>
+												<span class="material-symbols-outlined text-[24px]"
+													>apartment</span
+												>
+											</div>
+											<div>
+												<h3
+													class="font-headline-sm text-headline-sm text-on-surface font-bold"
+												>
+													Housing
+												</h3>
+												<span class="font-label-sm text-label-sm text-outline"
+													>Condos, rooms &amp; rentals</span
+												>
+											</div>
+										</div>
+										<span
+											class="px-space-sm py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-semibold"
+											>9,140</span
+										>
+									</div>
+									<div
+										class="grid grid-cols-2 gap-x-space-sm gap-y-1 pt-space-xs"
+									>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>apts / housing</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>parking / storage</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>housing swap</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>real estate for sale</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>housing wanted</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>rooms / shared</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>commercial spaces</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>rooms wanted</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>sublets / temporary</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>vacation rentals</a
+										>
+									</div>
+								</div>
+								<div class="pt-space-md flex items-center justify-between">
+									<a
+										class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1"
+										href="#"
+									>
+										<span class="">Search Housing</span>
+										<span class="material-symbols-outlined text-[14px]"
+											>arrow_forward</span
+										>
+									</a>
+									<span
+										class="font-label-sm text-label-sm text-secondary font-semibold"
+										>No Middlemen</span
+									>
+								</div>
+							</div>
+
+							<!-- 3. Jobs -->
+							<div
+								class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col justify-between hover:shadow-xl transition-all"
+							>
+								<div>
+									<div class="flex items-center justify-between pb-space-sm">
+										<div class="flex items-center gap-space-sm">
+											<div
+												class="w-10 h-10 rounded-lg bg-surface-container text-tertiary flex items-center justify-center"
+											>
+												<span class="material-symbols-outlined text-[24px]"
+													>work</span
+												>
+											</div>
+											<div>
+												<h3
+													class="font-headline-sm text-headline-sm text-on-surface font-bold"
+												>
+													Jobs
+												</h3>
+												<span class="font-label-sm text-label-sm text-outline"
+													>Local employment openings</span
+												>
+											</div>
+										</div>
+										<span
+											class="px-space-sm py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-semibold"
+											>5,830</span
+										>
+									</div>
+									<div
+										class="grid grid-cols-2 gap-x-space-sm gap-y-1 pt-space-xs"
+									>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>accounting + finance</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>hospitality / service</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>admin / office</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>manufacturing</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>arch / engineering</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>marketing / pr</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>art / media / design</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>nonprofit / volunteer</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>customer service</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>retail / wholesale</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>education / teaching</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>software / dev / tech</a
+										>
+									</div>
+								</div>
+								<div class="pt-space-md flex items-center justify-between">
+									<a
+										class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1"
+										href="#"
+									>
+										<span class="">Explore Careers</span>
+										<span class="material-symbols-outlined text-[14px]"
+											>arrow_forward</span
+										>
+									</a>
+									<span class="font-label-sm text-label-sm text-outline"
+										>Direct Employers</span
+									>
+								</div>
+							</div>
+
+							<!-- 4. For Sale -->
+							<div
+								class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col justify-between hover:shadow-xl transition-all"
+							>
+								<div>
+									<div class="flex items-center justify-between pb-space-sm">
+										<div class="flex items-center gap-space-sm">
+											<div
+												class="w-10 h-10 rounded-lg bg-surface-container text-secondary flex items-center justify-center"
+											>
+												<span class="material-symbols-outlined text-[24px]"
+													>shopping_bag</span
+												>
+											</div>
+											<div>
+												<h3
+													class="font-headline-sm text-headline-sm text-on-surface font-bold"
+												>
+													For Sale
+												</h3>
+												<span class="font-label-sm text-label-sm text-outline"
+													>Gear, goods &amp; merchandise</span
+												>
+											</div>
+										</div>
+										<span
+											class="px-space-sm py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-semibold"
+											>34,120</span
+										>
+									</div>
+									<div
+										class="grid grid-cols-2 gap-x-space-sm gap-y-1 pt-space-xs"
+									>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>antiques &amp; vintage</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>electronics</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>appliances</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>furniture</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>arts + crafts</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>general for sale</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>auto parts &amp; tires</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>musical instruments</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>bicycles &amp; gear</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>photo + video</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>books &amp; magazines</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>tools &amp; hardware</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>cars &amp; trucks</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>video gaming</a
+										>
+									</div>
+								</div>
+								<div class="pt-space-md flex items-center justify-between">
+									<a
+										class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1"
+										href="#"
+									>
+										<span class="">Browse All Items</span>
+										<span class="material-symbols-outlined text-[14px]"
+											>arrow_forward</span
+										>
+									</a>
+									<span class="font-label-sm text-label-sm text-outline"
+										>0% Platform Fees</span
+									>
+								</div>
+							</div>
+
+							<!-- 5. Services -->
+							<div
+								class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col justify-between hover:shadow-xl transition-all"
+							>
+								<div>
+									<div class="flex items-center justify-between pb-space-sm">
+										<div class="flex items-center gap-space-sm">
+											<div
+												class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center"
+											>
+												<span class="material-symbols-outlined text-[24px]"
+													>handyman</span
+												>
+											</div>
+											<div>
+												<h3
+													class="font-headline-sm text-headline-sm text-on-surface font-bold"
+												>
+													Services
+												</h3>
+												<span class="font-label-sm text-label-sm text-outline"
+													>Licensed pros &amp; trades</span
+												>
+											</div>
+										</div>
+										<span
+											class="px-space-sm py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-semibold"
+											>18,420</span
+										>
+									</div>
+									<div
+										class="grid grid-cols-2 gap-x-space-sm gap-y-1 pt-space-xs"
+									>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>automotive repair</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>household / cleaning</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>beauty &amp; wellness</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>labor &amp; moving</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>computer &amp; tech repair</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>legal &amp; financial</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>creative &amp; design</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>pet care &amp; grooming</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>cycle &amp; e-bike repair</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>skilled trade / plumbing</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>event &amp; photo services</a
+										>
+										<a
+											class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+											href="#"
+											>lessons &amp; tutoring</a
+										>
+									</div>
+								</div>
+								<div class="pt-space-md flex items-center justify-between">
+									<a
+										class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1"
+										href="#"
+									>
+										<span class="">Find Verified Pros</span>
+										<span class="material-symbols-outlined text-[14px]"
+											>arrow_forward</span
+										>
+									</a>
+									<span
+										class="font-label-sm text-label-sm text-secondary font-semibold"
+										>Identity Checked</span
+									>
+								</div>
+							</div>
+
+							<!-- 6. Gigs & Discussion Forums -->
+							<div
+								class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col justify-between hover:shadow-xl transition-all"
+							>
+								<div>
+									<div class="flex items-center justify-between pb-space-sm">
+										<div class="flex items-center gap-space-sm">
+											<div
+												class="w-10 h-10 rounded-lg bg-surface-container text-secondary flex items-center justify-center"
+											>
+												<span class="material-symbols-outlined text-[24px]"
+													>bolt</span
+												>
+											</div>
+											<div>
+												<h3
+													class="font-headline-sm text-headline-sm text-on-surface font-bold"
+												>
+													Gigs &amp; Forums
+												</h3>
+												<span class="font-label-sm text-label-sm text-outline"
+													>Quick tasks &amp; community voice</span
+												>
+											</div>
+										</div>
+										<span
+											class="px-space-sm py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-semibold"
+											>1,940</span
+										>
+									</div>
+									<div class="flex flex-col gap-space-xs pt-space-xs">
+										<span
+											class="font-label-sm text-label-sm text-outline uppercase tracking-wider"
+											>Gigs</span
+										>
+										<div class="grid grid-cols-2 gap-x-space-sm gap-y-1">
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>computer gigs</a
+											>
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>labor gigs</a
+											>
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>creative gigs</a
+											>
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>talent &amp; casting</a
+											>
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>crew &amp; events</a
+											>
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>writing &amp; translation</a
+											>
+										</div>
+										<span
+											class="font-label-sm text-label-sm text-outline uppercase tracking-wider pt-space-xs"
+											>Active Forums</span
+										>
+										<div class="grid grid-cols-2 gap-x-space-sm gap-y-1">
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>housing &amp; tenant forum</a
+											>
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>tech &amp; open source</a
+											>
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>manila transit / trains</a
+											>
+											<a
+												class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors truncate"
+												href="#"
+												>food &amp; dining</a
+											>
+										</div>
+									</div>
+								</div>
+								<div class="pt-space-md flex items-center justify-between">
+									<a
+										class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1"
+										href="#"
+									>
+										<span class="">Browse All Gigs</span>
+										<span class="material-symbols-outlined text-[14px]"
+											>arrow_forward</span
+										>
+									</a>
+									<span
+										class="font-label-sm text-label-sm text-secondary font-semibold"
+										>Daily Payout</span
+									>
+								</div>
+							</div>
+						</div>
+
+						<!-- Classic Utility Strip: Event Calendar, Quick Links & Safety Assistance -->
+						<div
+							class="w-full bg-surface-container-low rounded-xl p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm"
+						>
+							<div class="flex flex-wrap items-center gap-space-md">
+								<div
+									class="flex items-center gap-space-xs text-on-surface font-label-md text-label-md font-bold"
+								>
+									<span
+										class="material-symbols-outlined text-primary text-[20px]"
+										>calendar_month</span
+									>
+									<span class="">Event Calendar:</span>
+								</div>
+								<div class="flex items-center gap-space-xs">
+									<button
+										class="px-space-sm py-1 bg-surface-container-lowest rounded-full font-label-sm text-label-sm text-on-surface hover:bg-surface-container font-semibold transition-colors"
+										type="button"
+									>
+										Today
+									</button>
+									<button
+										class="px-space-sm py-1 bg-surface-container-lowest rounded-full font-label-sm text-label-sm text-on-surface hover:bg-surface-container font-semibold transition-colors"
+										type="button"
+									>
+										This Weekend
+									</button>
+									<button
+										class="px-space-sm py-1 bg-surface-container-lowest rounded-full font-label-sm text-label-sm text-on-surface hover:bg-surface-container font-semibold transition-colors"
+										type="button"
+									>
+										Free Community Events
+									</button>
+									<button
+										class="px-space-sm py-1 bg-surface-container-lowest rounded-full font-label-sm text-label-sm text-on-surface hover:bg-surface-container font-semibold transition-colors"
+										type="button"
+									>
+										Metro Manila Art Walk
+									</button>
+								</div>
+							</div>
+							<div
+								class="flex items-center gap-space-md text-outline font-label-sm text-label-sm"
+							>
+								<a
+									class="hover:text-primary transition-colors flex items-center gap-1"
+									href="#"
+								>
+									<span class="material-symbols-outlined text-[16px]"
+										>security</span
+									>
+									<span class="">Avoid Scams</span>
+								</a>
+								<a
+									class="hover:text-primary transition-colors flex items-center gap-1"
+									href="#"
+								>
+									<span class="material-symbols-outlined text-[16px]"
+										>campaign</span
+									>
+									<span class="">Community Resources</span>
+								</a>
+								<a
+									class="hover:text-primary transition-colors flex items-center gap-1"
+									href="#"
+								>
+									<span class="material-symbols-outlined text-[16px]"
+										>help</span
+									>
+									<span class="">Help &amp; FAQ</span>
+								</a>
+							</div>
+						</div>
+					</section>
+					<!-- Section 3: Trust & Verification Spotlight Banner -->
+					<section
+						class="w-full bg-inverse-surface text-inverse-on-surface rounded-xl p-space-lg md:p-space-xl shadow-lg relative overflow-hidden"
+					>
+						<div
+							class="flex flex-col lg:flex-row items-center justify-between gap-space-xl relative z-10"
+						>
+							<!-- Content Left -->
+							<div class="max-w-2xl flex flex-col gap-space-md">
+								<div
+									class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary text-on-secondary w-fit font-label-sm text-label-sm font-bold uppercase tracking-wider"
+								>
+									<span class="material-symbols-outlined text-[16px]"
+										>shield</span
+									>
+									<span class=""
+										>58,240 verified active listings in Metro Manila today</span
+									>
+								</div>
+								<h2
+									class="font-headline-xl text-headline-xl text-inverse-on-surface tracking-tight"
+								>
+									Verified Providers. End-to-End Encrypted Chat. Zero Scam
+									Tolerance.
+								</h2>
+								<p class="font-body-md text-body-md text-surface-dim">
+									We've paired the beloved direct utility of Craigslist with
+									modern safeguards: government-backed digital credentials,
+									instant masking for phone numbers, and designated Safe
+									Exchange Zones across Metro Manila (PNP checkpoints &amp; city
+									halls).
+								</p>
+								<!-- Feature Points -->
+								<div
+									class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-xs"
+								>
+									<div
+										class="bg-surface-variant/10 rounded-lg p-space-sm flex flex-col gap-1"
+									>
+										<div
+											class="flex items-center gap-1 text-secondary-container"
+										>
+											<span class="material-symbols-outlined text-[18px]"
+												>verified_user</span
+											>
+											<span class="font-label-md text-label-md font-bold"
+												>Seller Identity Check</span
+											>
+										</div>
+										<p class="font-body-sm text-body-sm text-surface-dim">
+											Verified phone numbers &amp; local residence credentials.
+										</p>
+									</div>
+									<div
+										class="bg-surface-variant/10 rounded-lg p-space-sm flex flex-col gap-1"
+									>
+										<div
+											class="flex items-center gap-1 text-secondary-container"
+										>
+											<span class="material-symbols-outlined text-[18px]"
+												>lock</span
+											>
+											<span class="font-label-md text-label-md font-bold"
+												>Secure Relay Chat</span
+											>
+										</div>
+										<p class="font-body-sm text-body-sm text-surface-dim">
+											Direct messaging without revealing private email
+											addresses.
+										</p>
+									</div>
+									<div
+										class="bg-surface-variant/10 rounded-lg p-space-sm flex flex-col gap-1"
+									>
+										<div
+											class="flex items-center gap-1 text-secondary-container"
+										>
+											<span class="material-symbols-outlined text-[18px]"
+												>local_police</span
+											>
+											<span class="font-label-md text-label-md font-bold"
+												>Safe Exchange Zones</span
+											>
+										</div>
+										<p class="font-body-sm text-body-sm text-surface-dim">
+											Over 84 verified 24/7 monitored meetup points.
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- Trust Visual Graphic / Inline Diagram -->
+							<div class="w-full lg:w-auto flex flex-col items-center">
+								<div
+									class="bg-surface-container-lowest text-on-surface rounded-xl p-space-lg shadow-xl w-full max-w-sm flex flex-col gap-space-md"
+								>
+									<div class="flex items-center justify-between">
+										<div class="flex items-center gap-space-sm">
+											<div
+												class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-on-secondary-fixed"
+											>
+												DR
+											</div>
+											<div>
+												<h4 class="font-label-lg text-label-lg font-bold">
+													Danilo Reyes
+												</h4>
+												<p class="font-label-sm text-label-sm text-outline">
+													Master Electrician • Makati
+												</p>
+											</div>
+										</div>
+										<span
+											class="flex items-center gap-1 px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-bold"
+										>
+											<span class="material-symbols-outlined text-[14px]"
+												>check_circle</span
+											>
+											Verified
+										</span>
+									</div>
+									<!-- Micro Metric Ring SVG -->
+									<div
+										class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg"
+									>
+										<div class="flex items-center gap-space-sm">
+											<svg class="w-12 h-12 -rotate-90" viewBox="0 0 36 36">
+												<path
+													class="text-surface-container-high"
+													d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="3.5"
+												></path>
+												<path
+													class="text-secondary"
+													d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+													fill="none"
+													stroke="currentColor"
+													stroke-dasharray="98, 100"
+													stroke-linecap="round"
+													stroke-width="3.5"
+												></path>
+											</svg>
+											<div>
+												<span
+													class="font-headline-sm text-headline-sm font-bold text-on-surface block"
+													>98% Trust Score</span
+												>
+												<span class="font-label-sm text-label-sm text-outline"
+													>146 completed transactions</span
+												>
+											</div>
+										</div>
+									</div>
+									<div
+										class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"
+									>
+										<span
+											class="material-symbols-outlined text-[16px] text-secondary"
+											>done_all</span
+										>
+										<span class="">Response time: Under 12 minutes</span>
+									</div>
+									<button
+										class="w-full bg-primary hover:bg-primary-container text-on-primary py-space-xs rounded font-label-md text-label-md font-semibold transition-colors"
+										type="button"
+									>
+										Start Direct Anonymous Chat
+									</button>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- Section 4: 'Featured Local Deals' Image Ribbon Carousel -->
+					<section class="w-full flex flex-col gap-space-md">
+						<div class="flex items-end justify-between">
+							<div>
+								<div class="flex items-center gap-space-xs">
+									<span
+										class="material-symbols-outlined text-secondary text-[20px]"
+										>local_fire_department</span
+									>
+									<p
+										class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold"
+									>
+										Real-time Stream
+									</p>
+								</div>
+								<h2
+									class="font-headline-xl text-headline-xl text-on-surface tracking-tight"
+								>
+									Featured Local Deals in Metro Manila
+								</h2>
+							</div>
+							<!-- Carousel Arrows -->
+							<div class="flex items-center gap-space-xs">
+								<button
+									class="w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors"
+									id="deals-prev"
+									type="button"
+								>
+									<span class="material-symbols-outlined text-[20px]"
+										>arrow_back</span
+									>
+								</button>
+								<button
+									class="w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors"
+									id="deals-next"
+									type="button"
+								>
+									<span class="material-symbols-outlined text-[20px]"
+										>arrow_forward</span
+									>
+								</button>
+							</div>
+						</div>
+						<!-- Deals Horizontal Scroll Container -->
+						<div
+							class="flex gap-gutter overflow-x-auto pb-space-md scrollbar-none scroll-smooth"
+							id="deals-carousel"
+						>
+							<!-- Deal Card 1 -->
+							<div
+								class="min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition-all"
+							>
+								<div
+									class="relative h-48 w-full bg-surface-container overflow-hidden"
+								>
+									<img
+										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+										data-alt="A vintage Japanese road bike restored with dark indigo paint and honey brown leather saddle, leaning against a clean white textured brick wall in bright morning studio light."
+										src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRAuyRKoGohOMz7XhLrNB6KrMT1yRxFKidktLAfUocptuMP9_YlToDYvMpogo6qzBiisLT7wf3O_T_-8bP3ij3aBt6sxI6MwZ7qUeeYc4mm-8HT5IWDUqi3JBAbR_gc7RX1OqJCOd3V33P3FwR66UhYjKba9ztoZwm1dVyrMKNY1dI-Xw49zGI0gctGSMUQHlSXQOCNoV6F3AIKNULmrCU8lS7XU7Ma0GBjnRg5Ag"
+									/>
+									<!-- Price Badge -->
+									<div
+										class="absolute bottom-2 left-2 bg-on-surface text-surface-container-lowest px-space-sm py-0.5 rounded font-price-display text-price-display font-bold shadow-md"
+									>
+										₱16,500
+									</div>
+									<!-- Bookmark Button -->
+									<button
+										class="absolute top-2 right-2 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface flex items-center justify-center hover:bg-surface-container-lowest shadow-sm transition-colors"
+										onclick="this.classList.toggle('text-error')"
+										title="Save deal"
+										type="button"
+									>
+										<span class="material-symbols-outlined text-[18px]"
+											>favorite</span
+										>
+									</button>
+								</div>
+								<div
+									class="p-space-md flex flex-col gap-space-xs flex-1 justify-between"
+								>
+									<div class="flex flex-col gap-1">
+										<div
+											class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+										>
+											<span
+												class="px-1.5 py-0.5 bg-surface-container rounded font-bold text-on-surface"
+												>Refurbished</span
+											>
+											<span class="">18 mins ago</span>
+										</div>
+										<h3
+											class="font-headline-sm text-headline-sm text-on-surface font-semibold line-clamp-1 group-hover:text-primary transition-colors"
+										>
+											Miyata 710 Vintage Road Bike (54cm)
+										</h3>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1"
+										>
+											New Continental tires, Shimano 600 gears, tuned up.
+										</p>
+									</div>
+									<div
+										class="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm border-t-0"
+									>
+										<div class="flex items-center gap-1">
+											<span
+												class="material-symbols-outlined text-[16px] text-primary"
+												>location_on</span
+											>
+											<span class="">Diliman, Quezon City</span>
+										</div>
+										<span
+											class="flex items-center gap-0.5 text-secondary font-bold"
+										>
+											<span class="material-symbols-outlined text-[14px]"
+												>verified</span
+											>
+											Verified ID
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- Deal Card 2 -->
+							<div
+								class="min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition-all"
+							>
+								<div
+									class="relative h-48 w-full bg-surface-container overflow-hidden"
+								>
+									<img
+										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+										data-alt="An authentic mid-century walnut lounge armchair with slate grey upholstery resting on a hardwood floor with lush potted monstera in warm sunlight."
+										src="https://lh3.googleusercontent.com/aida-public/AB6AXuANL4F7Ly2PB2GZeHTvNrzvmzdO-YF2R20a06HaPf5ceB5MF9W_58ZGCK0ptXq3gpFO30SYZLCLQer8ViftkBWC2dhHtFw8Q6XRNaI6r7R7cDCXz7zG5QmHHKyaN1i_BCZtY6IlXUUjgDGsCNMfraMBhFJXAE9F_Ug7_f-ebbBiNzFyjrVoG4piLH64JMDmtQFzEsDHJ2EIQWyvQcn3O0HpMK1uNq5HETuCIlVODFM"
+									/>
+									<div
+										class="absolute bottom-2 left-2 bg-on-surface text-surface-container-lowest px-space-sm py-0.5 rounded font-price-display text-price-display font-bold shadow-md"
+									>
+										₱22,800
+									</div>
+									<button
+										class="absolute top-2 right-2 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface flex items-center justify-center hover:bg-surface-container-lowest shadow-sm transition-colors"
+										onclick="this.classList.toggle('text-error')"
+										title="Save deal"
+										type="button"
+									>
+										<span class="material-symbols-outlined text-[18px]"
+											>favorite</span
+										>
+									</button>
+								</div>
+								<div
+									class="p-space-md flex flex-col gap-space-xs flex-1 justify-between"
+								>
+									<div class="flex flex-col gap-1">
+										<div
+											class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+										>
+											<span
+												class="px-1.5 py-0.5 bg-secondary-container/40 text-on-secondary-container rounded font-bold"
+												>Like New</span
+											>
+											<span class="">42 mins ago</span>
+										</div>
+										<h3
+											class="font-headline-sm text-headline-sm text-on-surface font-semibold line-clamp-1 group-hover:text-primary transition-colors"
+										>
+											Walnut Danish Accent Armchair
+										</h3>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1"
+										>
+											Original wood frame, pristine fabric, pet-free smoke-free.
+										</p>
+									</div>
+									<div
+										class="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+									>
+										<div class="flex items-center gap-1">
+											<span
+												class="material-symbols-outlined text-[16px] text-primary"
+												>location_on</span
+											>
+											<span class="">Legazpi Village, Makati</span>
+										</div>
+										<span
+											class="flex items-center gap-0.5 text-secondary font-bold"
+										>
+											<span class="material-symbols-outlined text-[14px]"
+												>verified</span
+											>
+											Verified
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- Deal Card 3 -->
+							<div
+								class="min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition-all"
+							>
+								<div
+									class="relative h-48 w-full bg-surface-container overflow-hidden"
+								>
+									<img
+										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+										data-alt="A modern matte black espresso machine with chrome portafilter and brass accents sitting on a butcher block kitchen island with warm morning light."
+										src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo3cSBucELgPYn5_4MkWv94WSDcY3C1Gg8ZgqAMcMFL-FJnCxi5dWysfKjtpZfMqr7teAGPFqcdjHIWfo6BSDA8aH4RchERZt1OY99wvBVHFANSS8xMAVxGhrDnX788TylzPA-14LJAEPhALBAH9C2hhnaRGBUeqtZFIRsYxs8IFU0tnYuAcAMzbvZOiLnq00w6WLh2jm_K5i5Nwh6fqjX2P7m5UTJ3G62_H12TtI"
+									/>
+									<div
+										class="absolute bottom-2 left-2 bg-on-surface text-surface-container-lowest px-space-sm py-0.5 rounded font-price-display text-price-display font-bold shadow-md"
+									>
+										₱34,500
+									</div>
+									<button
+										class="absolute top-2 right-2 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface flex items-center justify-center hover:bg-surface-container-lowest shadow-sm transition-colors"
+										onclick="this.classList.toggle('text-error')"
+										title="Save deal"
+										type="button"
+									>
+										<span class="material-symbols-outlined text-[18px]"
+											>favorite</span
+										>
+									</button>
+								</div>
+								<div
+									class="p-space-md flex flex-col gap-space-xs flex-1 justify-between"
+								>
+									<div class="flex flex-col gap-1">
+										<div
+											class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+										>
+											<span
+												class="px-1.5 py-0.5 bg-surface-container rounded font-bold text-on-surface"
+												>Excellent</span
+											>
+											<span class="">1 hr ago</span>
+										</div>
+										<h3
+											class="font-headline-sm text-headline-sm text-on-surface font-semibold line-clamp-1 group-hover:text-primary transition-colors"
+										>
+											Profitec Pro 300 Dual Boiler Machine
+										</h3>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1"
+										>
+											Regularly descaled, includes bottomless portafilter and
+											tamper.
+										</p>
+									</div>
+									<div
+										class="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+									>
+										<div class="flex items-center gap-1">
+											<span
+												class="material-symbols-outlined text-[16px] text-primary"
+												>location_on</span
+											>
+											<span class="">BGC, Taguig</span>
+										</div>
+										<span
+											class="flex items-center gap-0.5 text-secondary font-bold"
+										>
+											<span class="material-symbols-outlined text-[14px]"
+												>verified</span
+											>
+											Verified ID
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- Deal Card 4 -->
+							<div
+								class="min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition-all"
+							>
+								<div
+									class="relative h-48 w-full bg-surface-container overflow-hidden"
+								>
+									<img
+										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+										data-alt="A sunlit bright modern apartment interior with large glass windows overlooking green trees, wooden floors, and clean white walls."
+										src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpd5xRe8zo6h7OmycarhIty6r9NgO6efCKDV_2atW4ZZca-TBMUeIokV8rqweDtMs3IZ7drOlo946fZAVgZE7s4TN65pE0PwC8x44PEgZidNH4NOd_bjGKAmIZEbHiEcFo-F3_tVd5l_R3bxfZixRN3IwEeYxBnl92hcDPotP0QBqiSWXiy7v4przURN87pRSjZcfk34oAERoFPqpC13zeDo65eqlwVhD70rLdeTU"
+									/>
+									<div
+										class="absolute bottom-2 left-2 bg-on-surface text-surface-container-lowest px-space-sm py-0.5 rounded font-price-display text-price-display font-bold shadow-md"
+									>
+										₱28,000<span
+											class="font-label-sm text-label-sm text-surface-dim font-normal"
+											>/mo</span
+										>
+									</div>
+									<button
+										class="absolute top-2 right-2 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface flex items-center justify-center hover:bg-surface-container-lowest shadow-sm transition-colors"
+										onclick="this.classList.toggle('text-error')"
+										title="Save deal"
+										type="button"
+									>
+										<span class="material-symbols-outlined text-[18px]"
+											>favorite</span
+										>
+									</button>
+								</div>
+								<div
+									class="p-space-md flex flex-col gap-space-xs flex-1 justify-between"
+								>
+									<div class="flex flex-col gap-1">
+										<div
+											class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+										>
+											<span
+												class="px-1.5 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed rounded font-bold"
+												>Sublet Available</span
+											>
+											<span class="">2 hrs ago</span>
+										</div>
+										<h3
+											class="font-headline-sm text-headline-sm text-on-surface font-semibold line-clamp-1 group-hover:text-primary transition-colors"
+										>
+											Sunny 1BR Condo with Balcony
+										</h3>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1"
+										>
+											In-unit laundry, dishwasher, cats allowed, BART
+											accessible.
+										</p>
+									</div>
+									<div
+										class="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+									>
+										<div class="flex items-center gap-1">
+											<span
+												class="material-symbols-outlined text-[16px] text-primary"
+												>location_on</span
+											>
+											<span class="">Ortigas Center, Pasig</span>
+										</div>
+										<span
+											class="flex items-center gap-0.5 text-secondary font-bold"
+										>
+											<span class="material-symbols-outlined text-[14px]"
+												>verified</span
+											>
+											Direct Owner
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- Deal Card 5 -->
+							<div
+								class="min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition-all"
+							>
+								<div
+									class="relative h-48 w-full bg-surface-container overflow-hidden"
+								>
+									<img
+										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+										data-alt="A sturdy yellow dewalt table saw with safety accessories set up in a clean, organized wood workshop setting with wood shavings."
+										src="https://lh3.googleusercontent.com/aida-public/AB6AXuACp5ZY__wZ8NwCrrBKweDrfUN6Np3I8Cpos-zU0AJEbK8MnWjhykFwG_r4LJiGET5h5rKApQ7dBvEzW_dwfI3nY2u9EB31Wlpfi_exGa-RAj3ErImjanpj8gr_FdiR5o3Ce8YeYMBZJChD7hWnF3UwJtKR9vjmgjiXmPF1GJSGzy3pAVtWX00v1f3y3DPwKpLK3groPtAuRur_0xG7wnfCxpp7TfmbtdJkOD9zaSM"
+									/>
+									<div
+										class="absolute bottom-2 left-2 bg-on-surface text-surface-container-lowest px-space-sm py-0.5 rounded font-price-display text-price-display font-bold shadow-md"
+									>
+										₱14,800
+									</div>
+									<button
+										class="absolute top-2 right-2 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface flex items-center justify-center hover:bg-surface-container-lowest shadow-sm transition-colors"
+										onclick="this.classList.toggle('text-error')"
+										title="Save deal"
+										type="button"
+									>
+										<span class="material-symbols-outlined text-[18px]"
+											>favorite</span
+										>
+									</button>
+								</div>
+								<div
+									class="p-space-md flex flex-col gap-space-xs flex-1 justify-between"
+								>
+									<div class="flex flex-col gap-1">
+										<div
+											class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+										>
+											<span
+												class="px-1.5 py-0.5 bg-surface-container rounded font-bold text-on-surface"
+												>Good Condition</span
+											>
+											<span class="">3 hrs ago</span>
+										</div>
+										<h3
+											class="font-headline-sm text-headline-sm text-on-surface font-semibold line-clamp-1 group-hover:text-primary transition-colors"
+										>
+											DeWalt 10-Inch Compact Jobsite Table Saw
+										</h3>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1"
+										>
+											Includes folding stand, Diablo blade, and push stick.
+										</p>
+									</div>
+									<div
+										class="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+									>
+										<div class="flex items-center gap-1">
+											<span
+												class="material-symbols-outlined text-[16px] text-primary"
+												>location_on</span
+											>
+											<span class="">Cubao, Quezon City</span>
+										</div>
+										<span
+											class="flex items-center gap-0.5 text-secondary font-bold"
+										>
+											<span class="material-symbols-outlined text-[14px]"
+												>verified</span
+											>
+											Verified
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- Section 5: Civic & Safety Utility Grid (Quick Facts & Post Ad CTA) -->
+					<section
+						class="w-full bg-surface-container rounded-xl p-space-lg md:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-sm"
+					>
+						<div class="flex flex-col gap-space-xs max-w-xl">
+							<div
+								class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider"
+							>
+								<span class="material-symbols-outlined text-[18px]"
+									>lock_reset</span
+								>
+								<span class="">Open, Private &amp; Fast</span>
+							</div>
+							<h3
+								class="font-headline-lg text-headline-lg text-on-surface font-bold"
+							>
+								Have items to sell or local services to offer?
+							</h3>
+							<p class="font-body-md text-body-md text-on-surface-variant">
+								Reach your immediate neighborhood in seconds. Post free
+								classifieds without algorithmic ranking or paywalled visibility.
+							</p>
+						</div>
+						<div
+							class="flex items-center gap-space-md flex-shrink-0 w-full md:w-auto"
+						>
+							<button
+								class="flex-1 md:flex-initial px-space-xl py-space-md rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg font-bold shadow-sm hover:bg-surface-bright transition-colors"
+								type="button"
+							>
+								Read Seller Guide
+							</button>
+							<button
+								class="flex-1 md:flex-initial px-space-xl py-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-md transition-all active:translate-y-0.5 flex items-center justify-center gap-space-xs"
+								type="button"
+							>
+								<span class="material-symbols-outlined text-[20px]"
+									>add_circle</span
+								>
+								<span class="">Post an Ad in Metro Manila</span>
+							</button>
+						</div>
+					</section>
+				</div>
+				<script>
+					// Simple Horizontal Carousel Navigation Script
+					(function () {
+						const carousel = document.getElementById("deals-carousel");
+						const prevBtn = document.getElementById("deals-prev");
+						const nextBtn = document.getElementById("deals-next");
+
+						if (carousel && prevBtn && nextBtn) {
+							prevBtn.addEventListener("click", () => {
+								carousel.scrollBy({ left: -340, behavior: "smooth" });
+							});
+							nextBtn.addEventListener("click", () => {
+								carousel.scrollBy({ left: 340, behavior: "smooth" });
+							});
+						}
+
+						// Region pill selection active toggle
+						const regionButtons = document.querySelectorAll(
+							"#region-selector button",
+						);
+						regionButtons.forEach((btn) => {
+							btn.addEventListener("click", () => {
+								regionButtons.forEach((b) => {
+									b.className =
+										"px-space-md py-space-xs rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface whitespace-nowrap transition-colors";
+								});
+								btn.className =
+									"px-space-md py-space-xs rounded-full font-label-md text-label-md bg-inverse-surface text-inverse-on-surface shadow-sm whitespace-nowrap transition-transform active:scale-95";
+							});
+						});
+					})();
+				</script>
+			</div>
+		</main>
+		<footer
+			class="w-full bg-surface-container-low mt-space-xl shadow-[0_-1px_6px_rgba(0,0,0,0.03)]"
+		>
+			<div class="max-w-[1440px] mx-auto px-margin py-space-xl">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-space-lg">
+					<div class="space-y-space-sm">
+						<div class="flex items-center gap-space-xs">
+							<img
+								src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzmszgmlmUqwrZkxvQvU_kv1dAOplzAkFNdVhuU9KhuNDEgJvmhxJ0ooPrsi2INtyCr7gG15MS3dne5ygHpWmMm4ONTRfW9rGIZgtsGZ8sBSlAxNW01IDJarTOnamRc4O28yn8iuPF6a6wxazDGG5wNe3yuw-I6ecnAb4Ccow85Pl_-7_O1_NyfR4U1EXsWXWNMj84S_duF6-AWOsS7fc-XWEWMeYucfJtqdXQ9G0KqiP0j8sCxXCS"
+								alt="craigslist peace symbol"
+								class="h-7 w-7 object-contain inline-block"
+							/><img
+								src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-r8mAWLkIvQjJKv5cb-qEgxFe2OLux0fOBl76yw050y4IYrhVXk_FtjkeMpNnviBazK5E8qRRKzKUkZBmhFPagIXL6YaAdqLQn71D_ZM5otAlw58ut60TrhkMYPixRaN7lf_3V6r37aGMgxHMEzhkagLzjCe-pGWpBjcrOpNwas9ER1iR4zkLPblyQsqBgf6rq8wOBzteYqlVWz4O4W866ZSZGkxOnIX97Py2YLhNgbNYSiRyEP5Z"
+								alt="craigslist"
+								class="h-5 w-auto object-contain inline-block ml-2"
+							/>
+						</div>
+						<p class="font-body-sm text-body-sm text-on-surface-variant">
+							Radically clear, direct, and high-trust peer-to-peer exchange for
+							local communities.
+						</p>
+					</div>
+					<div class="space-y-space-xs">
+						<h4
+							class="font-label-lg text-label-lg font-bold text-on-surface uppercase tracking-wider mb-space-sm"
+						>
+							Safety &amp; Verification
+						</h4>
+						<ul
+							class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"
+						>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Safety Guidelines &amp; Scam Avoidance
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Safe Exchange Zones
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Identity &amp; Phone Verification
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Report Abuse &amp; Suspicious Listings
+							</li>
+						</ul>
+					</div>
+					<div class="space-y-space-xs">
+						<h4
+							class="font-label-lg text-label-lg font-bold text-on-surface uppercase tracking-wider mb-space-sm"
+						>
+							Community Standards
+						</h4>
+						<ul
+							class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"
+						>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Community Guidelines
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Prohibited Items &amp; Content
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Terms of Use
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Privacy Policy
+							</li>
+						</ul>
+					</div>
+					<div class="space-y-space-sm">
+						<h4
+							class="font-label-lg text-label-lg font-bold text-on-surface uppercase tracking-wider mb-space-sm"
+						>
+							Regional Settings
+						</h4>
+						<div class="flex flex-col gap-space-xs">
+							<label class="font-label-sm text-label-sm text-outline uppercase"
+								>Region &amp; Language</label
+							>
+							<div class="flex items-center gap-space-xs">
+								<button
+									class="flex-1 flex items-center justify-between px-space-sm py-space-xs bg-surface-container-lowest rounded text-on-surface font-label-md text-label-md"
+									type="button"
+								>
+									<span class="flex items-center gap-1"
+										><span class="material-symbols-outlined text-[16px]"
+											>language</span
+										>English (PH)</span
+									><span class="material-symbols-outlined text-[14px]"
+										>expand_more</span
+									></button
+								><button
+									class="px-space-sm py-space-xs bg-surface-container-lowest rounded text-on-surface font-label-md text-label-md flex items-center gap-1"
+									type="button"
+								>
+									<span class="material-symbols-outlined text-[16px]"
+										>public</span
+									>PHP (₱)
+								</button>
+							</div>
+						</div>
+						<div class="pt-space-xs">
+							<p class="font-label-sm text-label-sm text-outline">
+								Open Web Protocol • Non-commercial Data Stance
+							</p>
+						</div>
+					</div>
+				</div>
+				<div
+					class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-gutter font-body-sm text-body-sm text-on-surface-variant"
+				>
+					<div class="flex items-center gap-space-sm">
+						<span class=""
+							>© 2025 Craigslist. Civic peer-to-peer exchange.</span
+						>
+					</div>
+					<div class="flex items-center gap-space-md">
+						<a class="hover:text-primary transition-colors" href="#"
+							>System Status</a
+						><a class="hover:text-primary transition-colors" href="#"
+							>Help Center</a
+						><a class="hover:text-primary transition-colors" href="#"
+							>Contact Civic Desk</a
+						>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,2006 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content="web_standard" name="shell-type" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.googleapis.com" rel="preconnect" />
+		<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			@layer base {
+				html,
+				body {
+					margin: 0;
+					padding: 0;
+				}
+				body {
+					overscroll-behavior: none;
+				}
+				main > :first-child {
+					margin-top: 0 !important;
+				}
+				main > :last-child {
+					margin-bottom: 0 !important;
+				}
+			}
+			::-webkit-scrollbar {
+				display: none;
+			}
+		</style>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script id="tailwind-config">
+			tailwind.config = {
+				darkMode: "class",
+				theme: {
+					extend: {
+						colors: {
+							"on-tertiary-fixed": "#2a1700",
+							"secondary-container": "#6cf8bb",
+							"secondary-fixed-dim": "#4edea3",
+							"primary-container": "#4f46e5",
+							tertiary: "#684000",
+							"surface-container-low": "#f2f3ff",
+							"surface-bright": "#faf8ff",
+							"surface-dim": "#d2d9f4",
+							"on-surface-variant": "#464555",
+							"on-secondary-fixed-variant": "#005236",
+							"surface-container-highest": "#dae2fd",
+							"surface-variant": "#dae2fd",
+							primary: "#3525cd",
+							"on-primary": "#ffffff",
+							"on-secondary-fixed": "#002113",
+							"on-secondary": "#ffffff",
+							"on-error-container": "#93000a",
+							"on-surface": "#131b2e",
+							"primary-fixed-dim": "#c3c0ff",
+							"outline-variant": "#c7c4d8",
+							surface: "#faf8ff",
+							"on-background": "#131b2e",
+							outline: "#777587",
+							"surface-tint": "#4d44e3",
+							"inverse-surface": "#283044",
+							"surface-container-lowest": "#ffffff",
+							"tertiary-fixed-dim": "#ffb95f",
+							"surface-container-high": "#e2e7ff",
+							"on-tertiary-container": "#ffd4a4",
+							"on-tertiary": "#ffffff",
+							error: "#ba1a1a",
+							"on-primary-fixed": "#0f0069",
+							"tertiary-container": "#885500",
+							secondary: "#006c49",
+							background: "#faf8ff",
+							"on-primary-fixed-variant": "#3323cc",
+							"on-tertiary-fixed-variant": "#653e00",
+							"surface-container": "#eaedff",
+							"tertiary-fixed": "#ffddb8",
+							"inverse-on-surface": "#eef0ff",
+							"inverse-primary": "#c3c0ff",
+							"on-error": "#ffffff",
+							"error-container": "#ffdad6",
+							"primary-fixed": "#e2dfff",
+							"on-secondary-container": "#00714d",
+							"secondary-fixed": "#6ffbbe",
+							"on-primary-container": "#dad7ff",
+						},
+						borderRadius: {
+							DEFAULT: "0.125rem",
+							lg: "0.25rem",
+							xl: "0.5rem",
+							full: "0.75rem",
+						},
+						spacing: {
+							"space-xl": "2.5rem",
+							"margin-mobile": "1rem",
+							"space-sm": "0.5rem",
+							"space-xs": "0.25rem",
+							"space-lg": "1.5rem",
+							"space-md": "1rem",
+							margin: "2rem",
+							"gutter-mobile": "0.75rem",
+							gutter: "1.25rem",
+						},
+						fontFamily: {
+							"display-hero": ["Inter"],
+							"label-sm": ["Inter"],
+							"headline-md": ["Inter"],
+							"body-sm": ["Inter"],
+							"body-md": ["Inter"],
+							"label-md": ["Inter"],
+							"body-lg": ["Inter"],
+							"display-hero-mobile": ["Inter"],
+							"headline-xl": ["Inter"],
+							"headline-lg": ["Inter"],
+							"label-lg": ["Inter"],
+							"headline-xl-mobile": ["Inter"],
+							"price-display": ["Inter"],
+							"headline-sm": ["Inter"],
+						},
+						fontSize: {
+							"display-hero": [
+								"40px",
+								{
+									lineHeight: "48px",
+									letterSpacing: "-0.02em",
+									fontWeight: "700",
+								},
+							],
+							"label-sm": [
+								"11px",
+								{
+									lineHeight: "14px",
+									letterSpacing: "0.04em",
+									fontWeight: "700",
+								},
+							],
+							"headline-md": [
+								"20px",
+								{
+									lineHeight: "28px",
+									letterSpacing: "-0.01em",
+									fontWeight: "600",
+								},
+							],
+							"body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+							"body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+							"label-md": [
+								"12px",
+								{
+									lineHeight: "16px",
+									letterSpacing: "0.02em",
+									fontWeight: "600",
+								},
+							],
+							"body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+							"display-hero-mobile": [
+								"30px",
+								{
+									lineHeight: "36px",
+									letterSpacing: "-0.02em",
+									fontWeight: "700",
+								},
+							],
+							"headline-xl": [
+								"32px",
+								{
+									lineHeight: "40px",
+									letterSpacing: "-0.02em",
+									fontWeight: "700",
+								},
+							],
+							"headline-lg": [
+								"24px",
+								{
+									lineHeight: "32px",
+									letterSpacing: "-0.01em",
+									fontWeight: "600",
+								},
+							],
+							"label-lg": [
+								"14px",
+								{
+									lineHeight: "20px",
+									letterSpacing: "0.01em",
+									fontWeight: "600",
+								},
+							],
+							"headline-xl-mobile": [
+								"24px",
+								{
+									lineHeight: "32px",
+									letterSpacing: "-0.01em",
+									fontWeight: "600",
+								},
+							],
+							"price-display": [
+								"22px",
+								{
+									lineHeight: "26px",
+									letterSpacing: "-0.02em",
+									fontWeight: "700",
+								},
+							],
+							"headline-sm": [
+								"16px",
+								{ lineHeight: "24px", fontWeight: "600" },
+							],
+						},
+					},
+				},
+			};
+		</script>
+	</head>
+	<body class="bg-surface font-body-md text-on-surface antialiased">
+		<header
+			class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+		>
+			<div
+				class="h-24 max-w-[1440px] mx-auto px-margin flex flex-col justify-between py-space-xs"
+			>
+				<div class="flex items-center justify-between gap-gutter">
+					<div class="flex items-center gap-space-md">
+						<a
+							class="flex items-center gap-space-sm"
+							data-path="browse-listings"
+							href="#"
+							><img
+								src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsHDnAsc3GteNn1TBBLR38ENfZNrfi1P1H7qOqJu_y2ExJPsvPK4ukJ16A1KoH3OISqt6uDhUeEEYTULIis4-XREmpfwoVPd6TB8QA5TiTnOa6Z3X3f2PR3aIgN-8V2ZQuymy4yfgTwa3CXlNGEE7Gnat72sjyrcagCryb5Eo_lbgn0Ulg5qq7v8SQF2JOsqaCVv-Vqonc3Px9BYonVsTldW34gJBJQlBbQi8wlbK3LWNOPdby7Yg4"
+								alt="craigslist symbol"
+								class="h-8 w-8 object-contain inline-block" /><img
+								src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXyBLuq_39M91874tNmINoagkkk_0f1cQzCv8ULXPai5db_ecj4nIbliZkIOSdaFZ5xouP7Ohye-eMgMj8IDdqefuabmcwyBdJFwvUd3lFviYKih8wOVrZOAHQdSIIo67cBX6nVmmLx4sDOPXpFb-OYXCjuf-tK09M3G9kgVsM_iXOCiJ2SoehjdnPT26DY97GScRvdpP5SsoGrrD_sCRGqg_QSF8yh0-ZBlpISWTDZKMlDjiMVE-V"
+								alt="craigslist"
+								class="h-6 w-auto object-contain inline-block ml-2" /></a
+						><button
+							class="flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+							type="button"
+						>
+							<span class="material-symbols-outlined text-[18px] text-primary"
+								>location_on</span
+							><span class="font-label-md text-label-md font-semibold"
+								>Metro Manila / NCR</span
+							><span class="material-symbols-outlined text-[16px] text-outline"
+								>expand_more</span
+							>
+						</button>
+					</div>
+					<div
+						class="flex-1 max-w-2xl flex items-center bg-surface-container-lowest rounded shadow-[0_1px_4px_rgba(0,0,0,0.06)] overflow-hidden"
+					>
+						<div class="flex items-center px-space-sm bg-surface-container-low">
+							<select
+								aria-label="Category selection"
+								class="bg-transparent font-label-md text-label-md text-on-surface py-space-xs pr-space-xs focus:outline-none cursor-pointer"
+							>
+								<option>All Categories</option>
+								<option>For Sale</option>
+								<option>Housing</option>
+								<option>Local Services</option>
+								<option>Jobs</option>
+								<option>Community</option>
+							</select>
+						</div>
+						<div class="flex-1 flex items-center px-space-sm">
+							<span
+								class="material-symbols-outlined text-outline text-[20px] mr-space-xs"
+								>search</span
+							><input
+								class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline py-space-xs focus:outline-none"
+								placeholder="Search classifieds, housing, gear, services..."
+								type="text"
+							/>
+						</div>
+						<button
+							aria-label="Submit search"
+							class="bg-primary text-on-primary px-space-md py-space-xs font-label-md text-label-md flex items-center justify-center hover:bg-primary-container transition-colors"
+							type="button"
+						>
+							<span class="material-symbols-outlined text-[20px]"
+								>arrow_forward</span
+							>
+						</button>
+					</div>
+					<div class="flex items-center gap-gutter">
+						<a
+							class="bg-primary text-on-primary font-label-lg text-label-lg px-space-md py-space-sm rounded font-semibold flex items-center gap-space-xs shadow-[0_2px_0_0_rgba(15,23,42,0.1)] hover:bg-primary-container transition-all active:translate-y-[1px]"
+							data-path="post-an-ad"
+							href="#"
+							><span class="material-symbols-outlined text-[20px]"
+								>add_circle</span
+							><span class="">Post an Ad</span></a
+						>
+						<div class="flex items-center gap-space-sm pl-space-xs">
+							<a
+								class="p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors rounded relative"
+								data-path="saved-items"
+								href="#"
+								title="Saved Listings"
+								><span class="material-symbols-outlined text-[24px]"
+									>favorite_border</span
+								></a
+							><a
+								class="p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors rounded relative"
+								data-path="my-inquiries"
+								href="#"
+								title="My Inquiries"
+								><span class="material-symbols-outlined text-[24px]"
+									>chat_bubble_outline</span
+								><span
+									class="absolute top-1 right-1 flex items-center justify-center min-w-[18px] h-[18px] px-1 bg-tertiary-container text-on-tertiary font-label-sm text-label-sm rounded-full"
+									>3</span
+								></a
+							>
+							<div class="flex items-center pl-space-xs">
+								<img
+									alt="Profile"
+									class="w-8 h-8 rounded-full object-cover"
+									src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpXq6kS_GOtE98hSBvOGivrKkR2ynp7q22u9Uo9j-6fCpf9NuL3vkv01D4354jCYRmQn0BGdUemxUtPVvOxG_Py-OKVBD4ZCKDzwF-JeKwECUpQxBsYZZJAIbvNYSRgrxj7K9-ituLYsZf8wxF7sy8ZTFWWOzu7-SaQdZKxUrHmvyMNjBF2vOQOudEf0VsLoQtUkgWfpMATwEKpgb2TuaAy5jbIQbWToywrsZ1qI8"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex items-center justify-between pt-space-xs">
+					<nav
+						class="flex items-center gap-space-md"
+						data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"
+					>
+						<a
+							aria-current="page"
+							class="px-space-sm py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded"
+							data-path="local-services"
+							href="#"
+							>Local Services</a
+						><a
+							class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors"
+							data-path="for-sale"
+							href="#"
+							>For Sale</a
+						><a
+							class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors"
+							data-path="housing"
+							href="#"
+							>Housing</a
+						><a
+							class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors flex items-center gap-space-xs"
+							data-path="my-inquiries"
+							href="#"
+							><span class="">My Inquiries</span
+							><span
+								class="bg-secondary text-on-secondary px-1.5 py-0.5 rounded-full font-label-sm text-label-sm leading-none"
+								>3</span
+							></a
+						>
+					</nav>
+					<div class="flex items-center gap-space-sm text-outline">
+						<span class="material-symbols-outlined text-[16px]"
+							>verified_user</span
+						><span class="font-label-sm text-label-sm uppercase tracking-wide"
+							>Secure Community Network</span
+						>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="w-full pt-24 bg-surface min-h-[calc(100vh-24rem)]">
+			<div class="max-w-[1440px] mx-auto px-margin pt-space-md pb-space-xs">
+				<div
+					class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"
+				>
+					<a
+						class="hover:text-primary transition-colors flex items-center gap-1"
+						data-path="browse-listings"
+						href="#"
+						><span class="material-symbols-outlined text-[14px]">home</span
+						><span class="">Craigslist</span></a
+					><span class="material-symbols-outlined text-[14px] text-outline"
+						>chevron_right</span
+					><span class="hover:text-primary transition-colors cursor-pointer"
+						>Metro Manila</span
+					><span class="material-symbols-outlined text-[14px] text-outline"
+						>chevron_right</span
+					><a
+						class="hover:text-primary transition-colors"
+						data-path="local-services"
+						href="#"
+						>Services</a
+					><span class="material-symbols-outlined text-[14px] text-outline"
+						>chevron_right</span
+					><a class="hover:text-primary transition-colors" href="#"
+						>Plumbing &amp; Sanitary</a
+					><span class="material-symbols-outlined text-[14px] text-outline"
+						>chevron_right</span
+					><span class="text-on-surface font-semibold"
+						>Danilo Silva - Master Plumber</span
+					>
+				</div>
+			</div>
+			<div class="max-w-[1440px] mx-auto px-margin py-space-sm">
+				<div class="flex flex-col w-full">
+					<!-- Sub-Navigation / Specialized Breadcrumb Bar -->
+					<div
+						class="flex items-center justify-between py-space-sm mb-space-md"
+					>
+						<nav
+							aria-label="Listing hierarchy"
+							class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md"
+						>
+							<a
+								class="hover:text-primary transition-colors"
+								data-path="local-services"
+								href="#"
+								>Local Services</a
+							><span class="material-symbols-outlined text-outline text-[16px]"
+								>chevron_right</span
+							><span class="text-on-surface-variant">Metro Manila</span
+							><span class="material-symbols-outlined text-outline text-[16px]"
+								>chevron_right</span
+							><a class="hover:text-primary transition-colors" href="#"
+								>Plumbing &amp; Sanitary</a
+							><span class="material-symbols-outlined text-outline text-[16px]"
+								>chevron_right</span
+							><span class="text-on-surface font-semibold"
+								>Makati Master Plumbing &amp; Sanitary</span
+							>
+						</nav>
+						<div class="flex items-center gap-space-sm">
+							<button
+								class="flex items-center gap-1 px-space-sm py-space-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors shadow-sm"
+								type="button"
+							>
+								<span class="material-symbols-outlined text-[16px]">share</span>
+								<span class="">Share</span>
+							</button>
+							<button
+								class="flex items-center gap-1 px-space-sm py-space-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors shadow-sm"
+								type="button"
+							>
+								<span class="material-symbols-outlined text-[16px] text-error"
+									>favorite_border</span
+								>
+								<span class="">Save Pro</span>
+							</button>
+							<span class="text-outline text-label-sm font-label-sm pl-space-xs"
+								>Ad ID: #CL-9402914-EB</span
+							>
+						</div>
+					</div>
+					<!-- Hero Identity Header Card -->
+					<section
+						class="relative rounded-xl bg-surface-container-lowest shadow-md overflow-hidden mb-space-lg"
+					>
+						<!-- Visual Ambient Cover Backdrop -->
+						<div
+							class="w-full h-48 md:h-64 relative overflow-hidden bg-surface-container-high"
+						>
+							<img
+								class="w-full h-full object-cover"
+								data-alt="A clean industrial plumbing workshop with neatly organized copper piping, calibrated brass water gauges, polished tools, and clean architectural daylight reflecting off high quality steel installations."
+								src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMpedwB-cG9jxksSTQgc57CBqZr8fHEycpNhmC3gDiyG5HyPbC7zIz1biHH18eXliWPD73AEoo3DPLv8U1VkmhBnqldGaQ3DqK6lHH59XAjP5mu-ygQRnafiq_SD_LNcvstmj8LeNkIvXYb9SGnMGsYUo6pu6SeDRXwKxzz_-yWB04rVg3aorcZQgLri8ScFv28tstnb_JTuamu-1PmPZojoHK3j-OakxGZLmW3E4"
+							/>
+							<div
+								class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/30 to-transparent"
+							></div>
+							<div
+								class="absolute top-space-md right-space-md flex gap-space-xs items-center"
+							>
+								<span
+									class="px-space-sm py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded text-secondary font-label-sm text-label-sm flex items-center gap-1 shadow-sm"
+									><span
+										class="material-symbols-outlined text-[16px] text-secondary"
+										>verified</span
+									><span class=""
+										>PRC Licensed Master Plumber #02831</span
+									></span
+								><span
+									class="px-space-sm py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm"
+									><span
+										class="material-symbols-outlined text-[16px] text-primary"
+										>workspace_premium</span
+									><span class="">TESDA NC-II Certified</span></span
+								><span
+									class="px-space-sm py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded text-secondary font-label-sm text-label-sm flex items-center gap-1 shadow-sm"
+									><span
+										class="material-symbols-outlined text-[16px] text-secondary"
+										>verified_user</span
+									><span class="">90-Day Workmanship Warranty</span></span
+								>
+							</div>
+						</div>
+						<!-- Provider Bio Header Strip -->
+						<div
+							class="p-space-lg flex flex-col md:flex-row md:items-end justify-between gap-space-md -mt-16 relative z-10"
+						>
+							<div
+								class="flex flex-col sm:flex-row items-start sm:items-end gap-space-md"
+							>
+								<div class="relative">
+									<img
+										class="w-28 h-28 md:w-32 md:h-32 rounded-xl object-cover shadow-lg bg-surface-container-lowest"
+										data-alt="Professional portrait of a certified plumbing contractor wearing a clean uniform in front of modern precision equipment, welcoming neutral lighting, sharp focus."
+										src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGo-CZmzBs_gZfHg5J_CgUZ6cOGv7IsbNbBKXBBgekGApgzbwsr6ASWbziYn9_WSVWy3fKZ6hT-p_dHn-JTOb9zrE6qD9DHl8jID-M3Yd2z-81tSG4wMGrR0X_IAf6KNAOwIQ2cFF0I-mPTYlnrOKQvps2Vn5pZAc1M0M1tP3ehim_IPPdh7O4MKu1xfQP-SRsznEWRUuzZfVuGp2mcagKv1-0ASuUHnJwb8HhY2g"
+									/>
+									<span
+										class="absolute -bottom-1 -right-1 bg-secondary text-on-secondary p-1 rounded-full shadow-sm flex items-center justify-center"
+										title="Identity &amp; Background Verified"
+									>
+										<span class="material-symbols-outlined text-[18px]"
+											>verified</span
+										>
+									</span>
+								</div>
+								<div class="space-y-space-xs">
+									<div class="flex items-center gap-space-sm flex-wrap">
+										<h1
+											class="font-headline-xl text-headline-xl text-on-surface"
+										>
+											Makati Master Plumbing &amp; Sanitary Engineering
+										</h1>
+										<span
+											class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase"
+											>PRC Master Plumber</span
+										>
+									</div>
+									<p
+										class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs flex-wrap"
+									>
+										<span class=""
+											>Danilo Silva — Master Plumber &amp; Sanitary
+											Engineer</span
+										><span
+											class="inline-block w-1.5 h-1.5 rounded-full bg-outline"
+										></span
+										><span class="text-on-surface font-semibold"
+											>Makati • BGC • Mandaluyong • Pasig (Serving Metro
+											Manila)</span
+										>
+									</p>
+									<div
+										class="flex items-center gap-space-md pt-space-xs flex-wrap"
+									>
+										<div
+											class="flex items-center gap-1 bg-surface-container-high px-space-sm py-1 rounded"
+										>
+											<span
+												class="material-symbols-outlined text-[18px] text-tertiary-container"
+												style="font-variation-settings: &quot;FILL&quot; 1"
+												>star</span
+											><span
+												class="font-headline-sm text-headline-sm text-on-surface font-bold"
+												>4.9</span
+											><span
+												class="font-label-sm text-label-sm text-on-surface-variant"
+												>(152 verified NCR client reviews)</span
+											>
+										</div>
+										<div
+											class="flex items-center gap-1 text-secondary font-label-md text-label-md"
+										>
+											<span class="material-symbols-outlined text-[18px]"
+												>security</span
+											><span class="">₱500,000 Liability Bonded</span>
+										</div>
+										<div
+											class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md"
+										>
+											<span
+												class="material-symbols-outlined text-[18px] text-primary"
+												>receipt_long</span
+											><span class=""
+												>BIR Registered / Official Receipts (OR)</span
+											>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Quick Action Badges -->
+							<div
+								class="flex items-center gap-space-sm self-start md:self-end"
+							>
+								<div class="text-right hidden lg:block">
+									<span
+										class="block font-label-sm text-label-sm text-outline uppercase tracking-wider"
+										>Average Response Time</span
+									><span
+										class="font-headline-sm text-headline-sm text-secondary font-bold"
+										>~ 10–15 Minutes</span
+									>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- Main Grid: 12 Columns (8 Col Content, 4 Col Sticky Side Action Bar) -->
+					<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+						<!-- LEFT 8-COLUMN STREAM -->
+						<div class="lg:col-span-8 space-y-space-lg">
+							<!-- Gallery / Proof Showcase (Interactive Carousel Simulation) -->
+							<section
+								class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm"
+							>
+								<div class="flex items-center justify-between mb-space-sm">
+									<div>
+										<h2
+											class="font-headline-md text-headline-md text-on-surface"
+										>
+											Verified Work Gallery &amp; Fleet
+										</h2>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant"
+										>
+											Real before-and-after projects documented in Makati &amp;
+											Quezon City
+										</p>
+									</div>
+									<span
+										class="font-label-sm text-label-sm px-2 py-1 rounded bg-surface-container text-on-surface font-semibold"
+										id="carousel-counter"
+										>Image 1 of 5</span
+									>
+								</div>
+								<!-- Featured Viewport -->
+								<div
+									class="relative w-full h-80 sm:h-96 rounded-lg overflow-hidden bg-surface-container-high group"
+								>
+									<img
+										class="w-full h-full object-cover transition-all duration-300"
+										data-alt="High detail split photo comparison of an old corroded galvanised pipe replacement side by side with newly installed pristine PEX and copper distribution manifold in an East Bay Craftsman basement."
+										id="main-gallery-view"
+										src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEP2ahBxFsJR5MOHbQXja5CPoJFSoi42stXghcC2hC0j2Hxqu6_LSbY81jXmWReiI_xHrl37tP6wTD3_T5krofEKNIlAzQOzZXBYbagei3zMmC2Lg3YdV2bTKZMCnaRwzk1bcOHuKPMZq3tuheiy9wZoNFu9HN5pDgqSEyqqG_gxOHPxggM0wMbq6wTSA0nNUblwlQ_nk5KBp3fSVUoU0HXYSV0Kf3sEYiAr6sHto"
+									/>
+									<div
+										class="absolute bottom-space-md left-space-md right-space-md flex items-end justify-between pointer-events-none"
+									>
+										<div
+											class="bg-inverse-surface/90 backdrop-blur-md px-space-md py-space-xs rounded text-inverse-on-surface shadow-md pointer-events-auto"
+										>
+											<span
+												class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed block"
+												id="gallery-tag"
+												>Before &amp; After</span
+											>
+											<p
+												class="font-body-sm text-body-sm font-semibold"
+												id="gallery-caption"
+											>
+												Full house re-piping &amp; booster pump retrofit with
+												pressure relief manifold (Bel-Air Village, Makati)
+											</p>
+										</div>
+										<div class="flex gap-space-xs pointer-events-auto">
+											<button
+												aria-label="Previous image"
+												class="p-2 bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface rounded shadow-md transition-colors"
+												onclick="prevSlide()"
+												type="button"
+											>
+												<span class="material-symbols-outlined text-[20px]"
+													>arrow_back</span
+												>
+											</button>
+											<button
+												aria-label="Next image"
+												class="p-2 bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface rounded shadow-md transition-colors"
+												onclick="nextSlide()"
+												type="button"
+											>
+												<span class="material-symbols-outlined text-[20px]"
+													>arrow_forward</span
+												>
+											</button>
+										</div>
+									</div>
+								</div>
+								<!-- Thumbnail Navigation Strip -->
+								<div class="grid grid-cols-5 gap-space-xs mt-space-sm">
+									<button
+										class="h-16 rounded overflow-hidden shadow-sm focus:outline-none ring-2 ring-primary"
+										onclick="setSlide(0)"
+										type="button"
+									>
+										<img
+											class="w-full h-full object-cover"
+											data-alt="Close up of neat copper solder joints and smart water shutoff valve unit installed inside utility closet."
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuUpjtGDWvn-H1Qij6FOYHqrkwXkpm6MML0UHgFbG4TRV6HLi3nX0nCaSlA3Bc7WvpVeRpa8iPAJWvtASpaDYSGDu1dN9-aGP_h9rv08cpFZ5wDp7ChswOHyhM5aj_NYsBA_5ZkqL723s5W2Pe_7ebGGg5n9rZbB47EVxdDxvm2JCOlyqZ8rmp9_7wYtLrNG7z4BUU5zXFsInm_xdROz9Jmky6-y9XH9E9-vniPhQ"
+										/>
+									</button>
+									<button
+										class="h-16 rounded overflow-hidden shadow-sm opacity-70 hover:opacity-100 transition-opacity focus:outline-none"
+										onclick="setSlide(1)"
+										type="button"
+									>
+										<img
+											class="w-full h-full object-cover"
+											data-alt="Trenchless sewer lateral replacement machine setup with certified operators on residential Berkeley driveway."
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDXzzzh7-rKoG_xM15jqGi3bj-nXzmL062g4c5lJvRDFn18vPnCkr6CmzM-SOmlbCw--9RDBSgfmM0sq3DmnN_0jQAAQ_Z4UPFrbsUCwTHmn67ToaTGhB3oy6o4ix2BdBLPP89kcT2GPeHOlkIqi0MOaLNtb4w9tNv__GTgpNi5lL2wWlYjIiiBpxIb8ds6J53jx-XN3zbFaNWM5MqJxb6jRyI650e9L5gHR41RzI"
+										/>
+									</button>
+									<button
+										class="h-16 rounded overflow-hidden shadow-sm opacity-70 hover:opacity-100 transition-opacity focus:outline-none"
+										onclick="setSlide(2)"
+										type="button"
+									>
+										<img
+											class="w-full h-full object-cover"
+											data-alt="High-definition fiber optic sewer camera screen showing clear inspection video log of clean interior pipe line."
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHCTMzcWh23EFM5uFxoytaYFHTQYkTxfu8o2OD2yu8nhwWhQj1yPsodGU67QSjJ31x1KaavRxzKUDM8zGu5vjOPt-9nPFoOdzxySk4f9UzY_lWllvrp6RdZ8mSXpppSRCaquYU4hCuZihmlIx3afrKuKZlqdevl32ir_JvkVjpYX5q_VpY9lKklkwpp2dZCoxxnfWAzU189Z9bRVl1nxILEyOECqsy_rceA6tuww0"
+										/>
+									</button>
+									<button
+										class="h-16 rounded overflow-hidden shadow-sm opacity-70 hover:opacity-100 transition-opacity focus:outline-none"
+										onclick="setSlide(3)"
+										type="button"
+									>
+										<img
+											class="w-full h-full object-cover"
+											data-alt="Rheem heat pump water heater modern installation with expansion tank and seismic strapping up to California code."
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuAePeJio9DXHCAEiIkaA1wCe2hfT0ULO8evBpU0xF_WauK1qnxxjiJcNk5ImHNSIeG9Oq6IXVy5cwHZj36K8vOj1M33YHLuboIBOB2zEDGUY-FDYiinKm0-5BgoMcow-L6oBIajScTCO8V1Sq14vqe8o8drIN2hMJKRCKlEldbuhzhxQZ3-QY_AgxMx9-XKWhvj4enZW5AAgO6NYL9qUwr0X42CT9QfW7PcXoFujE0"
+										/>
+									</button>
+									<button
+										class="h-16 rounded overflow-hidden shadow-sm opacity-70 hover:opacity-100 transition-opacity focus:outline-none"
+										onclick="setSlide(4)"
+										type="button"
+									>
+										<img
+											class="w-full h-full object-cover"
+											data-alt="Bay Precision service van interior stocked with organized Ridgid tools, brass fittings, and clean testing equipment."
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2U9p8ovswbYxAobisAjt5xbOKp-NBhdQq2nk2GzmSm9cAB0Wosit6gl5H-SMgiyGxgM36xEmYlVu2aiJ8zFSr2CxxLiSBr0DcBnZ0X6CiHjRhX7TCfZ0Zgpqru5jcLBoubE_xGUiT5pwvyYfT9YlQv6iM_RvDpiU5JMWoq5e4peyCpjLuIbcB0X--k2ZkJef5bXMLiI_QcRzwM-zA3eIXxO2Z0vfgCgHCnDDOL1k"
+										/>
+									</button>
+								</div>
+							</section>
+							<!-- Trust, Licensing & Verification Cluster (Brutalist Utilitarian Layout) -->
+							<section
+								class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm"
+							>
+								<h2
+									class="font-headline-md text-headline-md text-on-surface mb-space-sm flex items-center gap-space-xs"
+								>
+									<span class="material-symbols-outlined text-secondary"
+										>verified_user</span
+									><span class=""
+										>Verified Contractor Credentials &amp; Clearances</span
+									>
+								</h2>
+								<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+									<div
+										class="p-space-sm bg-surface-container-low rounded-lg space-y-1"
+									>
+										<div
+											class="flex items-center gap-1 text-secondary font-label-md text-label-md"
+										>
+											<span class="material-symbols-outlined text-[18px]"
+												>verified</span
+											><span class="">DTI &amp; City Licensing</span>
+										</div>
+										<p
+											class="font-label-lg text-label-lg font-bold text-on-surface"
+										>
+											Registered &amp; BIR Tax Compliant
+										</p>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant"
+										>
+											Makati City Hall Business Permit &amp; DTI Certificate on
+											record. BIR Official Receipts provided.
+										</p>
+									</div>
+									<div
+										class="p-space-sm bg-surface-container-low rounded-lg space-y-1"
+									>
+										<div
+											class="flex items-center gap-1 text-secondary font-label-md text-label-md"
+										>
+											<span class="material-symbols-outlined text-[18px]"
+												>shield</span
+											><span class="">Liability &amp; Warranty</span>
+										</div>
+										<p
+											class="font-label-lg text-label-lg font-bold text-on-surface"
+										>
+											₱500,000 Bonded &amp; 90-Day Warranty
+										</p>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant"
+										>
+											Malayan Comprehensive General Liability Insurance. All
+											workmanship backed for 90 days.
+										</p>
+									</div>
+									<div
+										class="p-space-sm bg-surface-container-low rounded-lg space-y-1"
+									>
+										<div
+											class="flex items-center gap-1 text-secondary font-label-md text-label-md"
+										>
+											<span class="material-symbols-outlined text-[18px]"
+												>badge</span
+											><span class="">Clearances &amp; Permits</span>
+										</div>
+										<p
+											class="font-label-lg text-label-lg font-bold text-on-surface"
+										>
+											Barangay &amp; NBI Cleared
+										</p>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant"
+										>
+											NBI Clearance updated Oct 2024. Experienced with
+											BGC/Makati condo gate passes and admin work permits.
+										</p>
+									</div>
+								</div>
+								<div
+									class="mt-space-sm p-space-sm bg-surface-container rounded flex items-center justify-between flex-wrap gap-space-sm"
+								>
+									<div class="flex items-center gap-space-sm">
+										<span
+											class="material-symbols-outlined text-primary text-[24px]"
+											>gavel</span
+										>
+										<div>
+											<span
+												class="font-label-md text-label-md font-bold text-on-surface"
+												>Professional Regulation Commission (PRC) &amp;
+												TESDA</span
+											>
+											<p
+												class="font-body-sm text-body-sm text-on-surface-variant"
+											>
+												License #02831 • Master Plumber &amp; Sanitary
+												Engineering • TESDA Plumbing NC-II • Zero Violations
+											</p>
+										</div>
+									</div>
+									<a
+										class="font-label-sm text-label-sm text-primary hover:underline font-bold flex items-center gap-0.5"
+										href="#"
+										><span class="">Verify on prc.gov.ph</span
+										><span class="material-symbols-outlined text-[14px]"
+											>open_in_new</span
+										></a
+									>
+								</div>
+							</section>
+							<!-- Provider Full Description & Specialties -->
+							<section
+								class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md"
+							>
+								<div>
+									<h2
+										class="font-headline-md text-headline-md text-on-surface mb-space-xs"
+									>
+										About Danilo Silva &amp; Makati Master Plumbing
+									</h2>
+									<p
+										class="font-body-lg text-body-lg text-on-surface leading-relaxed"
+									>
+										Led by PRC Master Plumber Danilo Silva with over 12 years of
+										hands-on field experience across Metro Manila, our
+										engineering team delivers transparent, reliable, and
+										code-compliant plumbing solutions. We specialize in NCR
+										high-rise condominiums, gated residential enclaves (San
+										Lorenzo, Bel-Air, Valle Verde), and mixed-use commercial
+										spaces where standard temporary quick-fixes fail.
+									</p>
+								</div>
+								<div>
+									<h3
+										class="font-label-lg text-label-lg text-on-surface font-bold uppercase tracking-wider mb-space-sm"
+									>
+										Core Service Specializations
+									</h3>
+									<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+										<div class="p-space-sm bg-surface-container-low rounded-lg">
+											<div class="flex items-center gap-space-xs mb-1">
+												<span
+													class="material-symbols-outlined text-primary text-[20px]"
+													>home_repair_service</span
+												><span
+													class="font-headline-sm text-headline-sm text-on-surface"
+													>Condo &amp; Residential</span
+												>
+											</div>
+											<ul
+												class="font-body-sm text-body-sm text-on-surface-variant space-y-1"
+											>
+												<li class="">• PPR &amp; Copper Re-piping</li>
+												<li class="">
+													• Condo Admin Permits &amp; Gate Passes
+												</li>
+												<li class="">
+													• Slab Leak Detection &amp; Diagnostics
+												</li>
+												<li class="">• Booster Pump &amp; Pressure Tanks</li>
+											</ul>
+										</div>
+										<div class="p-space-sm bg-surface-container-low rounded-lg">
+											<div class="flex items-center gap-space-xs mb-1">
+												<span
+													class="material-symbols-outlined text-error text-[20px]"
+													>fmd_bad</span
+												><span
+													class="font-headline-sm text-headline-sm text-on-surface"
+													>Emergency Response</span
+												>
+											</div>
+											<ul
+												class="font-body-sm text-body-sm text-on-surface-variant space-y-1"
+											>
+												<li class="">• 24/7 Burst Pipe Intervention</li>
+												<li class="">• High-Pressure Hydro-Jetting</li>
+												<li class="">• Emergency Water Valve Shut-Off</li>
+												<li class="">• Main Drain Line Clearing</li>
+											</ul>
+										</div>
+										<div class="p-space-sm bg-surface-container-low rounded-lg">
+											<div class="flex items-center gap-space-xs mb-1">
+												<span
+													class="material-symbols-outlined text-secondary text-[20px]"
+													>eco</span
+												><span
+													class="font-headline-sm text-headline-sm text-on-surface"
+													>Efficient Equipment</span
+												>
+											</div>
+											<ul
+												class="font-body-sm text-body-sm text-on-surface-variant space-y-1"
+											>
+												<li class="">
+													• Heat Pump &amp; Water Heater Installs
+												</li>
+												<li class="">• Pressure Regulating Valves (PRV)</li>
+												<li class="">• WaterSense Sanitary Fixtures</li>
+												<li class="">• Greywater &amp; Sump Pump Systems</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div
+									class="p-space-sm bg-surface-container-high rounded-lg text-on-surface"
+								>
+									<div class="flex items-start gap-space-sm">
+										<span
+											class="material-symbols-outlined text-primary text-[22px] mt-0.5"
+											>policy</span
+										>
+										<div>
+											<span
+												class="font-label-md text-label-md font-bold text-on-surface"
+												>Craigslist Safe Contractor Pledge</span
+											>
+											<p
+												class="font-body-sm text-body-sm text-on-surface-variant mt-0.5"
+											>
+												Danilo Silva guarantees transparent on-site assessments
+												with zero hidden transit dispatch fees. Diagnostic
+												inspection is waived whenever repair work proceeds.
+												Official receipts and BIR registration provided for
+												every job.
+											</p>
+										</div>
+									</div>
+								</div>
+							</section>
+							<!-- Transparent Pricing Matrix & Rate Card -->
+							<section
+								class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm"
+							>
+								<div
+									class="flex items-center justify-between mb-space-sm flex-wrap gap-space-xs"
+								>
+									<div>
+										<h2
+											class="font-headline-md text-headline-md text-on-surface"
+										>
+											Standard Rate Card &amp; Upfront Pricing
+										</h2>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant"
+										>
+											Transparent pricing in Philippine Peso (₱) before work
+											begins. Zero unexpected charges.
+										</p>
+									</div>
+									<span
+										class="px-space-sm py-1 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold rounded"
+										>Transparent PHP Rates</span
+									>
+								</div>
+								<div class="space-y-space-xs">
+									<div
+										class="grid grid-cols-12 p-space-sm bg-surface-container font-label-sm text-label-sm uppercase tracking-wider text-outline rounded"
+									>
+										<div class="col-span-6">Service Category</div>
+										<div class="col-span-3">Standard Scope</div>
+										<div class="col-span-3 text-right">Fixed Cost / Rate</div>
+									</div>
+									<div
+										class="grid grid-cols-12 p-space-sm bg-surface-container-low hover:bg-surface-container transition-colors rounded items-center"
+									>
+										<div class="col-span-6">
+											<span
+												class="font-headline-sm text-headline-sm text-on-surface block"
+												>Diagnostic &amp; Scope / On-Site Camera
+												Inspection</span
+											><span
+												class="font-body-sm text-body-sm text-on-surface-variant"
+												>Comprehensive fiber optic scan, leak diagnostic &amp;
+												written quotation</span
+											>
+										</div>
+										<div
+											class="col-span-3 font-body-sm text-body-sm text-on-surface-variant"
+										>
+											First 45 Mins
+										</div>
+										<div
+											class="col-span-3 text-right font-price-display text-price-display text-on-surface font-bold"
+										>
+											₱550
+											<span
+												class="font-label-sm text-label-sm text-secondary font-normal block"
+												>Waived if work proceeds</span
+											>
+										</div>
+									</div>
+									<div
+										class="grid grid-cols-12 p-space-sm bg-surface-container-lowest hover:bg-surface-container-low transition-colors rounded items-center"
+									>
+										<div class="col-span-6">
+											<span
+												class="font-headline-sm text-headline-sm text-on-surface block"
+												>Emergency Pipe Burst / Slab Leak Repair</span
+											><span
+												class="font-body-sm text-body-sm text-on-surface-variant"
+												>Rapid leak isolation, PPR soldering/replacement,
+												pressure testing</span
+											>
+										</div>
+										<div
+											class="col-span-3 font-body-sm text-body-sm text-on-surface-variant"
+										>
+											Standard Repair
+										</div>
+										<div
+											class="col-span-3 text-right font-price-display text-price-display text-on-surface font-bold"
+										>
+											₱1,200 – ₱2,500
+											<span
+												class="font-label-sm text-label-sm text-outline font-normal block"
+												>labor + fittings</span
+											>
+										</div>
+									</div>
+									<div
+										class="grid grid-cols-12 p-space-sm bg-surface-container-low hover:bg-surface-container transition-colors rounded items-center"
+									>
+										<div class="col-span-6">
+											<span
+												class="font-headline-sm text-headline-sm text-on-surface block"
+												>Toilet / Floor Drain Hydro-Jet Unclogging</span
+											><span
+												class="font-body-sm text-body-sm text-on-surface-variant"
+												>Mechanical auger &amp; high-pressure hydro-jet flush,
+												sanitization</span
+											>
+										</div>
+										<div
+											class="col-span-3 font-body-sm text-body-sm text-on-surface-variant"
+										>
+											Fixed Package
+										</div>
+										<div
+											class="col-span-3 text-right font-price-display text-price-display text-on-surface font-bold"
+										>
+											₱850
+											<span
+												class="font-label-sm text-label-sm text-on-surface-variant font-normal block"
+												>fixed per fixture</span
+											>
+										</div>
+									</div>
+									<div
+										class="grid grid-cols-12 p-space-sm bg-surface-container-lowest hover:bg-surface-container-low transition-colors rounded items-center"
+									>
+										<div class="col-span-6">
+											<span
+												class="font-headline-sm text-headline-sm text-on-surface block"
+												>Booster Pump &amp; Pressure Tank Servicing</span
+											><span
+												class="font-body-sm text-body-sm text-on-surface-variant"
+												>Diaphragm recalibration, pressure switch adjustment,
+												check valves</span
+											>
+										</div>
+										<div
+											class="col-span-3 font-body-sm text-body-sm text-on-surface-variant"
+										>
+											Turnkey Service
+										</div>
+										<div
+											class="col-span-3 text-right font-price-display text-price-display text-on-surface font-bold"
+										>
+											₱1,800
+											<span
+												class="font-label-sm text-label-sm text-on-surface-variant font-normal block"
+												>turnkey service</span
+											>
+										</div>
+									</div>
+								</div>
+								<div
+									class="mt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-space-xs"
+								>
+									<span
+										class="font-semibold text-secondary flex items-center gap-1"
+										><span class="material-symbols-outlined text-[16px]"
+											>military_tech</span
+										>Senior Citizen &amp; PWD 20% Civic Discount honored on all
+										standard labor</span
+									><span
+										class="text-primary font-semibold cursor-pointer hover:underline"
+										>Download Written Itemized Rate Card (PDF)</span
+									>
+								</div>
+							</section>
+							<!-- Customer Testimonials with Verified Badges & Neighborhoods -->
+							<section
+								class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md"
+							>
+								<div class="flex items-center justify-between">
+									<div>
+										<h2
+											class="font-headline-md text-headline-md text-on-surface"
+										>
+											Verified Metro Manila Community Reviews
+										</h2>
+										<p
+											class="font-body-sm text-body-sm text-on-surface-variant"
+										>
+											Authentic transaction feedback verified through Craigslist
+											Relay and work orders
+										</p>
+									</div>
+									<div
+										class="flex items-center gap-1 font-label-md text-label-md text-secondary"
+									>
+										<span class="material-symbols-outlined text-[18px]"
+											>verified</span
+										><span class="">100% Verified NCR Clients</span>
+									</div>
+								</div>
+								<div class="space-y-space-sm">
+									<div
+										class="p-space-md bg-surface-container-low rounded-lg space-y-space-xs"
+									>
+										<div class="flex items-start justify-between">
+											<div class="flex items-center gap-space-sm">
+												<div
+													class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold"
+												>
+													DH
+												</div>
+												<div>
+													<div class="flex items-center gap-space-xs">
+														<span
+															class="font-headline-sm text-headline-sm text-on-surface"
+															>David H.</span
+														><span
+															class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold"
+															>Verified Client</span
+														>
+													</div>
+													<span
+														class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"
+														><span
+															class="material-symbols-outlined text-[14px] text-primary"
+															>location_on</span
+														><span class=""
+															>San Lorenzo, Makati • Emergency Pipe Burst</span
+														></span
+													>
+												</div>
+											</div>
+											<div class="flex items-center text-tertiary-container">
+												<span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="font-label-sm text-label-sm text-on-surface ml-1 font-bold"
+													>5.0</span
+												>
+											</div>
+										</div>
+										<p class="font-body-md text-body-md text-on-surface">
+											“Danilo arrived in San Lorenzo within 20 minutes after our
+											main supply pipe burst on a Sunday afternoon. He handled
+											the village gate pass quickly, used an endoscopic camera
+											to locate the exact leak behind the tile, and replaced the
+											PPR pipe neatly before evening. Very honest pricing.”
+										</p>
+										<div class="text-outline font-label-sm text-label-sm">
+											Reviewed on Oct 14, 2024 • Verified Craigslist Relay
+											Transaction
+										</div>
+									</div>
+									<div
+										class="p-space-md bg-surface-container-low rounded-lg space-y-space-xs"
+									>
+										<div class="flex items-start justify-between">
+											<div class="flex items-center gap-space-sm">
+												<div
+													class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-headline-sm text-headline-sm font-bold"
+												>
+													MS
+												</div>
+												<div>
+													<div class="flex items-center gap-space-xs">
+														<span
+															class="font-headline-sm text-headline-sm text-on-surface"
+															>Maria Santos</span
+														><span
+															class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold"
+															>Verified Client</span
+														>
+													</div>
+													<span
+														class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"
+														><span
+															class="material-symbols-outlined text-[14px] text-primary"
+															>location_on</span
+														><span class=""
+															>BGC, Taguig • Booster Pump &amp; Water
+															Heater</span
+														></span
+													>
+												</div>
+											</div>
+											<div class="flex items-center text-tertiary-container">
+												<span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="font-label-sm text-label-sm text-on-surface ml-1 font-bold"
+													>5.0</span
+												>
+											</div>
+										</div>
+										<p class="font-body-md text-body-md text-on-surface">
+											“Installed our multi-point water heater and calibrated the
+											condo booster pump. Danilo submitted all building permit
+											documents to the property administration smoothly and
+											finished the job in under 2 hours. Provided official
+											receipt right away.”
+										</p>
+										<div class="text-outline font-label-sm text-label-sm">
+											Reviewed on Sep 29, 2024 • Verified Craigslist Relay
+											Transaction
+										</div>
+									</div>
+									<div
+										class="p-space-md bg-surface-container-low rounded-lg space-y-space-xs"
+									>
+										<div class="flex items-start justify-between">
+											<div class="flex items-center gap-space-sm">
+												<div
+													class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center font-headline-sm text-headline-sm font-bold"
+												>
+													RV
+												</div>
+												<div>
+													<div class="flex items-center gap-space-xs">
+														<span
+															class="font-headline-sm text-headline-sm text-on-surface"
+															>Atty. Ramon V.</span
+														><span
+															class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold"
+															>Verified Client</span
+														>
+													</div>
+													<span
+														class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"
+														><span
+															class="material-symbols-outlined text-[14px] text-primary"
+															>location_on</span
+														><span class=""
+															>Bel-Air, Makati • Hydro-Jet Unclogging</span
+														></span
+													>
+												</div>
+											</div>
+											<div class="flex items-center text-tertiary-container">
+												<span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="material-symbols-outlined text-[18px]"
+													style="font-variation-settings: &quot;FILL&quot; 1"
+													>star</span
+												><span
+													class="font-label-sm text-label-sm text-on-surface ml-1 font-bold"
+													>5.0</span
+												>
+											</div>
+										</div>
+										<p class="font-body-md text-body-md text-on-surface">
+											“Cleared an obstinate tree root obstruction in our sewer
+											drain using high-pressure hydro-jetting without breaking
+											our driveway tiles. Honored our senior citizen discount
+											with courtesy. A true professional master plumber.”
+										</p>
+										<div class="text-outline font-label-sm text-label-sm">
+											Reviewed on Sep 12, 2024 • Verified Craigslist Relay
+											Transaction
+										</div>
+									</div>
+								</div>
+								<button
+									class="w-full py-space-sm rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1"
+									type="button"
+								>
+									<span class="">Read All 152 Verified Client Testimonials</span
+									><span class="material-symbols-outlined text-[16px]"
+										>expand_more</span
+									>
+								</button>
+							</section>
+						</div>
+						<!-- RIGHT 4-COLUMN PERSISTENT ACTION SIDEBAR -->
+						<aside class="lg:col-span-4 space-y-space-md lg:sticky lg:top-28">
+							<!-- Primary Action Card (Initiate Contact) -->
+							<div
+								class="bg-surface-container-lowest rounded-xl p-space-md shadow-md space-y-space-md"
+							>
+								<div class="space-y-space-xs">
+									<div class="flex items-center justify-between">
+										<span
+											class="font-label-sm text-label-sm uppercase font-bold tracking-wider text-secondary"
+											>⚡ Available Now</span
+										><span
+											class="flex items-center gap-1 text-secondary font-label-sm text-label-sm font-semibold"
+											><span
+												class="w-2 h-2 rounded-full bg-secondary animate-pulse"
+											></span
+											><span class=""
+												>Emergency Dispatch in Makati &amp; BGC</span
+											></span
+										>
+									</div>
+									<div class="flex items-baseline gap-space-xs">
+										<span
+											class="font-headline-xl text-headline-xl text-on-surface font-bold"
+											>Open for Bookings</span
+										>
+									</div>
+									<p
+										class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"
+									>
+										<span
+											class="material-symbols-outlined text-[16px] text-primary"
+											>bolt</span
+										><span class="">~10–15 mins average response time</span>
+									</p>
+								</div>
+								<div class="space-y-space-xs">
+									<button
+										class="w-full h-12 bg-primary hover:bg-primary-container text-on-primary rounded font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs shadow-md active:translate-y-0.5 transition-all"
+										id="btn-message-provider"
+										onclick="toggleContactModal()"
+										type="button"
+									>
+										<span class="material-symbols-outlined text-[22px]"
+											>chat</span
+										><span class="">Message Danilo Silva Now</span></button
+									><button
+										class="w-full h-11 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md font-semibold flex items-center justify-center gap-space-xs shadow-sm transition-all"
+										id="btn-reveal-phone"
+										onclick="revealDirectPhone()"
+										type="button"
+									>
+										<span
+											class="material-symbols-outlined text-[20px] text-primary"
+											>call</span
+										><span id="phone-display-text" class=""
+											>Request Dispatch Call / Quote</span
+										>
+									</button>
+								</div>
+								<div
+									class="p-space-sm bg-surface-container-low rounded-lg space-y-space-xs"
+								>
+									<div
+										class="flex items-center gap-1 text-on-surface font-label-md text-label-md font-bold"
+									>
+										<span
+											class="material-symbols-outlined text-[18px] text-secondary"
+											>verified_user</span
+										><span class="">Craigslist Safe Relay Active</span>
+									</div>
+									<p
+										class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+									>
+										All messages and quotes are secured. Never wire money or
+										send personal GCash transfers prior to in-person inspection
+										and written scope.
+									</p>
+									<a
+										class="font-label-sm text-label-sm text-primary hover:underline block pt-1"
+										href="#"
+										>Learn about Safe Contractor Guarantees →</a
+									>
+								</div>
+								<div class="space-y-space-xs font-body-sm text-body-sm">
+									<div
+										class="flex items-center justify-between py-1 text-on-surface"
+									>
+										<span
+											class="text-on-surface-variant flex items-center gap-1"
+											><span
+												class="material-symbols-outlined text-[16px] text-primary"
+												>schedule</span
+											><span class="">Operating Hours</span></span
+										><span class="font-semibold"
+											>Mon–Sat: 7:00 AM – 7:00 PM</span
+										>
+									</div>
+									<div
+										class="flex items-center justify-between py-1 text-on-surface"
+									>
+										<span
+											class="text-on-surface-variant flex items-center gap-1"
+											><span
+												class="material-symbols-outlined text-[16px] text-error"
+												>emergency</span
+											><span class="">Emergency On-Call</span></span
+										><span class="font-semibold text-secondary"
+											>24/7 Priority Response</span
+										>
+									</div>
+									<div
+										class="flex items-center justify-between py-1 text-on-surface"
+									>
+										<span
+											class="text-on-surface-variant flex items-center gap-1"
+											><span
+												class="material-symbols-outlined text-[16px] text-primary"
+												>location_city</span
+											><span class="">Core Coverage</span></span
+										><span class="font-semibold"
+											>Makati, BGC, Ortigas, Mandaluyong</span
+										>
+									</div>
+									<div
+										class="flex items-center justify-between py-1 text-on-surface"
+									>
+										<span
+											class="text-on-surface-variant flex items-center gap-1"
+											><span
+												class="material-symbols-outlined text-[16px] text-secondary"
+												>payments</span
+											><span class="">Payment Accepted</span></span
+										><span class="font-semibold"
+											>Cash, GCash, Maya, Bank Transfer</span
+										>
+									</div>
+								</div>
+							</div>
+							<!-- Service Radius & Coverage Map Card -->
+							<div
+								class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm"
+							>
+								<div class="flex items-center justify-between">
+									<h3 class="font-headline-sm text-headline-sm text-on-surface">
+										Operating Service Radius
+									</h3>
+									<span class="font-label-sm text-label-sm text-outline"
+										>Updated Today</span
+									>
+								</div>
+								<div
+									class="w-full h-44 rounded-lg bg-cover bg-center relative overflow-hidden shadow-inner"
+									data-location="Makati, Taguig, BGC, Mandaluyong, Pasig, Quezon City, San Juan, Philippines"
+									style="
+										background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB5KwusKaWIU5oOUsBDfQXVSjPLCoATwk4ceo665kJPN1mNxTupihgVS3jUbKMsIOwLN4sQttOGu6z8to9wk3WODruX7Jz5YvwWI4dU0Ong5ieEM_ZBhX_027w88Rbs2UtdIlx6_8P72JOOpDg6HHmKCLZ60c_zq3TSQJ8YlkW4OF6cKU0h6L3xTQtseYlwZOuxA1uwBJNduoLGdmRQiHQ1H--0N66REzComB0ts2s&quot;);
+									"
+								>
+									<div
+										class="absolute inset-0 bg-primary/10 flex items-center justify-center"
+									>
+										<div
+											class="bg-surface-container-lowest/95 backdrop-blur-md px-space-sm py-1 rounded shadow-md text-center"
+										>
+											<span
+												class="font-label-sm text-label-sm font-bold text-on-surface block"
+												>Metro Manila Dispatch Core</span
+											><span class="font-body-sm text-body-sm text-secondary"
+												>Avg. 20m Arrival Time</span
+											>
+										</div>
+									</div>
+								</div>
+								<div class="space-y-1">
+									<span
+										class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold"
+										>Frequent Municipal Coverage:</span
+									>
+									<div class="flex flex-wrap gap-1">
+										<span
+											class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface"
+											>Makati</span
+										><span
+											class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface"
+											>Taguig / BGC</span
+										><span
+											class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface"
+											>Mandaluyong</span
+										><span
+											class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface"
+											>Pasig</span
+										><span
+											class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface"
+											>Quezon City</span
+										><span
+											class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface"
+											>San Juan</span
+										>
+									</div>
+								</div>
+							</div>
+							<!-- Listing Trust Footnote -->
+							<div
+								class="p-space-sm rounded-lg bg-surface-container-low flex items-center gap-space-sm"
+							>
+								<span class="material-symbols-outlined text-[20px] text-outline"
+									>flag</span
+								>
+								<div
+									class="flex-1 font-body-sm text-body-sm text-on-surface-variant"
+								>
+									Notice an inaccuracy in licensing or listing claims?
+								</div>
+								<button
+									class="text-error font-label-sm text-label-sm font-semibold hover:underline"
+									type="button"
+								>
+									Report Ad
+								</button>
+							</div>
+						</aside>
+					</div>
+					<!-- Inline Contact Modal / Slideover Trigger Layer -->
+					<div
+						class="hidden fixed inset-0 z-50 flex items-center justify-center p-space-md bg-inverse-surface/60 backdrop-blur-sm"
+						id="contact-modal"
+					>
+						<div
+							class="w-full max-w-lg bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+						>
+							<div
+								class="p-space-md bg-primary text-on-primary flex items-center justify-between"
+							>
+								<div class="flex items-center gap-space-sm">
+									<span class="material-symbols-outlined text-[24px]"
+										>mark_email_read</span
+									>
+									<div>
+										<h3 class="font-headline-sm text-headline-sm font-bold">
+											Contact Danilo Silva (PRC Master Plumber)
+										</h3>
+										<p class="font-body-sm text-body-sm opacity-90">
+											Protected by Craigslist Relay Masking
+										</p>
+									</div>
+								</div>
+								<button
+									class="text-on-primary hover:opacity-80"
+									onclick="toggleContactModal()"
+									type="button"
+								>
+									<span class="material-symbols-outlined text-[24px]"
+										>close</span
+									>
+								</button>
+							</div>
+							<form
+								class="p-space-md space-y-space-sm"
+								id="contact-form"
+								onsubmit="handleContactSubmit(event)"
+							>
+								<div>
+									<label
+										class="block font-label-md text-label-md text-on-surface font-semibold mb-1"
+										for="user-name"
+										>Your Full Name</label
+									>
+									<input
+										class="w-full h-11 px-space-sm rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary"
+										id="user-name"
+										placeholder="Jane Doe"
+										required=""
+										type="text"
+									/>
+								</div>
+								<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+									<div>
+										<label
+											class="block font-label-md text-label-md text-on-surface font-semibold mb-1"
+											for="user-email"
+											>Email or Phone</label
+										>
+										<input
+											class="w-full h-11 px-space-sm rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary"
+											id="user-email"
+											placeholder="Relay will mask this"
+											required=""
+											type="text"
+										/>
+									</div>
+									<div>
+										<label
+											class="block font-label-md text-label-md text-on-surface font-semibold mb-1"
+											for="user-neighborhood"
+											>Your Metro Manila City / District</label
+										>
+										<input
+											class="w-full h-11 px-space-sm rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary"
+											id="user-neighborhood"
+											placeholder="e.g. Makati, BGC, New Manila"
+											type="text"
+										/>
+									</div>
+								</div>
+								<div>
+									<label
+										class="block font-label-md text-label-md text-on-surface font-semibold mb-1"
+										for="job-type"
+										>Service Required</label
+									>
+									<select
+										class="w-full h-11 px-space-sm rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary"
+										id="job-type"
+									>
+										<option>Emergency Pipe Burst or Active Leak</option>
+										<option>Seismic Automatic Gas Shut-Off Valve</option>
+										<option>Water Heater Retrofit or Heat Pump Upgrade</option>
+										<option>Sewer Line Inspection &amp; Clearing</option>
+										<option>General Plumbing Repair / Hourly Scope</option>
+									</select>
+								</div>
+								<div>
+									<label
+										class="block font-label-md text-label-md text-on-surface font-semibold mb-1"
+										for="user-message"
+										>Description of Work</label
+									>
+									<textarea
+										class="w-full p-space-sm rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary"
+										id="user-message"
+										placeholder="Describe what needs repair, any symptoms, and preferred time for inspection..."
+										required=""
+										rows="3"
+									></textarea>
+								</div>
+								<div
+									class="p-space-xs bg-surface-container rounded text-outline font-label-sm text-label-sm flex items-center gap-1"
+								>
+									<span
+										class="material-symbols-outlined text-[16px] text-secondary"
+										>lock</span
+									>
+									<span class=""
+										>A copy of this inquiry will be logged in your Craigslist
+										"My Inquiries" inbox.</span
+									>
+								</div>
+								<div
+									class="flex items-center justify-end gap-space-sm pt-space-xs"
+								>
+									<button
+										class="px-space-md py-2 rounded text-on-surface font-label-md text-label-md hover:bg-surface-container"
+										onclick="toggleContactModal()"
+										type="button"
+									>
+										Cancel
+									</button>
+									<button
+										class="px-space-lg py-2.5 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-bold shadow-md transition-colors"
+										type="submit"
+									>
+										Send Secure Message
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- Interactive Logic for Carousel & Modal Contacts -->
+					<script>
+						const galleryItems = [
+							{
+								tag: "Before & After Re-Pipe",
+								caption:
+									"Whole-home copper to PEX repipe and smart flow sensor (Berkeley Hills)",
+								alt: "High detail split photo comparison of an old corroded galvanised pipe replacement side by side with newly installed pristine PEX and copper distribution manifold in an East Bay Craftsman basement.",
+							},
+							{
+								tag: "Equipment & Diagnostics",
+								caption:
+									"Precision Ridgid sewer inspection camera with localized sonde radio beacon",
+								alt: "Close up of neat copper solder joints and smart water shutoff valve unit installed inside utility closet.",
+							},
+							{
+								tag: "Trenchless Excavation",
+								caption:
+									"Minimal-impact backyard sewer lateral replacement with zero landscape damage",
+								alt: "Trenchless sewer lateral replacement machine setup with certified operators on residential Berkeley driveway.",
+							},
+							{
+								tag: "Eco Heat Pump Upgrade",
+								caption:
+									"ENERGY STAR certified hybrid electric water heater with thermal expansion tank",
+								alt: "Rheem heat pump water heater modern installation with expansion tank and seismic strapping up to California code.",
+							},
+							{
+								tag: "Service Fleet & Tooling",
+								caption:
+									"Fully equipped mobile emergency workshop stocking 400+ brass and copper fittings",
+								alt: "Bay Precision service van interior stocked with organized Ridgid tools, brass fittings, and clean testing equipment.",
+							},
+						];
+
+						let currentSlide = 0;
+
+						function setSlide(index) {
+							currentSlide = index;
+							const img = document.getElementById("main-gallery-view");
+							const tag = document.getElementById("gallery-tag");
+							const caption = document.getElementById("gallery-caption");
+							const counter = document.getElementById("carousel-counter");
+
+							if (img && tag && caption && counter) {
+								tag.textContent = galleryItems[index].tag;
+								caption.textContent = galleryItems[index].caption;
+								counter.textContent = `Image ${index + 1} of ${galleryItems.length}`;
+								img.setAttribute("data-alt", galleryItems[index].alt);
+							}
+						}
+
+						function nextSlide() {
+							currentSlide = (currentSlide + 1) % galleryItems.length;
+							setSlide(currentSlide);
+						}
+
+						function prevSlide() {
+							currentSlide =
+								(currentSlide - 1 + galleryItems.length) % galleryItems.length;
+							setSlide(currentSlide);
+						}
+
+						function toggleContactModal() {
+							const modal = document.getElementById("contact-modal");
+							if (modal) {
+								modal.classList.toggle("hidden");
+							}
+						}
+
+						function revealDirectPhone() {
+							const btn = document.getElementById("btn-reveal-phone");
+							const text = document.getElementById("phone-display-text");
+							if (text && btn) {
+								text.innerHTML =
+									'<span class="font-bold text-primary">(510) 555-0194</span> • Dispatch Tap to Call';
+								btn.classList.add("bg-surface-container-highest");
+							}
+						}
+
+						function handleContactSubmit(event) {
+							event.preventDefault();
+							const form = document.getElementById("contact-form");
+							if (form) {
+								form.innerHTML = `
+          <div class="py-8 text-center space-y-3">
+            <span class="material-symbols-outlined text-[48px] text-secondary">check_circle</span>
+            <h4 class="font-headline-md text-headline-md font-bold text-on-surface">Message Routed Successfully!</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm mx-auto">
+              Your inquiry has been relayed to Marco Silva. An SMS dispatch has been triggered and you will receive a notification in your Craigslist inbox shortly.
+            </p>
+            <div class="pt-4">
+              <button type="button" onclick="toggleContactModal()" class="px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md font-bold">
+                Close Window
+              </button>
+            </div>
+          </div>
+        `;
+							}
+						}
+					</script>
+				</div>
+			</div>
+		</main>
+		<footer
+			class="w-full bg-surface-container-low mt-space-xl shadow-[0_-1px_6px_rgba(0,0,0,0.03)]"
+		>
+			<div class="max-w-[1440px] mx-auto px-margin py-space-xl">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-space-lg">
+					<div class="space-y-space-sm">
+						<div class="flex items-center gap-space-xs">
+							<div class="flex items-center gap-1">
+								<img
+									src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsHDnAsc3GteNn1TBBLR38ENfZNrfi1P1H7qOqJu_y2ExJPsvPK4ukJ16A1KoH3OISqt6uDhUeEEYTULIis4-XREmpfwoVPd6TB8QA5TiTnOa6Z3X3f2PR3aIgN-8V2ZQuymy4yfgTwa3CXlNGEE7Gnat72sjyrcagCryb5Eo_lbgn0Ulg5qq7v8SQF2JOsqaCVv-Vqonc3Px9BYonVsTldW34gJBJQlBbQi8wlbK3LWNOPdby7Yg4"
+									alt="craigslist symbol"
+									class="h-8 w-8 object-contain inline-block"
+								/><img
+									src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXyBLuq_39M91874tNmINoagkkk_0f1cQzCv8ULXPai5db_ecj4nIbliZkIOSdaFZ5xouP7Ohye-eMgMj8IDdqefuabmcwyBdJFwvUd3lFviYKih8wOVrZOAHQdSIIo67cBX6nVmmLx4sDOPXpFb-OYXCjuf-tK09M3G9kgVsM_iXOCiJ2SoehjdnPT26DY97GScRvdpP5SsoGrrD_sCRGqg_QSF8yh0-ZBlpISWTDZKMlDjiMVE-V"
+									alt="craigslist"
+									class="h-6 w-auto object-contain inline-block ml-2"
+								/>
+							</div>
+							<span
+								class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-bold"
+								>MODERN</span
+							>
+						</div>
+						<p class="font-body-sm text-body-sm text-on-surface-variant">
+							Radically clear, direct, and high-trust peer-to-peer exchange for
+							local communities.
+						</p>
+						<div
+							class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm"
+						>
+							<span class="material-symbols-outlined text-[18px]">verified</span
+							><span class="">Verified Local Network</span>
+						</div>
+					</div>
+					<div class="space-y-space-xs">
+						<h4
+							class="font-label-lg text-label-lg font-bold text-on-surface uppercase tracking-wider mb-space-sm"
+						>
+							Trust &amp; Safety
+						</h4>
+						<ul
+							class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"
+						>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Safety Guidelines &amp; Scam Avoidance
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Safe Exchange Zones
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Identity &amp; Phone Verification
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Report Abuse &amp; Suspicious Listings
+							</li>
+						</ul>
+					</div>
+					<div class="space-y-space-xs">
+						<h4
+							class="font-label-lg text-label-lg font-bold text-on-surface uppercase tracking-wider mb-space-sm"
+						>
+							Community &amp; Policy
+						</h4>
+						<ul
+							class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"
+						>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Community Guidelines
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Prohibited Items &amp; Content
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Terms of Use
+							</li>
+							<li class="hover:text-primary cursor-pointer transition-colors">
+								Privacy Policy
+							</li>
+						</ul>
+					</div>
+					<div class="space-y-space-sm">
+						<h4
+							class="font-label-lg text-label-lg font-bold text-on-surface uppercase tracking-wider mb-space-sm"
+						>
+							Civic Utility &amp; Preferences
+						</h4>
+						<div class="flex flex-col gap-space-xs">
+							<label class="font-label-sm text-label-sm text-outline uppercase"
+								>Region &amp; Language</label
+							>
+							<div class="flex items-center gap-space-xs">
+								<div class="flex items-center gap-space-sm">
+									<div
+										class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container text-on-surface text-body-sm"
+									>
+										<img
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsHDnAsc3GteNn1TBBLR38ENfZNrfi1P1H7qOqJu_y2ExJPsvPK4ukJ16A1KoH3OISqt6uDhUeEEYTULIis4-XREmpfwoVPd6TB8QA5TiTnOa6Z3X3f2PR3aIgN-8V2ZQuymy4yfgTwa3CXlNGEE7Gnat72sjyrcagCryb5Eo_lbgn0Ulg5qq7v8SQF2JOsqaCVv-Vqonc3Px9BYonVsTldW34gJBJQlBbQi8wlbK3LWNOPdby7Yg4"
+											alt="craigslist symbol"
+											class="h-8 w-8 object-contain inline-block"
+										/><img
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXyBLuq_39M91874tNmINoagkkk_0f1cQzCv8ULXPai5db_ecj4nIbliZkIOSdaFZ5xouP7Ohye-eMgMj8IDdqefuabmcwyBdJFwvUd3lFviYKih8wOVrZOAHQdSIIo67cBX6nVmmLx4sDOPXpFb-OYXCjuf-tK09M3G9kgVsM_iXOCiJ2SoehjdnPT26DY97GScRvdpP5SsoGrrD_sCRGqg_QSF8yh0-ZBlpISWTDZKMlDjiMVE-V"
+											alt="craigslist"
+											class="h-6 w-auto object-contain inline-block ml-2"
+										/>
+									</div>
+									<div
+										class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container text-on-surface text-body-sm"
+									>
+										<img
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsHDnAsc3GteNn1TBBLR38ENfZNrfi1P1H7qOqJu_y2ExJPsvPK4ukJ16A1KoH3OISqt6uDhUeEEYTULIis4-XREmpfwoVPd6TB8QA5TiTnOa6Z3X3f2PR3aIgN-8V2ZQuymy4yfgTwa3CXlNGEE7Gnat72sjyrcagCryb5Eo_lbgn0Ulg5qq7v8SQF2JOsqaCVv-Vqonc3Px9BYonVsTldW34gJBJQlBbQi8wlbK3LWNOPdby7Yg4"
+											alt="craigslist symbol"
+											class="h-8 w-8 object-contain inline-block"
+										/><img
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXyBLuq_39M91874tNmINoagkkk_0f1cQzCv8ULXPai5db_ecj4nIbliZkIOSdaFZ5xouP7Ohye-eMgMj8IDdqefuabmcwyBdJFwvUd3lFviYKih8wOVrZOAHQdSIIo67cBX6nVmmLx4sDOPXpFb-OYXCjuf-tK09M3G9kgVsM_iXOCiJ2SoehjdnPT26DY97GScRvdpP5SsoGrrD_sCRGqg_QSF8yh0-ZBlpISWTDZKMlDjiMVE-V"
+											alt="craigslist"
+											class="h-6 w-auto object-contain inline-block ml-2"
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pt-space-xs">
+							<p class="font-label-sm text-label-sm text-outline">
+								Open Web Protocol • Non-commercial Data Stance
+							</p>
+						</div>
+					</div>
+				</div>
+				<div
+					class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-gutter font-body-sm text-body-sm text-on-surface-variant"
+				>
+					<div class="flex items-center gap-space-sm">
+						<span class=""
+							>© 2025 Craigslist. Civic peer-to-peer exchange.</span
+						>
+					</div>
+					<div class="flex items-center gap-space-md">
+						<a class="hover:text-primary transition-colors" href="#"
+							>System Status</a
+						><a class="hover:text-primary transition-colors" href="#"
+							>Help Center</a
+						><a class="hover:text-primary transition-colors" href="#"
+							>Contact Civic Desk</a
+						>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
