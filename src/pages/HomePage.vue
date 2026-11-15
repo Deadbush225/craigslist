@@ -12,24 +12,23 @@ import { categories, listings } from '../data/mockData'
       </div>
 
       <div class="directory-hero card">
-        <div class="hero-copy">
-          <h1>Civic peer exchange for the neighborhood you actually live in.</h1>
-          <p>Search verified contractors, service pros, and local product offers right in your metro area.</p>
-
+          <div class="hero-copy">
+              <h1>Search verified contractors, service pros, and local product offers right in your area.</h1>
+              
+              <div class="search-panel__location">
+                <span class="material-symbols-outlined">near_me</span>
+                <div>
+                  <small>Neighborhood</small>
+                  <strong>Makati / BGC (5km)</strong>
+                </div>
+              </div>
           <div class="search-panel">
             <div class="search-panel__input">
               <span class="material-symbols-outlined">search</span>
               <input type="text" placeholder="Search furniture, licensed electricians, studio apartments, cargo bikes..." />
             </div>
-            <div class="search-panel__location">
-              <span class="material-symbols-outlined">near_me</span>
-              <div>
-                <small>Neighborhood</small>
-                <strong>Makati / BGC (5km)</strong>
-              </div>
-            </div>
-            <BaseButton to="/services">Find Listings</BaseButton>
-          </div>
+        </div>
+        <BaseButton to="/services">Find Listings</BaseButton>
 
           <div class="quick-query-row">
             <span>Popular Queries:</span>

@@ -52,18 +52,6 @@ import BaseButton from '../components/BaseButton.vue'
           <button type="button" class="social-button">Apple</button>
         </div>
       </div>
-
-      <div class="promo-side">
-        <div class="card promo-card">
-          <span class="eyebrow">Why people use Craigslist</span>
-          <h2>Book help faster and stay in control</h2>
-          <ul>
-            <li>Verified local professionals</li>
-            <li>Quick messaging and pricing</li>
-            <li>Secure, simple booking flow</li>
-          </ul>
-        </div>
-      </div>
     </div>
   </div>
 </template>

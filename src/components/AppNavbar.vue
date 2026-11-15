@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseButton from './BaseButton.vue'
+import Logo from '../assets/logo.png'
 </script>
 
 <template>
@@ -7,8 +8,7 @@ import BaseButton from './BaseButton.vue'
     <div class="container header-inner header-inner--wide">
       <div class="brand-wrap">
         <RouterLink to="/" class="brand" aria-label="Go to home page">
-          <span class="brand-mark">C</span>
-          <span class="brand-text">Craigslist</span>
+          <img :src="Logo" alt="Craigslist logo" class="brand-logo" />
         </RouterLink>
       </div>
 

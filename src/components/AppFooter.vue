@@ -1,10 +1,13 @@
+<script setup lang="ts">
+import Logo from '../assets/logo.png';
+</script>
+
 <template>
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
         <div class="brand footer-brand">
-          <span class="brand-mark">C</span>
-          <span class="brand-text">Craigslist</span>
+          <img :src="Logo" class="brand-logo"/>
         </div>
         <p>Find trusted local help for everyday tasks, home projects, and care services.</p>
       </div>
@@ -30,3 +33,9 @@
     </div>
   </footer>
 </template>
+
+<style>
+    .site-footer .brand-logo {
+        filter: hue-rotate(523deg) invert(100%);
+    }
+</style>
