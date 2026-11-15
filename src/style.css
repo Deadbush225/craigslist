@@ -95,7 +95,7 @@ ul {
 }
 
 .container {
-  width: min(var(--container), calc(100% - 40px));
+  width: calc(100% - 20em);
   margin: 0 auto;
 }
 
