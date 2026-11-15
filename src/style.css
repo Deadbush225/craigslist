@@ -1,4 +1,6 @@
- :root {
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap');
+
+:root {
   --bg: #f4f6ff;
   --bg-soft: #eef2ff;
   --surface: #ffffff;
@@ -32,6 +34,22 @@ body {
   background: linear-gradient(180deg, #f7f9ff 0%, #eef4ff 100%);
   color: var(--text);
   font-family: Inter, 'Segoe UI', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 img {
