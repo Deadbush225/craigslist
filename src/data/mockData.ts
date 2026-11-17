@@ -33,12 +33,12 @@ export type Provider = {
 }
 
 export const categories: Category[] = [
-  { name: 'Home Services', icon: '🏠', description: 'Repairs & maintenance' },
-  { name: 'Design', icon: '🎨', description: 'Styling & layout' },
-  { name: 'Wellness', icon: '💆', description: 'Self care & fitness' },
-  { name: 'EV & Auto', icon: '🚗', description: 'Tune-ups & upgrades' },
-  { name: 'Tech Help', icon: '💻', description: 'Setup & troubleshooting' },
-  { name: 'Events', icon: '🎉', description: 'Planning & coordination' },
+  { name: 'Home Services', icon: 'home_repair_service', description: 'Repairs & maintenance' },
+  { name: 'Design', icon: 'palette', description: 'Styling & layout' },
+  { name: 'Wellness', icon: 'self_improvement', description: 'Self care & fitness' },
+  { name: 'EV & Auto', icon: 'directions_car', description: 'Tune-ups & upgrades' },
+  { name: 'Tech Help', icon: 'desktop_windows', description: 'Setup & troubleshooting' },
+  { name: 'Events', icon: 'celebration', description: 'Planning & coordination' },
 ]
 
 export const listings: Listing[] = [

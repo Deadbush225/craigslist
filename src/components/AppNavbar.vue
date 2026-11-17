@@ -25,7 +25,7 @@ import Logo from '../assets/logo.png'
       <nav class="main-nav" aria-label="Main navigation">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/services">Services</RouterLink>
-        <RouterLink to="/dashboard">Dashboard</RouterLink>
+        <!-- <RouterLink to="/dashboard">Dashboard</RouterLink> -->
         <RouterLink to="/messaging">Messages</RouterLink>
         <RouterLink to="/provider/1">Provider</RouterLink>
       </nav>

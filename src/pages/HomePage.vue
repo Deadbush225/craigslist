@@ -14,15 +14,14 @@ import { categories, listings } from '../data/mockData'
       <div class="directory-hero card">
           <div class="hero-copy">
               <h1>Search verified contractors, service pros, and local product offers right in your area.</h1>
-              
-              <div class="search-panel__location">
+          <div class="search-panel">
+            <div class="search-panel__location">
                 <span class="material-symbols-outlined">near_me</span>
                 <div>
-                  <small>Neighborhood</small>
-                  <strong>Makati / BGC (5km)</strong>
+                    <small>Neighborhood</small>
+                    <strong>Makati / BGC (5km)</strong>
                 </div>
-              </div>
-          <div class="search-panel">
+            </div>
             <div class="search-panel__input">
               <span class="material-symbols-outlined">search</span>
               <input type="text" placeholder="Search furniture, licensed electricians, studio apartments, cargo bikes..." />
@@ -52,9 +51,13 @@ import { categories, listings } from '../data/mockData'
 
       <div class="category-grid">
         <RouterLink v-for="category in categories" :key="category.name" :to="'/services'" class="category-card">
-          <span class="category-icon">{{ category.icon }}</span>
-          <strong>{{ category.name }}</strong>
-          <small>{{ category.description }}</small>
+            <div class="category-header">
+                <span class="category-icon material-symbols-outlined">{{ category.icon }}</span>
+                <div class="category-title">
+                    <strong>{{ category.name }}</strong>
+                    <small>{{ category.description }}</small>
+                </div>
+            </div>
         </RouterLink>
       </div>
     </section>
@@ -202,6 +205,13 @@ import { categories, listings } from '../data/mockData'
   gap: 18px;
 }
 
+.category-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
 .category-card {
   display: flex;
   flex-direction: column;
@@ -217,6 +227,12 @@ import { categories, listings } from '../data/mockData'
 .category-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 34px rgba(23, 34, 61, 0.08);
+}
+
+.category-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .category-icon {
