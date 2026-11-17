@@ -55,3 +55,77 @@ import BaseButton from '../components/BaseButton.vue'
     </div>
   </div>
 </template>
+
+<style scoped>
+.form-layout {
+  max-width: 900px;
+}
+
+.form-card {
+  padding: 22px;
+}
+
+.listing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.listing-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.listing-form input,
+.listing-form select,
+.listing-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  color: var(--text);
+  outline: none;
+  border-radius: 12px;
+}
+
+.field-row {
+  display: grid;
+  gap: 18px;
+}
+
+.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.upload-box {
+  display: grid;
+  place-items: center;
+  min-height: 110px;
+  border: 1.5px dashed var(--border);
+  border-radius: 16px;
+  background: rgba(77, 70, 231, 0.03);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media (max-width: 980px) {
+  .two-up {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+</style>

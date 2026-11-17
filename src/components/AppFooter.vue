@@ -34,8 +34,61 @@ import Logo from '../assets/logo.png';
   </footer>
 </template>
 
-<style>
-    .site-footer .brand-logo {
-        filter: hue-rotate(523deg) invert(100%);
-    }
+<style scoped>
+.site-footer {
+  margin-top: 30px;
+  background: #101b2d;
+  color: white;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 36px 0 46px;
+}
+
+.footer-brand {
+  margin-bottom: 12px;
+  color: white;
+}
+
+.site-footer p,
+.footer-links li,
+.footer-links a {
+  color: rgba(226, 233, 255, 0.8);
+}
+
+.footer-links {
+  display: flex;
+  gap: 58px;
+}
+
+.footer-links h4 {
+  margin: 0 0 12px;
+  color: white;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.site-footer .brand-logo {
+  filter: hue-rotate(523deg) invert(100%);
+}
+
+@media (max-width: 980px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 </style>

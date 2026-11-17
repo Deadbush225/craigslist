@@ -73,3 +73,143 @@ const filterChips = ['All Categories', 'Local Services', 'For Sale', 'Housing', 
     </section>
   </div>
 </template>
+
+<style scoped>
+.service-page-panel {
+  padding-top: 20px;
+}
+
+.breadcrumb-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.service-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.service-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.75);
+  flex: 1;
+}
+
+.service-search-box input {
+  border: 0;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: var(--text);
+}
+
+.service-search-box button,
+.service-toolbar__info button {
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.service-toolbar__info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.long-row {
+  margin-bottom: 22px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  padding: 0.68rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.chip.active {
+  background: var(--primary);
+  border-color: transparent;
+  color: white;
+}
+
+.services-layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 24px;
+}
+
+.sidebar {
+  padding: 22px 18px;
+}
+
+.filter-group {
+  margin-top: 22px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.filter-group input[type='range'] {
+  width: 100%;
+  accent-color: var(--primary);
+}
+
+.stacked-options {
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.stacked-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.results-panel {
+  min-width: 0;
+}
+
+.listing-grid--wide {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 980px) {
+  .services-layout {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
