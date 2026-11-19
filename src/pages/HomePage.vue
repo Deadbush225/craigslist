@@ -129,7 +129,7 @@ function runPopularQuery(item: (typeof popularQueries)[number]) {
 
 .directory-hero {
   padding: 26px 24px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(242,237,255,0.9));
+  background: linear-gradient(135deg, rgba(233, 228, 236, 0.94), rgba(195, 180, 238, 0.79))
 }
 
 .hero-copy {

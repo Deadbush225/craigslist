@@ -13,7 +13,7 @@
     <aside class="drawer-side z-40">
       <label for="app-drawer" aria-label="Close navigation" class="drawer-overlay"></label>
       <div class="w-64 min-h-full bg-base-100 border-r border-base-300 p-4">
-        <RouterLink to="/" class="mb-4 flex items-center gap-2 px-2" aria-label="Go to home page">
+        <RouterLink to="/" class="mb-4 mt-4 flex items-center gap-2 px-2" aria-label="Go to home page">
           <BrandLogo /> 
         </RouterLink>
 
@@ -46,15 +46,15 @@
             </RouterLink>
           </li>
           <li>
-            <RouterLink to="/provider/1" active-class="menu-active">
-              <span class="material-symbols-outlined">person</span>
-              Provider profile
-            </RouterLink>
-          </li>
-          <li>
             <RouterLink to="/new-listing" active-class="menu-active">
               <span class="material-symbols-outlined">add_box</span>
               Post an ad
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/settings" active-class="menu-active">
+              <span class="material-symbols-outlined">settings</span>
+              Account settings
             </RouterLink>
           </li>
         </ul>

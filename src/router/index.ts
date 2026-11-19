@@ -8,6 +8,7 @@ import MessagingPage from '../pages/MessagingPage.vue'
 import ListingCreatePage from '../pages/ListingCreatePage.vue'
 import ProviderProfilePage from '../pages/ProviderProfilePage.vue'
 import ListingDetailsPage from '../pages/ListingDetailsPage.vue'
+import AccountSettingsPage from '../pages/AccountSettingsPage.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,6 +21,7 @@ const router = createRouter({
     { path: '/new-listing', name: 'new-listing', component: ListingCreatePage },
     { path: '/provider/:id?', name: 'provider', component: ProviderProfilePage, props: true },
     { path: '/listing/:id', name: 'listing-details', component: ListingDetailsPage, props: true },
+    { path: '/settings', name: 'settings', component: AccountSettingsPage },
   ],
   scrollBehavior() {
     return { top: 0, left: 0, behavior: 'smooth' }
