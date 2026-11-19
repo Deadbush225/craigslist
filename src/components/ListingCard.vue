@@ -1,11 +1,24 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import { type Listing } from '../data/mockData'
 
-defineProps<{ listing: Listing }>()
+const props = defineProps<{ listing: Listing }>()
+const router = useRouter()
+
+function openProvider(event: MouseEvent) {
+  if (!props.listing.providerId || (event.target as HTMLElement).closest('a, button')) return
+  router.push({ name: 'provider', params: { id: String(props.listing.providerId) } })
+}
 </script>
 
 <template>
-  <article class="card bg-base-100 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+  <article
+    class="card bg-base-100 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+    :class="{ 'cursor-pointer': listing.providerId }"
+    :tabindex="listing.providerId ? 0 : undefined"
+    @click="openProvider"
+    @keydown.enter="router.push({ name: 'provider', params: { id: String(listing.providerId) } })"
+  >
     <figure class="relative h-56">
       <img :src="listing.image" :alt="listing.title" class="h-full w-full object-cover" />
       <span class="badge badge-neutral absolute left-3 top-3">{{ listing.badge }}</span>
@@ -17,7 +30,17 @@ defineProps<{ listing: Listing }>()
         <span>{{ listing.location }}</span>
       </div>
 
-      <h3 class="card-title text-lg">{{ listing.title }}</h3>
+      <h3 class="card-title text-lg">
+        <RouterLink
+          v-if="listing.providerId"
+          :to="{ name: 'provider', params: { id: String(listing.providerId) } }"
+          class="hover:text-primary"
+          @click.stop
+        >
+          {{ listing.title }}
+        </RouterLink>
+        <span v-else>{{ listing.title }}</span>
+      </h3>
       <p class="text-base-content/70">{{ listing.description }}</p>
 
       <div class="flex items-end justify-between gap-3">

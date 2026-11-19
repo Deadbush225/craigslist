@@ -73,7 +73,7 @@ const coverageAreas = ['Makati', 'Taguig / BGC', 'Mandaluyong', 'Pasig', 'Quezon
           </div>
 
           <div class="profile-actions">
-            <BaseButton to="/messaging">Message</BaseButton>
+            <BaseButton :to="{ path: '/messaging', query: { provider: String(provider.id) } }">Message</BaseButton>
             <BaseButton variant="secondary" to="/services">Back to listings</BaseButton>
           </div>
         </div>

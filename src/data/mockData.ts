@@ -6,6 +6,7 @@ export type Category = {
 
 export type Listing = {
   id: number
+  providerId?: number
   title: string
   image: string
   price: string
@@ -54,6 +55,7 @@ export type Conversation = {
   category: 'Services' | 'Jobs' | 'Housing' | 'For Sale' | 'Gigs'
   contextTitle: string
   listingId?: number
+  providerId?: number
   online: boolean
   thread: ChatMessage[]
 }
@@ -81,6 +83,7 @@ export const categorySubcategories: Record<string, string[]> = {
 export const listings: Listing[] = [
   {
     id: 1,
+    providerId: 1,
     title: 'Interior painting & touch-ups',
     image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
     price: '₱2,400',
@@ -97,6 +100,7 @@ export const listings: Listing[] = [
   },
   {
     id: 2,
+    providerId: 2,
     title: 'Custom website setup for small businesses',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',
     price: '₱6,800',
@@ -113,6 +117,7 @@ export const listings: Listing[] = [
   },
   {
     id: 3,
+    providerId: 3,
     title: 'Private yoga coach for home sessions',
     image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80',
     price: '₱1,500/h',
@@ -129,6 +134,7 @@ export const listings: Listing[] = [
   },
   {
     id: 4,
+    providerId: 1,
     title: 'Mobile detailing and interior care',
     image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80',
     price: '₱3,900',
@@ -145,6 +151,7 @@ export const listings: Listing[] = [
   },
   {
     id: 5,
+    providerId: 1,
     title: 'Room styling and home staging consultation',
     image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80',
     price: '₱4,250',
@@ -161,6 +168,7 @@ export const listings: Listing[] = [
   },
   {
     id: 6,
+    providerId: 1,
     title: 'Birthday crew coordination and party setup',
     image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80',
     price: '₱5,500',
@@ -175,10 +183,10 @@ export const listings: Listing[] = [
     freeQuote: true,
     credentials: ['Tax-compliant', 'Insurance'],
   },
-  { id: 7, title: 'Licensed residential electrical repair', image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80', price: '₱1,800', priceValue: 1800, category: 'Services', subcategory: 'Electrical', location: 'Mandaluyong', rating: 4.9, reviews: 112, description: 'Circuit repair, outlet installation, breaker troubleshooting, and safety inspection.', badge: 'Verified', freeQuote: true, credentials: ['PRC licensed', 'TESDA NC-II', 'Tax-compliant', 'Condo work permit ready'] },
-  { id: 8, title: 'Pipe repair and plumbing installation', image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=900&q=80', price: '₱1,200', priceValue: 1200, category: 'Services', subcategory: 'Plumbing', location: 'Pasay', rating: 4.8, reviews: 96, description: 'Leak detection, faucet replacement, toilet repair, and pipe installation.', badge: 'Popular', freeQuote: true, credentials: ['PRC licensed', 'TESDA NC-II', 'Condo work permit ready'] },
-  { id: 9, title: 'Deep home cleaning crew', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80', price: '₱950', priceValue: 950, category: 'Services', subcategory: 'Cleaning', location: 'Marikina', rating: 4.7, reviews: 73, description: 'Kitchen, bathroom, floor, and post-renovation deep cleaning for homes and offices.', badge: 'Available', freeQuote: false, credentials: ['Background checked', 'Tax-compliant'] },
-  { id: 10, title: 'Bathroom renovation package', image: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=900&q=80', price: '₱38,000', priceValue: 38000, category: 'Services', subcategory: 'Renovation', location: 'Cavite', rating: 4.9, reviews: 38, description: 'Tiling, fixture replacement, waterproofing, and full bathroom finishing.', badge: 'Featured', freeQuote: true, credentials: ['PRC licensed', 'Tax-compliant', 'Insurance', 'Condo work permit ready'] },
+  { id: 7, providerId: 2, title: 'Licensed residential electrical repair', image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80', price: '₱1,800', priceValue: 1800, category: 'Services', subcategory: 'Electrical', location: 'Mandaluyong', rating: 4.9, reviews: 112, description: 'Circuit repair, outlet installation, breaker troubleshooting, and safety inspection.', badge: 'Verified', freeQuote: true, credentials: ['PRC licensed', 'TESDA NC-II', 'Tax-compliant', 'Condo work permit ready'] },
+  { id: 8, providerId: 1, title: 'Pipe repair and plumbing installation', image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=900&q=80', price: '₱1,200', priceValue: 1200, category: 'Services', subcategory: 'Plumbing', location: 'Pasay', rating: 4.8, reviews: 96, description: 'Leak detection, faucet replacement, toilet repair, and pipe installation.', badge: 'Popular', freeQuote: true, credentials: ['PRC licensed', 'TESDA NC-II', 'Condo work permit ready'] },
+  { id: 9, providerId: 1, title: 'Deep home cleaning crew', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80', price: '₱950', priceValue: 950, category: 'Services', subcategory: 'Cleaning', location: 'Marikina', rating: 4.7, reviews: 73, description: 'Kitchen, bathroom, floor, and post-renovation deep cleaning for homes and offices.', badge: 'Available', freeQuote: false, credentials: ['Background checked', 'Tax-compliant'] },
+  { id: 10, providerId: 1, title: 'Bathroom renovation package', image: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=900&q=80', price: '₱38,000', priceValue: 38000, category: 'Services', subcategory: 'Renovation', location: 'Cavite', rating: 4.9, reviews: 38, description: 'Tiling, fixture replacement, waterproofing, and full bathroom finishing.', badge: 'Featured', freeQuote: true, credentials: ['PRC licensed', 'Tax-compliant', 'Insurance', 'Condo work permit ready'] },
   { id: 11, title: 'Used MacBook Air M2 13-inch', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80', price: '₱42,500', priceValue: 42500, category: 'For Sale', subcategory: 'Electronics', location: 'Manila', rating: 4.8, reviews: 22, description: 'Lightly used laptop with charger and original box. Meetup in Manila or Metro Manila delivery.', badge: 'Verified seller', freeQuote: false, credentials: ['Original receipt', 'Authenticity verified'] },
   { id: 12, title: 'Solid wood dining table set', image: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=900&q=80', price: '₱12,800', priceValue: 12800, category: 'For Sale', subcategory: 'Furniture', location: 'Pasig', rating: 4.6, reviews: 18, description: 'Six-seat solid wood dining set in excellent condition. Buyer may arrange pickup.', badge: 'Good condition', freeQuote: false, credentials: ['Seller verified'] },
   { id: 13, title: 'Front-load washing machine', image: 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=900&q=80', price: '₱18,500', priceValue: 18500, category: 'For Sale', subcategory: 'Appliances', location: 'Las Piñas', rating: 4.7, reviews: 31, description: 'Fully functional inverter washing machine with remaining service warranty.', badge: 'Warranty', freeQuote: false, credentials: ['Warranty included', 'Original receipt'] },

@@ -3,7 +3,6 @@
     <input id="app-drawer" type="checkbox" class="drawer-toggle" aria-label="Toggle navigation" />
 
     <div class="drawer-content page-shell flex flex-col min-h-screen w-full">
-      <AppNavbar />
       <main class="main-content flex-1">
         <RouterView />
       </main>
@@ -15,7 +14,7 @@
       <label for="app-drawer" aria-label="Close navigation" class="drawer-overlay"></label>
       <div class="w-64 min-h-full bg-base-100 border-r border-base-300 p-4">
         <RouterLink to="/" class="mb-4 flex items-center gap-2 px-2" aria-label="Go to home page">
-          <img :src="Logo" alt="Craigslist" class="h-9 w-auto" />
+          <BrandLogo /> 
         </RouterLink>
 
         <ul class="menu w-full gap-1">
@@ -67,5 +66,6 @@
 <script setup lang="ts">
 import AppFooter from './components/AppFooter.vue'
 import AppNavbar from './components/AppNavbar.vue'
-import Logo from './assets/logo.png'
+// import Logo from './assets/logo.png'
+import BrandLogo from './components/BrandLogo.vue';
 </script>

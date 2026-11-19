@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { listings, messages, type Conversation } from '../data/mockData'
+import { listings, messages, providers, type Conversation } from '../data/mockData'
 
 const route = useRoute()
 const router = useRouter()
@@ -15,6 +15,7 @@ const selectedListingId = ref('')
 
 const routeConversationId = computed(() => Number(route.query.conversation))
 const routeListingId = computed(() => Number(route.query.listing))
+const routeProviderId = computed(() => Number(route.query.provider))
 
 const filteredConversations = computed(() => {
   if (selectedFilter.value === 'Unread') return conversations.value.filter((conversation) => conversation.unread > 0)
@@ -28,6 +29,42 @@ const selectedConversation = computed(() =>
     ?? conversations.value.find((conversation) => conversation.listingId === routeListingId.value)
     ?? conversations.value[0],
 )
+
+function ensureProviderConversation() {
+  const provider = providers.find((item) => item.id === routeProviderId.value)
+  if (!provider) return
+
+  const existing = conversations.value.find((conversation) => conversation.providerId === provider.id)
+  if (existing) {
+    selectConversation(existing)
+    return
+  }
+
+  const nextId = Math.max(...conversations.value.map((conversation) => conversation.id), 0) + 1
+  const conversation: Conversation = {
+    id: nextId,
+    name: provider.name,
+    role: provider.role,
+    image: provider.image,
+    preview: `Started a chat with ${provider.name}`,
+    time: 'Now',
+    unread: 0,
+    category: 'Services',
+    contextTitle: `${provider.role} consultation`,
+    providerId: provider.id,
+    online: true,
+    thread: [
+      {
+        id: Date.now(),
+        from: 'me',
+        text: `Hi ${provider.name}, I would like to ask about your ${provider.role.toLowerCase()} services.`,
+        time: 'Now',
+      },
+    ],
+  }
+  conversations.value.unshift(conversation)
+  router.replace({ path: '/messaging', query: { conversation: String(conversation.id) } })
+}
 
 function selectConversation(conversation: Conversation) {
   conversation.unread = 0
@@ -101,6 +138,7 @@ function startChat() {
 watch(
   () => route.query,
   () => {
+    if (routeProviderId.value) ensureProviderConversation()
     if (selectedConversation.value) selectedConversation.value.unread = 0
   },
   { immediate: true },
