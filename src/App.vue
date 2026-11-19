@@ -3,6 +3,7 @@
     <input id="app-drawer" type="checkbox" class="drawer-toggle" aria-label="Toggle navigation" />
 
     <div class="drawer-content page-shell flex flex-col min-h-screen w-full">
+      <AppNavbar />
       <!-- <AppNavbar /> -->
 
       <main class="main-content flex-1">

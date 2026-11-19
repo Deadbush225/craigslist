@@ -49,7 +49,12 @@ import { categories, listings } from '../data/mockData'
       </div>
 
       <div class="category-grid">
-        <RouterLink v-for="category in categories" :key="category.name" :to="'/services'" class="category-card">
+        <RouterLink
+          v-for="category in categories"
+          :key="category.name"
+          :to="{ path: '/services', query: { category: category.name } }"
+          class="category-card"
+        >
             <div class="category-header">
                 <span class="category-icon material-symbols-outlined">{{ category.icon }}</span>
                 <div class="category-title">
