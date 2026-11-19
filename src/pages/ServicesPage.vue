@@ -42,13 +42,15 @@ const maximumPrice = ref(actualPriceBounds.value.max)
 
 const priceRangeStyle = computed(() => {
   const { min, max } = actualPriceBounds.value
-  const span = max - min
-  const start = span > 0 ? ((minimumPrice.value - min) / span) * 100 : 0
-  const end = span > 0 ? ((maximumPrice.value - min) / span) * 100 : 100
+  const span = max - min || 1
+  const clamp = (v: number) => Math.min(100, Math.max(0, v))
+
+  const start = clamp(((minimumPrice.value - min) / span) * 100)
+  const end = clamp(((maximumPrice.value - min) / span) * 100)
 
   return {
-    '--range-start': `${Math.max(0, Math.min(100, start))}%`,
-    '--range-end': `${Math.max(0, Math.min(100, end))}%`,
+    '--range-start': `${Math.min(start, end)}%`,
+    '--range-end': `${Math.max(start, end)}%`,
   }
 })
 
@@ -225,7 +227,7 @@ function resetFilters() {
 
             <fieldset class="fieldset mt-4">
               <legend class="fieldset-legend">Price range</legend>
-              <div class="grid grid-cols-2 gap-3 mb-3">
+              <div class="grid grid-cols-2 gap-3">
                 <label class="form-control">
                   <span class="label-text mb-1 block">Minimum</span>
                   <input
@@ -253,11 +255,14 @@ function resetFilters() {
                 aria-label="Adjust minimum and maximum price"
                 :style="priceRangeStyle"
               >
-                <div class="dual-range__track"></div>
+                <div class="dual-range__rail bg-base-content/10"></div>
+                <div class="dual-range__track-wrap">
+                    <div class="dual-range__track bg-primary"></div>
+                </div>
                 <input
                   v-model.number="minimumPrice"
                   type="range"
-                  class="range range-primary range-xs dual-range__input"
+                  class="dual-range__input"
                   :min="actualPriceBounds.min"
                   :max="actualPriceBounds.max"
                   :aria-valuemin="actualPriceBounds.min"
@@ -267,7 +272,7 @@ function resetFilters() {
                 <input
                   v-model.number="maximumPrice"
                   type="range"
-                  class="range range-primary range-xs dual-range__input dual-range__input--top"
+                  class="dual-range__input dual-range__input--top"
                   :min="actualPriceBounds.min"
                   :max="actualPriceBounds.max"
                   :aria-valuemin="minimumPrice"
@@ -275,9 +280,10 @@ function resetFilters() {
                   aria-label="Maximum price"
                 />
               </div>
-              <p class="text-xs text-base-content/60">
-                Available range: ₱{{ actualPriceBounds.min.toLocaleString() }} – ₱{{ actualPriceBounds.max.toLocaleString() }}
-              </p>
+              <div class="flex justify-between text-xs text-base-content/60">
+                <span>₱{{ actualPriceBounds.min.toLocaleString() }}</span>
+                <span>₱{{ actualPriceBounds.max.toLocaleString() }}</span>
+            </div>
             </fieldset>
 
             <fieldset class="fieldset mt-2">
@@ -328,53 +334,98 @@ function resetFilters() {
 
 <style scoped>
 .dual-range {
+  --thumb-size: 16px;
+  --track-height: 5px;
   position: relative;
-  height: 36px;
+  height: 26px;
   margin-top: 4px;
+}
+
+/* Full-width inactive rail */
+.dual-range__rail {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: var(--track-height);
+  transform: translateY(-50%);
+  border-radius: 9999px;
+}
+
+/* Inset by half the thumb width so 0%–100% maps to thumb centers */
+.dual-range__track-wrap {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--thumb-size) / 2);
+  right: calc(var(--thumb-size) / 2);
+  height: var(--track-height);
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .dual-range__track {
   position: absolute;
-  top: 17px;
+  top: 1px;
+  bottom: 0;
   left: var(--range-start);
   right: calc(100% - var(--range-end));
-  height: 5px;
   border-radius: 9999px;
-  background: var(--p, oklch(var(--p)));
 }
 
 .dual-range__input {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 36px;
-  pointer-events: none;
+  height: 100%;
+  margin: 0; /* removes default browser range margin */
+  padding: 0;
   background: transparent;
+  pointer-events: none;
   appearance: none;
   -webkit-appearance: none;
+  z-index: 2;
+}
+
+/* Brings min thumb in front when both thumbs meet near the max end */
+.dual-range__input--front {
+  z-index: 3;
 }
 
 .dual-range__input::-webkit-slider-runnable-track {
-  background: transparent !important;
+  height: var(--track-height);
+  background: transparent;
+  border: none;
 }
 
 .dual-range__input::-moz-range-track {
+  height: var(--track-height);
   background: transparent;
+  border: none;
 }
 
 .dual-range__input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
   pointer-events: auto;
+  cursor: pointer;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  margin-top: calc((var(--track-height) - var(--thumb-size)) / 2);
+  border-radius: 9999px;
+  background: var(--color-primary, oklch(var(--p)));
+  border: 2px solid var(--color-base-100, oklch(var(--b1)));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
 }
 
 .dual-range__input::-moz-range-thumb {
   pointer-events: auto;
-}
-
-.dual-range__input--top {
-  z-index: 2;
-}
-
-.dual-range__input:not(.dual-range__input--top) {
-  z-index: 3;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: 9999px;
+  background: var(--color-primary, oklch(var(--p)));
+  border: 2px solid var(--color-base-100, oklch(var(--b1)));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
 }
 </style>
