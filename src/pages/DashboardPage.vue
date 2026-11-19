@@ -32,7 +32,7 @@ import { dashboardStats, listings } from '../data/mockData'
             </div>
 
             <div class="overflow-x-auto">
-              <table class="table table-zebra table-pin-rows">
+              <table class="table table-auto table-zebra table-pin-rows">
                 <thead>
                   <tr>
                     <th>Listing</th>
@@ -49,7 +49,7 @@ import { dashboardStats, listings } from '../data/mockData'
                       </div>
                     </td>
                     <td>{{ listing.location }}</td>
-                    <td class="text-right font-semibold">{{ listing.price }}</td>
+                    <td class="text-right font-semibold min-w-20 whitespace-nowrap">{{ listing.price }}</td>
                   </tr>
                 </tbody>
               </table>
