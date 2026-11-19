@@ -1,5 +1,110 @@
 <script setup lang="ts">
-import { messages } from '../data/mockData'
+import { computed, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { listings, messages, type Conversation } from '../data/mockData'
+
+const route = useRoute()
+const router = useRouter()
+const conversations = ref<Conversation[]>(
+  messages.map((conversation) => ({ ...conversation, thread: conversation.thread.map((item) => ({ ...item })) })),
+)
+const selectedFilter = ref('All')
+const draft = ref('')
+const newChatDialog = ref<HTMLDialogElement>()
+const selectedListingId = ref('')
+
+const routeConversationId = computed(() => Number(route.query.conversation))
+const routeListingId = computed(() => Number(route.query.listing))
+
+const filteredConversations = computed(() => {
+  if (selectedFilter.value === 'Unread') return conversations.value.filter((conversation) => conversation.unread > 0)
+  if (selectedFilter.value === 'Services') return conversations.value.filter((conversation) => conversation.category === 'Services')
+  if (selectedFilter.value === 'Jobs') return conversations.value.filter((conversation) => conversation.category === 'Jobs')
+  return conversations.value
+})
+
+const selectedConversation = computed(() =>
+  conversations.value.find((conversation) => conversation.id === routeConversationId.value)
+    ?? conversations.value.find((conversation) => conversation.listingId === routeListingId.value)
+    ?? conversations.value[0],
+)
+
+function selectConversation(conversation: Conversation) {
+  conversation.unread = 0
+  router.replace({ path: '/messaging', query: { conversation: String(conversation.id) } })
+  draft.value = ''
+}
+
+function sendMessage() {
+  const text = draft.value.trim()
+  if (!text || !selectedConversation.value) return
+
+  const now = new Intl.DateTimeFormat('en-PH', {
+    hour: 'numeric',
+    minute: '2-digit',
+  }).format(new Date())
+
+  selectedConversation.value.thread.push({
+    id: Date.now(),
+    from: 'me',
+    text,
+    time: now,
+  })
+  selectedConversation.value.preview = text
+  selectedConversation.value.time = 'Now'
+  draft.value = ''
+}
+
+function openNewChat() {
+  selectedListingId.value = ''
+  newChatDialog.value?.showModal()
+}
+
+function startChat() {
+  const listingId = Number(selectedListingId.value)
+  const listing = listings.find((item) => item.id === listingId)
+  if (!listing) return
+
+  const existing = conversations.value.find((conversation) => conversation.listingId === listing.id)
+  if (existing) {
+    selectConversation(existing)
+  } else {
+    const nextId = Math.max(...conversations.value.map((conversation) => conversation.id), 0) + 1
+    const conversation: Conversation = {
+      id: nextId,
+      name: listing.category === 'Jobs' ? 'Hiring team' : 'Listing owner',
+      role: listing.category === 'Jobs' ? 'Recruiter' : 'Seller',
+      image: listing.image,
+      preview: `Started a chat about ${listing.title}`,
+      time: 'Now',
+      unread: 0,
+      category: listing.category as Conversation['category'],
+      contextTitle: listing.title,
+      listingId: listing.id,
+      online: true,
+      thread: [
+        {
+          id: Date.now(),
+          from: 'me',
+          text: `Hi, I am interested in "${listing.title}". Is this still available?`,
+          time: 'Now',
+        },
+      ],
+    }
+    conversations.value.unshift(conversation)
+    router.replace({ path: '/messaging', query: { conversation: String(conversation.id) } })
+  }
+
+  newChatDialog.value?.close()
+}
+
+watch(
+  () => route.query,
+  () => {
+    if (selectedConversation.value) selectedConversation.value.unread = 0
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
@@ -9,224 +114,165 @@ import { messages } from '../data/mockData'
         <div class="card-body p-4">
           <div class="flex items-center justify-between">
             <h2 class="card-title">My Inquiries</h2>
-            <button type="button" class="btn btn-primary btn-sm btn-soft">New</button>
+            <button type="button" class="btn btn-primary btn-sm" @click="openNewChat">
+              <span class="material-symbols-outlined text-base">add</span>
+              New
+            </button>
           </div>
 
-          <div class="filter mt-3 flex-wrap">
-            <input class="btn btn-sm filter-reset" type="radio" name="message-filter" aria-label="All (4)" />
-            <input class="btn btn-sm" type="radio" name="message-filter" aria-label="Unread (1)" />
-            <input class="btn btn-sm" type="radio" name="message-filter" aria-label="Services" />
+          <div class="filter mt-3 flex-wrap" aria-label="Conversation filters">
+            <input
+              v-model="selectedFilter"
+              class="btn btn-sm"
+              type="radio"
+              name="message-filter"
+              value="All"
+              aria-label="All"
+            />
+            <input
+              v-model="selectedFilter"
+              class="btn btn-sm"
+              type="radio"
+              name="message-filter"
+              value="Unread"
+              aria-label="Unread"
+            />
+            <input
+              v-model="selectedFilter"
+              class="btn btn-sm"
+              type="radio"
+              name="message-filter"
+              value="Services"
+              aria-label="Services"
+            />
+            <input
+              v-model="selectedFilter"
+              class="btn btn-sm"
+              type="radio"
+              name="message-filter"
+              value="Jobs"
+              aria-label="Jobs"
+            />
           </div>
 
           <ul class="list mt-2">
-            <li v-for="message in messages" :key="message.name" class="list-row">
-              <div class="avatar placeholder">
-                <div class="bg-primary text-primary-content rounded-full w-10">
-                  <span>{{ message.name.charAt(0) }}</span>
+            <li
+              v-for="conversation in filteredConversations"
+              :key="conversation.id"
+              class="list-row cursor-pointer"
+              :class="{ 'bg-primary/5': selectedConversation?.id === conversation.id }"
+              @click="selectConversation(conversation)"
+            >
+              <div class="avatar">
+                <div class="w-10 rounded-full">
+                  <img :src="conversation.image" :alt="conversation.name" />
                 </div>
               </div>
               <div class="min-w-0">
-                <strong>{{ message.name }}</strong>
-                <div class="truncate text-sm text-base-content/60">{{ message.preview }}</div>
+                <strong>{{ conversation.name }}</strong>
+                <div class="truncate text-sm text-base-content/60">{{ conversation.preview }}</div>
+                <div class="mt-1 text-xs text-primary">{{ conversation.category }} · {{ conversation.contextTitle }}</div>
               </div>
               <div class="flex flex-col items-end gap-1 text-xs">
-                <span>{{ message.time }}</span>
-                <span v-if="message.unread > 0" class="badge badge-primary badge-xs">{{ message.unread }}</span>
+                <span>{{ conversation.time }}</span>
+                <span v-if="conversation.unread > 0" class="badge badge-primary badge-xs">
+                  {{ conversation.unread }}
+                </span>
               </div>
             </li>
           </ul>
         </div>
       </aside>
 
-      <section class="card bg-base-100 border border-base-300 shadow-sm overflow-hidden">
+      <section v-if="selectedConversation" class="card bg-base-100 border border-base-300 shadow-sm overflow-hidden">
         <div class="flex items-center justify-between border-b border-base-300 px-5 py-4">
-          <div class="flex items-center gap-2">
-            <h2 class="card-title">Lina J.</h2>
-            <span class="status status-success"></span>
-            <small class="text-base-content/60">Online now</small>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="w-10 rounded-full">
+                <img :src="selectedConversation.image" :alt="selectedConversation.name" />
+              </div>
+            </div>
+            <div>
+              <h2 class="card-title text-base">{{ selectedConversation.name }}</h2>
+              <div class="flex items-center gap-2 text-xs text-base-content/60">
+                <span v-if="selectedConversation.online" class="status status-success"></span>
+                {{ selectedConversation.online ? 'Online now' : selectedConversation.role }}
+              </div>
+            </div>
           </div>
-          <RouterLink to="/provider/1" class="btn btn-ghost btn-sm">View profile</RouterLink>
+          <RouterLink
+            v-if="selectedConversation.listingId"
+            :to="{ path: '/services', query: { q: selectedConversation.contextTitle } }"
+            class="btn btn-ghost btn-sm"
+          >
+            View listing
+          </RouterLink>
         </div>
 
-        <div class="chat-thread flex min-h-[22.5rem] flex-col gap-3 bg-base-200/50 px-5 py-4">
-          <div class="chat chat-start">
-            <div class="chat-bubble chat-bubble-primary">
-            <p>Hi! I saw your painting listing. Can you tell me about your turnaround time?</p>
+        <div class="border-b border-base-300 px-5 py-3 bg-base-100">
+          <div class="text-xs font-bold uppercase text-base-content/50">{{ selectedConversation.category }}</div>
+          <div class="font-semibold">{{ selectedConversation.contextTitle }}</div>
+        </div>
+
+        <div class="flex min-h-[22.5rem] flex-col gap-3 overflow-y-auto bg-base-200/50 px-5 py-4">
+          <div
+            v-for="message in selectedConversation.thread"
+            :key="message.id"
+            class="chat"
+            :class="message.from === 'me' ? 'chat-end' : 'chat-start'"
+          >
+            <div
+              class="chat-bubble"
+              :class="message.from === 'me' ? '' : 'chat-bubble-primary'"
+            >
+              {{ message.text }}
             </div>
-            <time class="chat-footer opacity-60">9:18 AM</time>
-          </div>
-          <div class="chat chat-end">
-            <div class="chat-bubble">
-            <p>Absolutely. I can do a two-room refresh in about 3 days and keep the site spotless.</p>
-            </div>
-            <time class="chat-footer opacity-60">9:20 AM</time>
-          </div>
-          <div class="chat chat-start">
-            <div class="chat-bubble chat-bubble-primary">
-            <p>Perfect. Could you send the full quote for my living room and kitchen?</p>
-            </div>
-            <time class="chat-footer opacity-60">9:22 AM</time>
+            <time class="chat-footer opacity-60">{{ message.time }}</time>
           </div>
         </div>
 
-        <div class="join w-full border-t border-base-300 p-4">
-          <input type="text" class="input input-bordered join-item flex-1" placeholder="Type a message" />
-          <button type="button" class="btn btn-primary btn-sm">Send</button>
-        </div>
+        <form class="join w-full border-t border-base-300 p-4" @submit.prevent="sendMessage">
+          <input
+            v-model="draft"
+            type="text"
+            class="input input-bordered join-item flex-1"
+            placeholder="Type a message"
+          />
+          <button type="submit" class="btn btn-primary join-item" :disabled="!draft.trim()">Send</button>
+        </form>
       </section>
     </div>
+
+    <dialog ref="newChatDialog" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Start a chat</h3>
+        <p class="py-2 text-sm text-base-content/60">Choose an existing listing or job to contact the owner or hiring team.</p>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset-legend">Listing or job</legend>
+          <select v-model="selectedListingId" class="select select-bordered w-full">
+            <option value="" disabled>Select a listing</option>
+            <optgroup label="Jobs">
+              <option v-for="listing in listings.filter((item) => item.category === 'Jobs')" :key="listing.id" :value="String(listing.id)">
+                {{ listing.title }}
+              </option>
+            </optgroup>
+            <optgroup label="Listings">
+              <option v-for="listing in listings.filter((item) => item.category !== 'Jobs')" :key="listing.id" :value="String(listing.id)">
+                {{ listing.title }}
+              </option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <div class="modal-action">
+          <button type="button" class="btn" @click="newChatDialog?.close()">Cancel</button>
+          <button type="button" class="btn btn-primary" :disabled="!selectedListingId" @click="startChat">
+            Start chat
+          </button>
+        </div>
+      </div>
+      <button type="button" class="modal-backdrop" aria-label="Close" @click="newChatDialog?.close()">Close</button>
+    </dialog>
   </div>
 </template>
-
-<style scoped>
-.messaging-layout {
-  display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
-  gap: 22px;
-}
-
-.conversation-list {
-  padding: 18px;
-}
-
-.conversation-item {
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr) auto;
-  gap: 10px;
-  align-items: center;
-  padding: 10px 8px;
-  border-radius: 14px;
-  margin-top: 10px;
-}
-
-.conversation-item.unread {
-  background: rgba(77, 70, 231, 0.05);
-}
-
-.avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #dfe4ff, #ced5ff);
-  display: grid;
-  place-items: center;
-  color: var(--primary);
-  font-weight: 800;
-}
-
-.conversation-item strong {
-  display: block;
-  margin-bottom: 4px;
-}
-
-.message-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  gap: 8px;
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-
-.message-meta em {
-  min-width: 22px;
-  height: 22px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--primary);
-  color: white;
-  font-style: normal;
-  font-weight: 800;
-}
-
-.quick-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 14px 0 10px;
-}
-
-.pill {
-  padding: 7px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.8);
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.pill--active {
-  background: var(--primary);
-  color: white;
-  border-color: transparent;
-}
-
-.chat-panel {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  overflow: hidden;
-}
-
-.chat-header {
-  padding: 16px 18px 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-.chat-thread {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-height: 360px;
-  padding: 18px 22px;
-  background: linear-gradient(180deg, #f9fafe 0%, #f4f5ff 100%);
-}
-
-.bubble {
-  max-width: 72%;
-  padding: 12px 14px;
-  border-radius: 18px;
-  line-height: 1.6;
-}
-
-.bubble p {
-  margin: 0 0 6px;
-}
-
-.bubble time {
-  font-size: 0.72rem;
-  opacity: 0.7;
-}
-
-.bubble.incoming {
-  align-self: flex-start;
-  background: #edf1ff;
-}
-
-.bubble.outgoing {
-  align-self: flex-end;
-  background: var(--primary);
-  color: white;
-}
-
-.composer {
-  display: flex;
-  gap: 12px;
-  padding: 18px 22px 22px;
-  border-top: 1px solid var(--border);
-}
-
-.composer input {
-  flex: 1;
-  padding: 12px 14px;
-}
-
-@media (max-width: 980px) {
-  .messaging-layout {
-    grid-template-columns: 1fr;
-  }
-}
-</style>

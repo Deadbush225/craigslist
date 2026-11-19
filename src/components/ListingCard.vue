@@ -26,7 +26,16 @@ defineProps<{ listing: Listing }>()
           <strong class="text-base-content">{{ listing.rating }}</strong>
           <small class="text-base-content/60">({{ listing.reviews }})</small>
         </div>
-        <div class="text-lg font-extrabold text-primary">{{ listing.price }}</div>
+        <div class="flex items-center gap-2">
+          <div class="text-lg font-extrabold text-primary">{{ listing.price }}</div>
+          <RouterLink
+            :to="{ path: '/messaging', query: { listing: String(listing.id) } }"
+            class="btn btn-primary btn-sm btn-circle"
+            :aria-label="listing.category === 'Jobs' ? `Chat about ${listing.title}` : `Message about ${listing.title}`"
+          >
+            <span class="material-symbols-outlined text-base">chat</span>
+          </RouterLink>
+        </div>
       </div>
     </div>
   </article>

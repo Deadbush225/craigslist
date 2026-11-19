@@ -1,7 +1,37 @@
 <script setup lang="ts">
-import BaseButton from '../components/BaseButton.vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import ListingCard from '../components/ListingCard.vue'
 import { categories, listings } from '../data/mockData'
+
+const router = useRouter()
+const homeSearch = ref('')
+
+const popularQueries = [
+  { label: 'Plumbing', query: 'Plumbing', category: 'Services', subcategory: 'Plumbing' },
+  { label: 'Moving Help', query: 'Moving', category: 'Gigs', subcategory: 'Labor' },
+  { label: 'Cargo Bikes', query: 'Cargo Bike', category: 'For Sale', subcategory: 'Cargo Bikes' },
+  { label: '1-Bedroom Apts', query: '1-bedroom', category: 'Housing', subcategory: 'Apartments' },
+  { label: 'Mid-Century Modern', query: 'Mid-century', category: 'For Sale', subcategory: 'Furniture' },
+]
+
+function searchListings() {
+  router.push({
+    path: '/services',
+    query: homeSearch.value.trim() ? { q: homeSearch.value.trim() } : undefined,
+  })
+}
+
+function runPopularQuery(item: (typeof popularQueries)[number]) {
+  router.push({
+    path: '/services',
+    query: {
+      category: item.category,
+      subcategory: item.subcategory,
+      q: item.query,
+    },
+  })
+}
 </script>
 
 <template>
@@ -24,18 +54,27 @@ import { categories, listings } from '../data/mockData'
             </div>
             <div class="search-panel__input">
               <span class="material-symbols-outlined">search</span>
-              <input type="text" placeholder="Search furniture, licensed electricians, studio apartments, cargo bikes..." />
+              <input
+                v-model="homeSearch"
+                type="text"
+                placeholder="Search furniture, licensed electricians, studio apartments, cargo bikes..."
+                @keyup.enter="searchListings"
+              />
             </div>
         </div>
-        <BaseButton to="/services">Find Listings</BaseButton>
+        <button type="button" class="btn btn-primary" @click="searchListings">Find Listings</button>
 
           <div class="quick-query-row">
             <span>Popular Queries:</span>
-            <button type="button" class="query-chip">Plumbing</button>
-            <button type="button" class="query-chip">Moving Help</button>
-            <button type="button" class="query-chip">Cargo Bikes</button>
-            <button type="button" class="query-chip">1-Bedroom Apts</button>
-            <button type="button" class="query-chip">Mid-Century Modern</button>
+            <button
+              v-for="item in popularQueries"
+              :key="item.label"
+              type="button"
+              class="query-chip"
+              @click="runPopularQuery(item)"
+            >
+              {{ item.label }}
+            </button>
           </div>
         </div>
       </div>

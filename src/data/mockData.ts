@@ -36,6 +36,28 @@ export type Provider = {
   image: string
 }
 
+export type ChatMessage = {
+  id: number
+  from: 'me' | 'them'
+  text: string
+  time: string
+}
+
+export type Conversation = {
+  id: number
+  name: string
+  role: string
+  image: string
+  preview: string
+  time: string
+  unread: number
+  category: 'Services' | 'Jobs' | 'Housing' | 'For Sale' | 'Gigs'
+  contextTitle: string
+  listingId?: number
+  online: boolean
+  thread: ChatMessage[]
+}
+
 export const categories: Category[] = [
   { name: 'Services', icon: 'home_repair_service', description: 'Repairs, care & professional help' },
   { name: 'For Sale', icon: 'storefront', description: 'Furniture, electronics & vehicles' },
@@ -48,7 +70,7 @@ export const categories: Category[] = [
 
 export const categorySubcategories: Record<string, string[]> = {
   Services: ['Home Services', 'Electrical', 'Plumbing', 'Cleaning', 'Renovation', 'Automotive', 'Wellness', 'Tech Help', 'Design', 'Events'],
-  'For Sale': ['Electronics', 'Furniture', 'Appliances', 'Vehicles', 'Clothing', 'Baby & Kids'],
+  'For Sale': ['Electronics', 'Furniture', 'Appliances', 'Vehicles', 'Clothing', 'Baby & Kids', 'Cargo Bikes'],
   Housing: ['Apartments', 'Rooms', 'Shared Housing', 'Vacation Rentals', 'Office & Commercial'],
   Jobs: ['Administrative', 'Technology', 'Healthcare', 'Sales', 'Education', 'Construction'],
   Community: ['Activities', 'Classes', 'Events', 'Volunteers', 'Lost & Found'],
@@ -168,7 +190,10 @@ export const listings: Listing[] = [
   { id: 19, title: 'Weekend community yoga class', image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80', price: '₱300', priceValue: 300, category: 'Community', subcategory: 'Classes', location: 'BGC', rating: 4.8, reviews: 51, description: 'Beginner-friendly outdoor yoga class open to all fitness levels.', badge: 'Community', freeQuote: false, credentials: ['Verified organizer'] },
   { id: 20, title: 'Same-day moving helper', image: 'https://images.unsplash.com/photo-1600518464441-9306b1c0bd5c?auto=format&fit=crop&w=900&q=80', price: '₱2,000', priceValue: 2000, category: 'Gigs', subcategory: 'Labor', location: 'Metro Manila', rating: 4.7, reviews: 66, description: 'Two-person moving team available for apartment moves and item transport.', badge: 'Same day', freeQuote: true, credentials: ['TESDA NC-II', 'Background checked'] },
   { id: 21, title: 'Product photographer for one-day shoot', image: 'https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?auto=format&fit=crop&w=900&q=80', price: '₱8,000', priceValue: 8000, category: 'Gigs', subcategory: 'Creative', location: 'Makati', rating: 4.9, reviews: 33, description: 'Catalog, social media, and ecommerce product photography with basic editing.', badge: 'Portfolio', freeQuote: true, credentials: ['Tax-compliant', 'Work permit ready'] },
-  { id: 22, title: 'Experienced nursing aide resume', image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=80', price: 'Negotiable', priceValue: 0, category: 'Resumes', subcategory: 'Healthcare', location: 'Manila', rating: 4.8, reviews: 21, description: 'Certified nursing aide available for clinic, home care, and part-time shifts.', badge: 'Available', freeQuote: true, credentials: ['PRC licensed', 'TESDA NC-II', 'Background checked'] },
+  { id: 23, title: 'Mid-century modern lounge chair', image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80', price: '₱9,500', priceValue: 9500, category: 'For Sale', subcategory: 'Furniture', location: 'Quezon City', rating: 4.8, reviews: 14, description: 'Authentic-inspired mid-century lounge chair with restored teak legs and premium upholstery.', badge: 'Vintage', freeQuote: false, credentials: ['Seller verified'] },
+  { id: 24, title: 'Electric cargo bike', image: 'https://images.unsplash.com/photo-1571333250630-f0230c320b6d?auto=format&fit=crop&w=900&q=80', price: '₱68,000', priceValue: 68000, category: 'For Sale', subcategory: 'Cargo Bikes', location: 'Mandaluyong', rating: 4.9, reviews: 9, description: 'Electric cargo bike with long-range battery, cargo box, and rear child seat option.', badge: 'Test ride', freeQuote: false, credentials: ['Original receipt', 'Authenticity verified'] },
+  { id: 25, title: '1-bedroom apartment near BGC', image: 'https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=900&q=80', price: '₱28,500/mo', priceValue: 28500, category: 'Housing', subcategory: 'Apartments', location: 'Taguig', rating: 4.8, reviews: 39, description: 'Fully furnished 1-bedroom unit with pool access, covered parking, and 24-hour security.', badge: 'Available now', freeQuote: true, credentials: ['Verified landlord', 'Condo work permit ready', 'Ready for occupancy'] },
+  { id: 26, title: 'Experienced nursing aide resume', image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=80', price: 'Negotiable', priceValue: 0, category: 'Resumes', subcategory: 'Healthcare', location: 'Manila', rating: 4.8, reviews: 21, description: 'Certified nursing aide available for clinic, home care, and part-time shifts.', badge: 'Available', freeQuote: true, credentials: ['PRC licensed', 'TESDA NC-II', 'Background checked'] },
 ]
 
 export const providers: Provider[] = [
@@ -226,23 +251,92 @@ export const dashboardStats = [
   { label: 'Avg. booking', value: '₱3.2k', change: '+₱480 month-to-date' },
 ]
 
-export const messages = [
+export const messages: Conversation[] = [
   {
+    id: 1,
     name: 'Lina J.',
+    role: 'Residential painter',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80',
     preview: 'Can we do the painting this weekend?',
     time: '2m ago',
     unread: 2,
+    category: 'Services',
+    contextTitle: 'Interior painting & touch-ups',
+    listingId: 1,
+    online: true,
+    thread: [
+      { id: 1, from: 'them', text: 'Hi! I saw your painting listing. Can you tell me about your turnaround time?', time: '9:18 AM' },
+      { id: 2, from: 'me', text: 'Absolutely. I can do a two-room refresh in about 3 days and keep the site spotless.', time: '9:20 AM' },
+      { id: 3, from: 'them', text: 'Perfect. Could you send the full quote for my living room and kitchen?', time: '9:22 AM' },
+    ],
   },
   {
+    id: 2,
     name: 'Rico M.',
+    role: 'Homeowner',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
     preview: 'Thanks for the quote. I will send the details.',
     time: '1h ago',
     unread: 0,
+    category: 'Services',
+    contextTitle: 'Pipe repair and plumbing installation',
+    listingId: 8,
+    online: false,
+    thread: [
+      { id: 1, from: 'me', text: 'Hello, Rico. I reviewed the pipe leak details you shared.', time: '10:02 AM' },
+      { id: 2, from: 'them', text: 'Thanks for the quote. I will send the bathroom photos and available schedule.', time: '10:14 AM' },
+    ],
   },
   {
+    id: 3,
     name: 'Ana P.',
+    role: 'Design client',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
     preview: 'The home staging mockups look great.',
     time: 'Yesterday',
     unread: 1,
+    category: 'Services',
+    contextTitle: 'Room styling and home staging',
+    listingId: 5,
+    online: true,
+    thread: [
+      { id: 1, from: 'them', text: 'The home staging mockups look great. Can we add warm lighting to the living room?', time: 'Yesterday, 4:32 PM' },
+      { id: 2, from: 'me', text: 'Yes. I can include a warmer palette and two lighting options in the next revision.', time: 'Yesterday, 4:40 PM' },
+    ],
+  },
+  {
+    id: 4,
+    name: 'PeopleOps Manila',
+    role: 'Recruiter',
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=300&q=80',
+    preview: 'Can you join an interview on Friday?',
+    time: '18m ago',
+    unread: 3,
+    category: 'Jobs',
+    contextTitle: 'Junior web developer',
+    listingId: 18,
+    online: true,
+    thread: [
+      { id: 1, from: 'them', text: 'Thanks for applying for our Junior Web Developer position.', time: '11:20 AM' },
+      { id: 2, from: 'me', text: 'Thank you. I am interested and available for a technical interview.', time: '11:26 AM' },
+      { id: 3, from: 'them', text: 'Can you join an interview on Friday at 10:00 AM?', time: '11:31 AM' },
+    ],
+  },
+  {
+    id: 5,
+    name: 'Mara Lim',
+    role: 'Operations hiring manager',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=300&q=80',
+    preview: 'Please send your executive assistant portfolio.',
+    time: 'Yesterday',
+    unread: 0,
+    category: 'Jobs',
+    contextTitle: 'Executive assistant',
+    listingId: 17,
+    online: false,
+    thread: [
+      { id: 1, from: 'them', text: 'Please send your executive assistant portfolio and earliest start date.', time: 'Yesterday, 1:05 PM' },
+      { id: 2, from: 'me', text: 'I have attached the requested experience summary. I can start in two weeks.', time: 'Yesterday, 1:18 PM' },
+    ],
   },
 ]
