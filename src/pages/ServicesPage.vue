@@ -213,8 +213,8 @@ function resetFilters() {
 
             <fieldset class="fieldset mt-4">
               <legend class="fieldset-legend">Price range</legend>
-              <div class="grid grid-cols-2 gap-3">
-                <label>
+              <div class="grid grid-cols-2 gap-3 mb-3">
+                <label class="form-control">
                   <span class="label-text mb-1 block">Minimum</span>
                   <input
                     v-model.number="minimumPrice"
@@ -224,7 +224,7 @@ function resetFilters() {
                     :max="maximumPrice"
                   />
                 </label>
-                <label>
+                <label class="form-control">
                   <span class="label-text mb-1 block">Maximum</span>
                   <input
                     v-model.number="maximumPrice"
@@ -235,20 +235,29 @@ function resetFilters() {
                   />
                 </label>
               </div>
-              <input
-                v-model.number="minimumPrice"
-                type="range"
-                class="range range-primary range-xs mt-4"
-                :min="actualPriceBounds.min"
-                :max="maximumPrice"
-              />
-              <input
-                v-model.number="maximumPrice"
-                type="range"
-                class="range range-primary range-xs mt-2"
-                :min="minimumPrice"
-                :max="actualPriceBounds.max"
-              />
+              <div class="dual-range" role="group" aria-label="Adjust minimum and maximum price">
+                <div class="dual-range__track"></div>
+                <input
+                  v-model.number="minimumPrice"
+                  type="range"
+                  class="range range-primary range-xs dual-range__input"
+                  :min="actualPriceBounds.min"
+                  :max="actualPriceBounds.max"
+                  :aria-valuemin="actualPriceBounds.min"
+                  :aria-valuemax="maximumPrice"
+                  aria-label="Minimum price"
+                />
+                <input
+                  v-model.number="maximumPrice"
+                  type="range"
+                  class="range range-primary range-xs dual-range__input dual-range__input--top"
+                  :min="actualPriceBounds.min"
+                  :max="actualPriceBounds.max"
+                  :aria-valuemin="minimumPrice"
+                  :aria-valuemax="actualPriceBounds.max"
+                  aria-label="Maximum price"
+                />
+              </div>
               <p class="text-xs text-base-content/60">
                 Available range: ₱{{ actualPriceBounds.min.toLocaleString() }} – ₱{{ actualPriceBounds.max.toLocaleString() }}
               </p>
@@ -299,3 +308,45 @@ function resetFilters() {
     </section>
   </div>
 </template>
+
+<style scoped>
+.dual-range {
+  position: relative;
+  height: 36px;
+  margin-top: 4px;
+}
+
+.dual-range__track {
+  position: absolute;
+  top: 17px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--fallback-b1, oklch(var(--b1)));
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, currentColor 12%, transparent);
+}
+
+.dual-range__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 36px;
+  pointer-events: none;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.dual-range__input::-webkit-slider-thumb {
+  pointer-events: auto;
+}
+
+.dual-range__input::-moz-range-thumb {
+  pointer-events: auto;
+}
+
+.dual-range__input--top {
+  z-index: 2;
+}
+</style>

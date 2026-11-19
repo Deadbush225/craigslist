@@ -67,8 +67,8 @@ const coverageAreas = ['Makati', 'Taguig / BGC', 'Mandaluyong', 'Pasig', 'Quezon
                 <span class="status-chip">PRC Licensed Master Plumber</span>
                 <span class="status-chip status-chip--secondary">TESDA NC-II Certified</span>
               </div>
-              <h1>{{ provider.name }}</h1>
-              <p>{{ provider.role }} • {{ provider.city }}</p>
+              <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">{{ provider.name }}</h1>
+              <p class="text-base text-base-content/70">{{ provider.role }} · {{ provider.city }}</p>
             </div>
           </div>
 
@@ -97,8 +97,12 @@ const coverageAreas = ['Makati', 'Taguig / BGC', 'Mandaluyong', 'Pasig', 'Quezon
                   <p>{{ activeGalleryItem.caption }}</p>
                 </div>
                 <div class="gallery-controls">
-                  <button type="button" aria-label="Previous gallery image" @click="moveGallery(-1)">←</button>
-                  <button type="button" aria-label="Next gallery image" @click="moveGallery(1)">→</button>
+                  <button type="button" class="btn btn-circle btn-sm bg-base-100 text-base-content border-base-300" aria-label="Previous gallery image" @click="moveGallery(-1)">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                  </button>
+                  <button type="button" class="btn btn-circle btn-sm bg-base-100 text-base-content border-base-300" aria-label="Next gallery image" @click="moveGallery(1)">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -187,10 +191,14 @@ const coverageAreas = ['Makati', 'Taguig / BGC', 'Mandaluyong', 'Pasig', 'Quezon
             <h3>Operating service radius</h3>
             <span class="counter">Updated today</span>
           </div>
-          <div class="coverage-map">
-            <div>
-              <strong>Metro Manila dispatch core</strong>
-              <span>Avg. 20 min arrival time</span>
+          <div class="coverage-map" role="img" aria-label="Map of the provider's Metro Manila service area">
+            <div class="coverage-map__roads"></div>
+            <div class="coverage-map__marker">
+              <span class="coverage-map__pin material-symbols-outlined">location_on</span>
+              <div>
+                <strong>Metro Manila dispatch core</strong>
+                <span>Avg. 20 min arrival</span>
+              </div>
             </div>
           </div>
           <span class="coverage-label">Frequent municipal coverage</span>
@@ -592,12 +600,33 @@ const coverageAreas = ['Makati', 'Taguig / BGC', 'Mandaluyong', 'Pasig', 'Quezon
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   height: 175px;
   overflow: hidden;
   border-radius: 8px;
-  background:
-    linear-gradient(rgba(53, 37, 205, 0.12), rgba(53, 37, 205, 0.12)),
-    url('https://images.unsplash.com/photo-1524666041070-9c876c8b3c4c?auto=format&fit=crop&w=900&q=80') center / cover;
+  background-color: #e8ecdf;
+  background-image:
+    linear-gradient(32deg, transparent 47%, rgba(255,255,255,.95) 48%, rgba(255,255,255,.95) 52%, transparent 53%),
+    linear-gradient(145deg, transparent 42%, rgba(255,255,255,.9) 43%, rgba(255,255,255,.9) 47%, transparent 48%),
+    repeating-linear-gradient(0deg, transparent 0 28px, rgba(166,185,153,.28) 29px 31px);
+}
+
+.coverage-map__marker {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid rgba(19, 27, 46, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 20px rgba(19, 27, 46, 0.18);
+}
+
+.coverage-map__pin {
+  color: oklch(var(--p));
+  font-size: 28px;
 }
 
 .coverage-map > div {

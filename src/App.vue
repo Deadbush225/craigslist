@@ -65,7 +65,6 @@
 
 <script setup lang="ts">
 import AppFooter from './components/AppFooter.vue'
-import AppNavbar from './components/AppNavbar.vue'
 // import Logo from './assets/logo.png'
 import BrandLogo from './components/BrandLogo.vue';
 </script>
