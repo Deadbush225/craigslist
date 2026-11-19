@@ -99,27 +99,29 @@ function saveChanges() {
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Full name</span>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Full name</legend>
                 <input v-model="profile.name" type="text" class="input input-bordered w-full" />
-              </label>
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Username</span>
+              </fieldset>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Username</legend>
                 <input v-model="profile.username" type="text" class="input input-bordered w-full" />
-              </label>
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Email address</span>
+              </fieldset>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Email address</legend>
                 <input v-model="profile.email" type="email" class="input input-bordered w-full" />
-              </label>
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Mobile number</span>
+              </fieldset>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Mobile number</legend>
                 <input v-model="profile.phone" type="tel" class="input input-bordered w-full" />
-              </label>
-              <label class="form-control sm:col-span-2">
-                <span class="label-text mb-2 font-semibold">About you</span>
-                <textarea v-model="profile.bio" class="textarea textarea-bordered h-24" maxlength="240"></textarea>
-                <span class="label-text-alt mt-1 text-base-content/50">{{ profile.bio.length }} / 240</span>
-              </label>
+              </fieldset>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">About you</legend>
+                <div class="relative">
+                  <textarea v-model="profile.bio" class="textarea textarea-bordered h-24 w-full pb-8" maxlength="240"></textarea>
+                  <span class="absolute bottom-2 right-3 label-text-alt text-base-content/50">{{ profile.bio.length }} / 240</span>
+                </div>
+              </fieldset>
             </div>
           </div>
         </div>
@@ -132,18 +134,18 @@ function saveChanges() {
             <p class="mt-1 text-sm text-base-content/60">Use a strong password that you do not use elsewhere.</p>
           </div>
           <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <label class="form-control">
-              <span class="label-text mb-2 font-semibold">Current password</span>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">Current password</legend>
               <input v-model="password.current" :type="showPassword ? 'text' : 'password'" class="input input-bordered w-full" />
-            </label>
-            <label class="form-control">
-              <span class="label-text mb-2 font-semibold">New password</span>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">New password</legend>
               <input v-model="password.next" :type="showPassword ? 'text' : 'password'" class="input input-bordered w-full" />
-            </label>
-            <label class="form-control">
-              <span class="label-text mb-2 font-semibold">Confirm password</span>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend">Confirm password</legend>
               <input v-model="password.confirm" :type="showPassword ? 'text' : 'password'" class="input input-bordered w-full" />
-            </label>
+            </fieldset>
           </div>
           <label class="label w-fit cursor-pointer gap-3 mt-3">
             <input v-model="showPassword" type="checkbox" class="checkbox checkbox-sm" />
@@ -165,41 +167,41 @@ function saveChanges() {
           <div class="card-body p-5 sm:p-7">
             <h2 class="card-title">Regional preferences</h2>
             <div class="mt-4 space-y-4">
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Language</span>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Language</legend>
                 <select v-model="preferences.language" class="select select-bordered w-full">
                   <option>English (Philippines)</option>
                   <option>Filipino</option>
                   <option>English (US)</option>
                 </select>
-              </label>
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Currency</span>
+              </fieldset>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Currency</legend>
                 <select v-model="preferences.currency" class="select select-bordered w-full">
                   <option>Philippine Peso (PHP)</option>
                   <option>US Dollar (USD)</option>
                 </select>
-              </label>
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Time zone</span>
+              </fieldset>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Time zone</legend>
                 <select v-model="preferences.timezone" class="select select-bordered w-full">
                   <option>Asia/Manila</option>
                   <option>Asia/Singapore</option>
                   <option>UTC</option>
                 </select>
-              </label>
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Search radius: {{ preferences.distance }} km</span>
+              </fieldset>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Search radius: {{ preferences.distance }} km</legend>
                 <input v-model="preferences.distance" type="range" min="5" max="100" step="5" class="range range-primary range-sm" />
-              </label>
-              <label class="form-control">
-                <span class="label-text mb-2 font-semibold">Appearance</span>
+              </fieldset>
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend">Appearance</legend>
                 <select v-model="preferences.theme" class="select select-bordered w-full">
                   <option>Light</option>
                   <option>Dark</option>
                   <option>System</option>
                 </select>
-              </label>
+              </fieldset>
             </div>
           </div>
         </div>
