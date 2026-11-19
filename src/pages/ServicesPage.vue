@@ -40,6 +40,18 @@ const actualPriceBounds = computed(() => {
 const minimumPrice = ref(actualPriceBounds.value.min)
 const maximumPrice = ref(actualPriceBounds.value.max)
 
+const priceRangeStyle = computed(() => {
+  const { min, max } = actualPriceBounds.value
+  const span = max - min
+  const start = span > 0 ? ((minimumPrice.value - min) / span) * 100 : 0
+  const end = span > 0 ? ((maximumPrice.value - min) / span) * 100 : 100
+
+  return {
+    '--range-start': `${Math.max(0, Math.min(100, start))}%`,
+    '--range-end': `${Math.max(0, Math.min(100, end))}%`,
+  }
+})
+
 const credentialOptions = computed(() => {
   const source = categoryListings.value.filter((listing) =>
     selectedSubcategory.value === 'All'
@@ -235,7 +247,12 @@ function resetFilters() {
                   />
                 </label>
               </div>
-              <div class="dual-range" role="group" aria-label="Adjust minimum and maximum price">
+              <div
+                class="dual-range"
+                role="group"
+                aria-label="Adjust minimum and maximum price"
+                :style="priceRangeStyle"
+              >
                 <div class="dual-range__track"></div>
                 <input
                   v-model.number="minimumPrice"
@@ -319,12 +336,11 @@ function resetFilters() {
 .dual-range__track {
   position: absolute;
   top: 17px;
-  left: 0;
-  right: 0;
+  left: var(--range-start);
+  right: calc(100% - var(--range-end));
   height: 5px;
   border-radius: 9999px;
-  background: var(--fallback-b1, oklch(var(--b1)));
-  box-shadow: inset 0 0 0 1px color-mix(in oklab, currentColor 12%, transparent);
+  background: var(--p, oklch(var(--p)));
 }
 
 .dual-range__input {
@@ -338,6 +354,14 @@ function resetFilters() {
   -webkit-appearance: none;
 }
 
+.dual-range__input::-webkit-slider-runnable-track {
+  background: transparent !important;
+}
+
+.dual-range__input::-moz-range-track {
+  background: transparent;
+}
+
 .dual-range__input::-webkit-slider-thumb {
   pointer-events: auto;
 }
@@ -348,5 +372,9 @@ function resetFilters() {
 
 .dual-range__input--top {
   z-index: 2;
+}
+
+.dual-range__input:not(.dual-range__input--top) {
+  z-index: 3;
 }
 </style>

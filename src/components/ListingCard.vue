@@ -5,6 +5,7 @@ defineProps<{ listing: Listing }>()
 </script>
 
 <template>
+<RouterLink :to="{ name: 'listing-details', params: { id: String(listing.id) } }" class="hover:text-primary">
   <article
     class="card bg-base-100 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
   >
@@ -20,9 +21,7 @@ defineProps<{ listing: Listing }>()
       </div>
 
       <h3 class="card-title text-lg">
-        <RouterLink :to="{ name: 'listing-details', params: { id: String(listing.id) } }" class="hover:text-primary">
           {{ listing.title }}
-        </RouterLink>
       </h3>
       <p class="text-base-content/70">{{ listing.description }}</p>
 
@@ -45,4 +44,5 @@ defineProps<{ listing: Listing }>()
       </div>
     </div>
   </article>
+</RouterLink>
 </template>
