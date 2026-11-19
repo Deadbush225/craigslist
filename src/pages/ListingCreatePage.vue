@@ -10,20 +10,23 @@ import BaseButton from '../components/BaseButton.vue'
         <h1>Post a service for local buyers</h1>
 
         <form class="listing-form">
-          <div class="field-row two-up">
-            <label>
-              <span>Title</span>
-              <input type="text" value="Residential painting service" />
-            </label>
-            <label>
-              <span>Category</span>
-              <select>
-                <option>Home services</option>
-                <option>Design</option>
-                <option>Tech help</option>
-              </select>
-            </label>
-          </div>
+          <fieldset class="fieldset">
+            <legend class="fieldset-legend">Listing details</legend>
+            <div class="field-row two-up">
+              <label for="listing-title">
+                <span>Title</span>
+                <input id="listing-title" type="text" class="input input-bordered w-full" value="Residential painting service" />
+              </label>
+              <label for="listing-category">
+                <span>Category</span>
+                <select id="listing-category" class="select select-bordered w-full">
+                  <option>Home services</option>
+                  <option>Design</option>
+                  <option>Tech help</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
 
           <div class="field-row two-up">
             <label>

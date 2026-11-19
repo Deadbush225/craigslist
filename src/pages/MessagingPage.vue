@@ -4,58 +4,73 @@ import { messages } from '../data/mockData'
 
 <template>
   <div class="page-shell page-shell--tight">
-    <div class="container messaging-layout">
-      <aside class="card conversation-list">
-        <div class="panel-header">
-          <h3>My Inquiries</h3>
-          <button type="button" class="small-link">New</button>
-        </div>
-
-        <div class="quick-pills">
-          <button type="button" class="pill pill--active">All (4)</button>
-          <button type="button" class="pill">Unread (1)</button>
-          <button type="button" class="pill">Services</button>
-        </div>
-
-        <div v-for="message in messages" :key="message.name" class="conversation-item" :class="{ unread: message.unread > 0 }">
-          <div class="avatar">{{ message.name.charAt(0) }}</div>
-          <div>
-            <strong>{{ message.name }}</strong>
-            <small>{{ message.preview }}</small>
+    <div class="grid grid-cols-1 lg:grid-cols-[22rem_minmax(0,1fr)] gap-6">
+      <aside class="card bg-base-100 border border-base-300 shadow-sm">
+        <div class="card-body p-4">
+          <div class="flex items-center justify-between">
+            <h2 class="card-title">My Inquiries</h2>
+            <button type="button" class="btn btn-primary btn-sm btn-soft">New</button>
           </div>
-          <div class="message-meta">
-            <span>{{ message.time }}</span>
-            <em v-if="message.unread > 0">{{ message.unread }}</em>
+
+          <div class="filter mt-3 flex-wrap">
+            <input class="btn btn-sm filter-reset" type="radio" name="message-filter" aria-label="All (4)" />
+            <input class="btn btn-sm" type="radio" name="message-filter" aria-label="Unread (1)" />
+            <input class="btn btn-sm" type="radio" name="message-filter" aria-label="Services" />
           </div>
+
+          <ul class="list mt-2">
+            <li v-for="message in messages" :key="message.name" class="list-row">
+              <div class="avatar placeholder">
+                <div class="bg-primary text-primary-content rounded-full w-10">
+                  <span>{{ message.name.charAt(0) }}</span>
+                </div>
+              </div>
+              <div class="min-w-0">
+                <strong>{{ message.name }}</strong>
+                <div class="truncate text-sm text-base-content/60">{{ message.preview }}</div>
+              </div>
+              <div class="flex flex-col items-end gap-1 text-xs">
+                <span>{{ message.time }}</span>
+                <span v-if="message.unread > 0" class="badge badge-primary badge-xs">{{ message.unread }}</span>
+              </div>
+            </li>
+          </ul>
         </div>
       </aside>
 
-      <section class="card chat-panel">
-        <div class="panel-header chat-header">
-          <div>
-            <h3>Lina J.</h3>
-            <small>Online now</small>
+      <section class="card bg-base-100 border border-base-300 shadow-sm overflow-hidden">
+        <div class="flex items-center justify-between border-b border-base-300 px-5 py-4">
+          <div class="flex items-center gap-2">
+            <h2 class="card-title">Lina J.</h2>
+            <span class="status status-success"></span>
+            <small class="text-base-content/60">Online now</small>
           </div>
-          <button type="button" class="small-link">View profile</button>
+          <RouterLink to="/provider/1" class="btn btn-ghost btn-sm">View profile</RouterLink>
         </div>
 
-        <div class="chat-thread">
-          <div class="bubble incoming">
+        <div class="chat-thread flex min-h-[22.5rem] flex-col gap-3 bg-base-200/50 px-5 py-4">
+          <div class="chat chat-start">
+            <div class="chat-bubble chat-bubble-primary">
             <p>Hi! I saw your painting listing. Can you tell me about your turnaround time?</p>
-            <time>9:18 AM</time>
+            </div>
+            <time class="chat-footer opacity-60">9:18 AM</time>
           </div>
-          <div class="bubble outgoing">
+          <div class="chat chat-end">
+            <div class="chat-bubble">
             <p>Absolutely. I can do a two-room refresh in about 3 days and keep the site spotless.</p>
-            <time>9:20 AM</time>
+            </div>
+            <time class="chat-footer opacity-60">9:20 AM</time>
           </div>
-          <div class="bubble incoming">
+          <div class="chat chat-start">
+            <div class="chat-bubble chat-bubble-primary">
             <p>Perfect. Could you send the full quote for my living room and kitchen?</p>
-            <time>9:22 AM</time>
+            </div>
+            <time class="chat-footer opacity-60">9:22 AM</time>
           </div>
         </div>
 
-        <div class="composer">
-          <input type="text" placeholder="Type a message" />
+        <div class="join w-full border-t border-base-300 p-4">
+          <input type="text" class="input input-bordered join-item flex-1" placeholder="Type a message" />
           <button type="button" class="btn btn-primary btn-sm">Send</button>
         </div>
       </section>

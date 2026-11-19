@@ -4,70 +4,89 @@ import { dashboardStats, listings } from '../data/mockData'
 
 <template>
   <div class="page-shell page-shell--tight">
-    <div class="container">
-      <section class="page-header dashboard-header">
+    <div class="w-full flex flex-col gap-6">
+      <section class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
         <div>
-          <span class="eyebrow">Provider dashboard</span>
-          <h1>Your performance overview</h1>
+          <span class="text-sm font-bold text-primary">Provider dashboard</span>
+          <h1 class="mt-1 text-3xl sm:text-4xl font-bold tracking-tight">Your performance overview</h1>
         </div>
         <button type="button" class="btn btn-primary btn-sm">Export report</button>
       </section>
 
-      <section class="stats-grid">
-        <div v-for="stat in dashboardStats" :key="stat.label" class="card stat-card">
-          <span>{{ stat.label }}</span>
-          <strong>{{ stat.value }}</strong>
-          <small>{{ stat.change }}</small>
+      <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div v-for="stat in dashboardStats" :key="stat.label" class="stats w-full bg-base-100 border border-base-300 shadow-sm">
+          <div class="stat">
+            <div class="stat-title">{{ stat.label }}</div>
+            <div class="stat-value text-3xl">{{ stat.value }}</div>
+            <div class="stat-desc text-success font-semibold">{{ stat.change }}</div>
+          </div>
         </div>
       </section>
 
-      <section class="dashboard-grid">
-        <div class="card panel">
-          <div class="panel-header">
-            <h3>Recent listings</h3>
-            <a href="#">Manage all</a>
-          </div>
+      <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="card bg-base-100 border border-base-300 shadow-sm lg:col-span-2">
+          <div class="card-body">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="card-title">Recent listings</h2>
+              <RouterLink to="/services" class="link link-primary text-sm">Manage all</RouterLink>
+            </div>
 
-          <div class="list-stack">
-            <div v-for="listing in listings.slice(0, 3)" :key="listing.id" class="mini-item">
-              <img :src="listing.image" :alt="listing.title" />
-              <div>
-                <strong>{{ listing.title }}</strong>
-                <small>{{ listing.location }}</small>
-              </div>
-              <span>{{ listing.price }}</span>
+            <div class="overflow-x-auto">
+              <table class="table table-zebra table-pin-rows">
+                <thead>
+                  <tr>
+                    <th>Listing</th>
+                    <th>Location</th>
+                    <th class="text-right">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="listing in listings.slice(0, 3)" :key="listing.id">
+                    <td>
+                      <div class="flex items-center gap-3">
+                        <img :src="listing.image" :alt="listing.title" class="h-12 w-12 rounded-lg object-cover" />
+                        <strong>{{ listing.title }}</strong>
+                      </div>
+                    </td>
+                    <td>{{ listing.location }}</td>
+                    <td class="text-right font-semibold">{{ listing.price }}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
 
-        <div class="card panel">
-          <div class="panel-header">
-            <h3>Booking activity</h3>
-            <a href="#">Review</a>
-          </div>
+        <div class="card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="card-title">Booking activity</h2>
+              <RouterLink to="/messaging" class="link link-primary text-sm">Review</RouterLink>
+            </div>
 
-          <div class="activity-list">
-            <div>
-              <span class="dot dot-green"></span>
-              <div>
+            <ul class="list gap-1">
+              <li class="list-row">
+                <span class="status status-success"></span>
+                <div>
                 <strong>New inquiry</strong>
-                <small>Interior painting • 15 mins ago</small>
+                  <div class="text-sm text-base-content/60">Interior painting • 15 mins ago</div>
               </div>
-            </div>
-            <div>
-              <span class="dot dot-purple"></span>
-              <div>
+              </li>
+              <li class="list-row">
+                <span class="status status-primary"></span>
+                <div>
                 <strong>Quote sent</strong>
-                <small>Private yoga • 1 hour ago</small>
+                  <div class="text-sm text-base-content/60">Private yoga • 1 hour ago</div>
               </div>
-            </div>
-            <div>
-              <span class="dot dot-gold"></span>
-              <div>
+              </li>
+              <li class="list-row">
+                <span class="status status-warning"></span>
+                <div>
                 <strong>Message replied</strong>
-                <small>Website setup • Today</small>
+                  <div class="text-sm text-base-content/60">Website setup • Today</div>
               </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -75,140 +94,3 @@ import { dashboardStats, listings } from '../data/mockData'
   </div>
 </template>
 
-<style scoped>
-.page-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 16px;
-}
-
-.page-header h1 {
-  margin: 0;
-  font-size: clamp(2.2rem, 3vw, 3.3rem);
-  line-height: 1.05;
-  letter-spacing: -0.06em;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 18px;
-}
-
-.stat-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px 18px;
-}
-
-.stat-card strong {
-  font-size: 2rem;
-  letter-spacing: -0.05em;
-}
-
-.stat-card small {
-  color: var(--success);
-  font-weight: 700;
-}
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 20px;
-  margin-top: 24px;
-}
-
-.panel {
-  padding: 18px 18px 12px;
-}
-
-.panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.panel-header h3 {
-  margin: 0;
-  font-size: 1.35rem;
-}
-
-.panel-header small,
-.list-stack small,
-.activity-list small {
-  color: var(--muted);
-}
-
-.list-stack,
-.activity-list {
-  display: grid;
-  gap: 12px;
-}
-
-.mini-item {
-  display: grid;
-  grid-template-columns: 54px 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 12px 8px;
-  border-radius: 14px;
-  background: var(--surface-muted);
-  border: 1px solid var(--border);
-}
-
-.mini-item img {
-  width: 54px;
-  height: 54px;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.activity-list > div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(214, 220, 243, 0.9);
-}
-
-.activity-list > div:last-child {
-  border-bottom: 0;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot-green {
-  background: var(--success);
-}
-
-.dot-purple {
-  background: var(--primary);
-}
-
-.dot-gold {
-  background: #f1b24a;
-}
-
-@media (max-width: 980px) {
-  .dashboard-grid,
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .page-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-</style>

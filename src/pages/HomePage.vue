@@ -44,7 +44,6 @@ import { categories, listings } from '../data/mockData'
     <section class="container section-block">
       <div class="section-heading">
         <div>
-          <span class="eyebrow">Directory &amp; Classifieds Hub</span>
           <h2>Explore Metro Manila by Category</h2>
         </div>
       </div>
@@ -65,7 +64,6 @@ import { categories, listings } from '../data/mockData'
     <section class="container section-block section-block--alt">
       <div class="section-heading">
         <div>
-          <span class="eyebrow">Featured picks</span>
           <h2>Top services near you</h2>
         </div>
       </div>
